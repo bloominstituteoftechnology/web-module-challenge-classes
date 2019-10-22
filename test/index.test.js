@@ -153,7 +153,7 @@ const studentAttr = {
   location: 'London',
   previousBackground: 'Plumber',
   className: 'WebEU 3',
-  favSubjects: ['JS', 'Node']
+  favSubjects: ['JS', 'Node', 'Redux']
 }
 const projectManagerAttr = {
   name: 'Dan',
@@ -186,7 +186,7 @@ describe('Instances of Lambdasian', () => {
   })
 })
 
-describe.only('Instances of Instructor', () => {
+describe('Instances of Instructor', () => {
   let instructor
   beforeEach(() => {
     instructor = new Instructor(instructorAttr)
@@ -227,5 +227,60 @@ describe.only('Instances of Instructor', () => {
   })
   it('can grade a student', () => {
     expect(instructor.grade({ name: 'petar' }, 'redux')).to.include('redux', 'petar');
+  })
+})
+
+describe('Instances of Student', () => {
+  let student
+  beforeEach(() => {
+    student = new Student(studentAttr)
+  })
+  it('initialize with the given name', () => {
+    expect(student.name).to.equal(studentAttr.name)
+  })
+  it('initialize with the given age', () => {
+    expect(student.age).to.equal(studentAttr.age)
+  })
+  it('initialize with the given location', () => {
+    expect(student.location).to.equal(studentAttr.location)
+  })
+  it('initialize with the given previousBackground', () => {
+    expect(student.previousBackground).to.equal(studentAttr.previousBackground)
+  })
+  it('initialize with the given className', () => {
+    expect(student.className).to.equal(studentAttr.className)
+  })
+  it('initialize with the given favSubjects', () => {
+    expect(student.favSubjects).to.equal(studentAttr.favSubjects)
+  })
+  it('has a speak method', () => {
+    expect(student.__proto__.speak).to.be.not.undefined;
+  })
+  it('can speak the right sentence', () => {
+    expect(student.speak()).to.include(studentAttr.name);
+    expect(student.speak()).to.include(studentAttr.age);
+  })
+  it('has a listSubjects method', () => {
+    expect(student.__proto__.listSubjects).to.be.not.undefined;
+  })
+  it('can listSubjects correctly', () => {
+    expect(student.listSubjects()).to.include('JS');
+    expect(student.listSubjects()).to.include('Node');
+    expect(student.listSubjects()).to.include('Redux');
+  })
+  it('has a PRAssignment method', () => {
+    expect(student.__proto__.PRAssignment).to.be.not.undefined;
+  })
+  it('can do a PRAssignment correctly', () => {
+    expect(student.PRAssignment('sql')).to.include(studentAttr.name);
+    expect(student.PRAssignment('sql')).to.include('sql');
+  })
+  it('has a sprintChallenge method', () => {
+    expect(student.__proto__.sprintChallenge).to.be.not.undefined;
+  })
+  it('can do a sprintChallenge correctly', () => {
+    expect(student.sprintChallenge('sql')).to.include(studentAttr.name);
+    expect(student.sprintChallenge('sql')).to.include(studentAttr.name);
+    expect(student.sprintChallenge('sql')).to.include('sql');
   })
 })
