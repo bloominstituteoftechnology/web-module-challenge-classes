@@ -33,7 +33,7 @@ class Airplane {
     - All instances of Person should initialize with an empty `stomach` array.
     - Give instances of Person the ability to `.eat("someFood")`:
         + When eating an edible, it should be pushed into the `stomach`.
-        + The `eat` method should have no effect if there are 10 items in the `stomach`.
+        + The `eat` method should have no effect if there are 8 items in the `stomach`.
     - Give instances of Person the ability to `.poop()`:
         + When an instance poops, its `stomach` should empty.
     - Give instances of Person a method `.toString()`:
@@ -41,7 +41,7 @@ class Airplane {
 */
 
 class Person {
-  
+
 }
 
 /*

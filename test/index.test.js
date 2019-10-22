@@ -36,9 +36,9 @@ describe('Instances of Airplane', () => {
   })
 })
 
-describe.only('Instances of Person', () => {
+describe('Instances of Person', () => {
   let neo
-  const foods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const foods = [1, 2, 3, 4, 5, 6, 7, 8]
   beforeEach(() => {
     neo = new Person('Neo', 20)
   })
@@ -52,19 +52,20 @@ describe.only('Instances of Person', () => {
     expect(neo.stomach).to.be.an('array')
     expect(neo.stomach.length).to.equal(0)
   })
-  it('get eat, poop and toString methods from their prototype', () => {
+  it('get eat, poop and toString methods', () => {
     expect(neo.__proto__.eat).to.be.not.undefined;
     expect(neo.__proto__.poop).to.be.not.undefined;
     expect(neo.__proto__.toString).to.be.not.undefined;
   })
-  it('can eat up to 10 foods', () => {
+  it('can eat up to 8 foods', () => {
     foods.forEach(item => neo.eat(item))
     foods.forEach(item => expect(neo.stomach).to.include(item))
   })
-  it('can eat no more than 10 foods', () => {
+  it('can eat no more than 8 foods', () => {
     foods.forEach(item => neo.eat(item))
-    neo.eat(11)
-    expect(neo.stomach).to.not.include(11)
+    neo.eat(9)
+    expect(neo.stomach).to.not.include(9)
+    expect(neo.stomach.length).to.equal(8)
   })
   it('can poop to empty stomach', () => {
     foods.forEach(item => neo.eat(item))
