@@ -35,9 +35,10 @@ Three options are included below. The CodeSandbox option is fast & highly recomm
   1. Fork repo and add TL as collaborator on Github.
   1. Clone _your_ fork (not Lambda's repo by mistake!).
   1. `cd` into your newly cloned repository.
-  1. Create a new branch: git checkout -b `<firstName-lastName>`.
-  1. Install using `npm`.
-  1. Run test command.
+  1. Create a new branch: `git checkout -b <firstName-lastName>`.
+  1. Install dependencies using npm.
+  1. Run the test:watch command.
+  1. Work on your branch, push commits and create PR as usual.
 
   ```sh
     git clone <insert your git clone url here>
