@@ -1,23 +1,25 @@
 /*
   EXAMPLE TASK:
-    - Write an Airplane constructor that initializes `name` from an argument.
+    - Write an Airplane class whose constructor initializes `name` from an argument.
     - All airplanes built with Airplane should initialize with an `isFlying` of false.
     - Give airplanes the ability to `.takeOff()` and `.land()`:
-        + If a plane takes off, its `isFlying` property is set to true.
-        + If a plane lands, its `isFlying` property is set to false.
+        + If a plane takes off, its `isFlying` property gets set to true.
+        + If a plane lands, its `isFlying` property gets set to false.
 */
 
 // EXAMPLE SOLUTION CODE:
-function Airplane(name) {
-  this.name = name;
-  this.isFlying = false;
+class Airplane {
+  constructor(name) {
+    this.name = name;
+    this.isFlying = false;
+  }
+  takeOff() {
+    this.isFlying = true;
+  }
+  land() {
+    this.isFlying = false;
+  }
 }
-Airplane.prototype.takeOff = function () {
-  this.isFlying = true;
-};
-Airplane.prototype.land = function () {
-  this.isFlying = false;
-};
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
