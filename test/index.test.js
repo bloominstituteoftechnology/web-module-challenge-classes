@@ -163,7 +163,7 @@ const projectManagerAttr = {
   favLanguage: 'JavaScript',
   catchPhrase: 'Keep doing what you\'re doing!'
 }
-describe.only('Instances of Lambdasian', () => {
+describe('Instances of Lambdasian', () => {
   let lambdasian
   beforeEach(() => {
     lambdasian = new Lambdasian(lambdasianAttr)
@@ -183,5 +183,49 @@ describe.only('Instances of Lambdasian', () => {
   it('can speak the right sentence', () => {
     expect(lambdasian.speak()).to.include(lambdasianAttr.name);
     expect(lambdasian.speak()).to.include(lambdasianAttr.age);
+  })
+})
+
+describe.only('Instances of Instructor', () => {
+  let instructor
+  beforeEach(() => {
+    instructor = new Instructor(instructorAttr)
+  })
+  it('initialize with the given name', () => {
+    expect(instructor.name).to.equal(instructorAttr.name)
+  })
+  it('initialize with the given age', () => {
+    expect(instructor.age).to.equal(instructorAttr.age)
+  })
+  it('initialize with the given location', () => {
+    expect(instructor.location).to.equal(instructorAttr.location)
+  })
+  it('initialize with the given specialty', () => {
+    expect(instructor.specialty).to.equal(instructorAttr.specialty)
+  })
+  it('initialize with the given favLanguage', () => {
+    expect(instructor.favLanguage).to.equal(instructorAttr.favLanguage)
+  })
+  it('initialize with the given catchPhrase', () => {
+    expect(instructor.catchPhrase).to.equal(instructorAttr.catchPhrase)
+  })
+  it('has a speak method', () => {
+    expect(instructor.__proto__.speak).to.be.not.undefined;
+  })
+  it('can speak the right sentence', () => {
+    expect(instructor.speak()).to.include(instructorAttr.name);
+    expect(instructor.speak()).to.include(instructorAttr.age);
+  })
+  it('has a demo method', () => {
+    expect(instructor.__proto__.demo).to.be.not.undefined;
+  })
+  it('can demo correctly', () => {
+    expect(instructor.demo('redux')).to.include('redux');
+  })
+  it('has a grade method', () => {
+    expect(instructor.__proto__.grade).to.be.not.undefined;
+  })
+  it('can grade a student', () => {
+    expect(instructor.grade({ name: 'petar' }, 'redux')).to.include('redux', 'petar');
   })
 })
