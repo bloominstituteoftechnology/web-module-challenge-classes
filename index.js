@@ -46,7 +46,7 @@ class Person {
 
 /*
   TASK 2
-    - Write a Car class that initializes `model` and `milesPerGallon` from arguments.
+    - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
     - All instances built with Car:
         + should initialize with an `tank` at 0
         + should initialize with an `odometer` at 0
