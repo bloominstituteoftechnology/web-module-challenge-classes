@@ -46,7 +46,7 @@ class Person {
 
 /*
   TASK 2
-    - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
+    - Write a Car class that initializes `model` and `milesPerGallon` from arguments.
     - All instances built with Car:
         + should initialize with an `tank` at 0
         + should initialize with an `odometer` at 0
@@ -64,12 +64,12 @@ class Car {
 
 /*
   TASK 3
-    - Write a Baby constructor subclassing Person.
-    - Besides `name`, Baby takes a second argument to initialize `favoriteToy`.
-    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
+    - Write a Baby class subclassing Person.
+    - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
+    - Besides the methods of the Person class, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
+class Baby extends Person {
 
 }
 
@@ -82,7 +82,6 @@ function Baby() {
   3. 
   4. 
 */
-
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////

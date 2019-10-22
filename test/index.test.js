@@ -132,13 +132,16 @@ describe('Instances of Car', () => {
   })
 })
 
-describe('Instances of Baby', () => {
+describe.only('Instances of Baby', () => {
   let baby
   beforeEach(() => {
-    baby = new Baby('Lucy', 'trains')
+    baby = new Baby('Lucy', 5, 'trains')
   })
   it('initialize with the given name', () => {
     expect(baby.name).to.equal('Lucy')
+  })
+  it('initialize with the given age', () => {
+    expect(baby.age).to.equal(5)
   })
   it('initialize with the given favorite toy', () => {
     expect(baby.favoriteToy).to.equal('trains')
