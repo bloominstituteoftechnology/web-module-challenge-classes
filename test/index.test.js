@@ -132,7 +132,7 @@ describe('Instances of Car', () => {
   })
 })
 
-describe.only('Instances of Baby', () => {
+describe('Instances of Baby', () => {
   let baby
   beforeEach(() => {
     baby = new Baby('Lucy', 5, 'trains')
