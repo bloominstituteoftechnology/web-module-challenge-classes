@@ -29,7 +29,6 @@ Three options are included below. The CodeSandbox option is fast & highly recomm
 <img src="https://tk-assets.lambdaschool.com/ca399496-ca49-4f71-9ee7-55401d8cfe64_sandbox-instructions.png"
      alt="instructions on how to use Code Sandbox" />
 
-
 <details>
   <summary>2. Local Setup Instructions: From Command Line</summary>
 
