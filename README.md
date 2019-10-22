@@ -14,7 +14,7 @@ One of the tasks requires a written answer by you and has no test.
 
 ## Get Started
 
-Three options are included below. The CodeSandbox option is fast & highly recommended.
+Two options are included below. The CodeSandbox option is fast & highly recommended.
 
 <summary>1. Using Code Sandbox</summary>
 
@@ -24,7 +24,7 @@ Three options are included below. The CodeSandbox option is fast & highly recomm
 * See your tests running on the "Browser" tab (NOT the "Tests" tab).
 * The way you'll submit your work will be by pasting a link to your fork into the submission form.
 
-[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Classes?previewwindow=tests)
+[LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Classes?previewwindow=browser)
 
 <img src="https://tk-assets.lambdaschool.com/ca399496-ca49-4f71-9ee7-55401d8cfe64_sandbox-instructions.png"
      alt="instructions on how to use Code Sandbox" />
