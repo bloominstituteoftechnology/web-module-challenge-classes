@@ -69,7 +69,7 @@ class Car {
     - Besides the methods of the Person class, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-class Baby extends Person {
+class Baby {
 
 }
 
