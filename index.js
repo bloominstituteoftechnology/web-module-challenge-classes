@@ -58,7 +58,7 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+class Car {
 
 }
 
