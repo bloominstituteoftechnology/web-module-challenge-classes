@@ -1,11 +1,11 @@
 {
-  "name": "js-exercise-prototype",
+  "name": "js-exercise-classes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype",
+  "homepage": "https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Classes",
   "repository": {
-    "url": "git@github.com:LambdaSchool/JS-Exercise-Prototype.git",
+    "url": "git@github.com:LambdaSchool/JS-Exercise-Classes.git",
     "type": "git"
   },
   "scripts": {
@@ -27,7 +27,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "esm": "^3.2.25",
-    "mocha": "^6.2.1",
+    "mocha": "^6.2.2",
     "mocha-junit-reporter": "^1.23.1",
     "mocha-multi-reporters": "^1.1.7"
   },
