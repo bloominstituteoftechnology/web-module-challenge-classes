@@ -22,7 +22,7 @@ Two options are included below. The CodeSandbox option is fast & highly recommen
 * Sign into Code Sandbox.
 * Fork the sandbox.
 * See your tests running on the "Browser" tab (NOT the "Tests" tab).
-* The way you'll submit your work will be by pasting a link to your fork into the submission form.
+* The way you'll submit your work will be by pasting your fork's URL into the submission form.
 
 [LAUNCH ON CODESANDBOX 🚀](https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Classes?previewwindow=browser)
 
