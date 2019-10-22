@@ -1,0 +1,3 @@
+--reporter mocha-multi-reporters
+--reporter-options configFile=test/mocha-config.json
+--recursive

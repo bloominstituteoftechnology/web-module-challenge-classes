@@ -1,0 +1,38 @@
+{
+  "name": "js-exercise-prototype",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://codesandbox.io/s/github/LambdaSchool/JS-Exercise-Prototype",
+  "repository": {
+    "url": "git@github.com:LambdaSchool/JS-Exercise-Prototype.git",
+    "type": "git"
+  },
+  "scripts": {
+    "dev": "./node_modules/.bin/lite-server",
+    "start": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
+    "pretest": "NODE_OPTIONS=--no-warnings npm install > /dev/null",
+    "test": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
+    "test:watch": "./node_modules/.bin/mocha --growl --reporter=list --watch './test'"
+  },
+  "keywords": [
+    "object",
+    "array",
+    "traversal",
+    "exercises",
+    "workout"
+  ],
+  "author": "Dan Levy",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.2.1",
+    "mocha-junit-reporter": "^1.23.1",
+    "mocha-multi-reporters": "^1.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "lite-server": "^2.5.4"
+  }
+}
