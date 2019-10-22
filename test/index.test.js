@@ -36,7 +36,7 @@ describe('Instances of Airplane', () => {
   })
 })
 
-describe('Instances of Person', () => {
+describe.only('Instances of Person', () => {
   let neo
   const foods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   beforeEach(() => {
