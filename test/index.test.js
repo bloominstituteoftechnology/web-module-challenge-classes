@@ -4,7 +4,6 @@
 ////// STUDENTS: DO NOT MODIFY THIS FILE //////
 ////// STUDENTS: DO NOT MODIFY THIS FILE //////
 
-
 /* eslint-env mocha */
 if (typeof exports !== 'undefined') {
   // IGNORE: Test/Env Detection Stuff //
@@ -14,8 +13,11 @@ if (typeof exports !== 'undefined') {
     Airplane,
     Car,
     Person,
-    Baby,
-    // TODO: Add all functions to export/test here
+    Lambdasian,
+    Instructor,
+    Student,
+    ProjectManager,
+    // Baby,
   } = require('../index.js')
 }
 var expect = chai.expect
@@ -132,27 +134,54 @@ describe('Instances of Car', () => {
   })
 })
 
-describe('Instances of Baby', () => {
-  let baby
+const lambdasianAttr = {
+  name: 'Petar',
+  age: 23,
+  location: 'NY City'
+}
+const instructorAttr = {
+  name: 'Luis',
+  age: 45,
+  location: 'Provo',
+  specialty: 'SQL',
+  favLanguage: 'C#',
+  catchPhrase: 'Don\'t forget the homies'
+}
+const studentAttr = {
+  name: 'Matt',
+  age: 30,
+  location: 'London',
+  previousBackground: 'Plumber',
+  className: 'WebEU 3',
+  favSubjects: ['JS', 'Node']
+}
+const projectManagerAttr = {
+  name: 'Dan',
+  age: 35,
+  location: 'San Francisco',
+  specialty: 'Node',
+  favLanguage: 'JavaScript',
+  catchPhrase: 'Keep doing what you\'re doing!'
+}
+describe.only('Instances of Lambdasian', () => {
+  let lambdasian
   beforeEach(() => {
-    baby = new Baby('Lucy', 5, 'trains')
+    lambdasian = new Lambdasian(lambdasianAttr)
   })
   it('initialize with the given name', () => {
-    expect(baby.name).to.equal('Lucy')
+    expect(lambdasian.name).to.equal(lambdasianAttr.name)
   })
   it('initialize with the given age', () => {
-    expect(baby.age).to.equal(5)
+    expect(lambdasian.age).to.equal(lambdasianAttr.age)
   })
-  it('initialize with the given favorite toy', () => {
-    expect(baby.favoriteToy).to.equal('trains')
+  it('initialize with the given location', () => {
+    expect(lambdasian.location).to.equal(lambdasianAttr.location)
   })
-  it('get a play method from their prototype', () => {
-    expect(baby.__proto__.play).to.be.not.undefined;
+  it('has a speak method', () => {
+    expect(lambdasian.__proto__.speak).to.be.not.undefined;
   })
-  it('can play with favorite toy', () => {
-    expect(baby.play()).to.include('trains')
-  })
-  it('inherit the methods on Person.prototype', () => {
-    expect(Person.prototype).to.equal(baby.__proto__.__proto__)
+  it('can speak the right sentence', () => {
+    expect(lambdasian.speak()).to.include(lambdasianAttr.name);
+    expect(lambdasian.speak()).to.include(lambdasianAttr.age);
   })
 })
