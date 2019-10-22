@@ -30,35 +30,19 @@ Three options are included below. The CodeSandbox option is fast & highly recomm
      alt="instructions on how to use Code Sandbox" />
 
 <details>
-  <summary>2. Local Setup Instructions: From Command Line</summary>
+  <summary>2. Using VSCode and the Command Line</summary>
 
-  1. Fork & clone to your local computer
-  1. `cd` into your newly cloned repository
-  1. Install using `npm`
-  1. Run test command
-
+  1. Fork repo and add TL as collaborator on Github.
+  1. Clone _your_ fork (not Lambda's repo by mistake!).
+  1. `cd` into your newly cloned repository.
+  1. Create a new branch: git checkout -b `<firstName-lastName>`.
+  1. Install using `npm`.
+  1. Run test command.
 
   ```sh
     git clone <insert your git clone url here>
     cd <repo folder name>
     npm install
     npm run test:watch
-  ```
-
-</details>
-
-<details>
-  <summary>3. Local Setup Instructions: Run Tests in Browser</summary>
-
-  1. Fork & clone to your local computer
-  1. `cd` into your newly cloned repository
-  1. Install using `npm`
-  1. Run start command
-
-  ```sh
-    git clone <insert your git clone url here>
-    cd <repo folder name>
-    npm install
-    npm start
   ```
 </details>
