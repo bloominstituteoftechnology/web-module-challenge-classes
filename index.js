@@ -8,17 +8,20 @@
 */
 
 // EXAMPLE SOLUTION CODE:
-module.exports = class Airplane {
-  constructor(name) {
-    this.name = name;
-    this.isFlying = false;
-  }
-  takeOff() {
-    this.isFlying = true;
-  }
-  land() {
-    this.isFlying = false;
-  }
+// module.exports = class Airplane {
+//   constructor(name) {
+//     this.name = name;
+//     this.isFlying = false;
+//   }
+//   takeOff() {
+//     this.isFlying = true;
+//   }
+//   land() {
+//     this.isFlying = false;
+//   }
+// }
+module.exports = function (name) {
+  this.name = name
 }
 
 /*
