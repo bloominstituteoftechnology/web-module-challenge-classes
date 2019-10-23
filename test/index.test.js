@@ -10,7 +10,7 @@ if (typeof exports !== 'undefined') {
   // Node/Non-browser test env
   var chai = require('chai')
   var {
-    // Airplane,
+    Airplanez,
     Car,
     Person,
     Lambdasian,
@@ -21,21 +21,21 @@ if (typeof exports !== 'undefined') {
 }
 var expect = chai.expect
 
-// describe('Instance of Airplane', () => {
-//   it('[1] initializes with the given name', () => {
-//     const a = new Airplane('Gulfstream 550')
-//     expect(a.name).to.eq(`Gulfstream 550`)
-//   })
-//   it('[2] behaves correctly', () => {
-//     const myPlane = new Airplane('Jumbo')
-//     expect(myPlane.name).to.equal('Jumbo')
-//     expect(myPlane.isFlying).to.equal(false)
-//     myPlane.takeOff()
-//     expect(myPlane.isFlying).to.equal(true)
-//     myPlane.land()
-//     expect(myPlane.isFlying).to.equal(false)
-//   })
-// })
+describe('Instance of Airplane', () => {
+  it('[1] initializes with the given name', () => {
+    const a = new Airplanez('Gulfstream 550')
+    expect(a.name).to.eq(`Gulfstream 550`)
+  })
+  it('[2] behaves correctly', () => {
+    const myPlane = new Airplanez('Jumbo')
+    expect(myPlane.name).to.equal('Jumbo')
+    expect(myPlane.isFlying).to.equal(false)
+    myPlane.takeOff()
+    expect(myPlane.isFlying).to.equal(true)
+    myPlane.land()
+    expect(myPlane.isFlying).to.equal(false)
+  })
+})
 
 describe('Instance of Person', () => {
   let neo
