@@ -8,7 +8,7 @@
 */
 
 // EXAMPLE SOLUTION CODE:
-module.exports = class {
+module.exports = class Airplane {
   constructor(name) {
     this.name = name;
     this.isFlying = false;
