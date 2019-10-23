@@ -9,8 +9,7 @@ This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 ## Instructions
 
-Find the file `index.js` and complete the tasks until all of your tests pass.
-One of the tasks requires a written answer by you and has no test.
+Find the file `index.js` and complete the tasks until all of your tests pass. You can use yesterday's work to help you.
 
 ## Get Started
 
