@@ -9,7 +9,7 @@ if (typeof exports !== 'undefined') {
   // IGNORE: Test/Env Detection Stuff //
   // Node/Non-browser test env
   var chai = require('chai')
-  var results = require('../index.js').default
+  var results = require('../index.js')
 }
 var expect = chai.expect
 

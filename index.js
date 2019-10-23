@@ -154,13 +154,3 @@ if (typeof exports !== 'undefined') {
   if (Student) { module.exports.Student = Student }
   if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
 }
-
-// module.exports.default = {
-//   Airplane,
-//   Person,
-//   Car,
-//   Lambdasian,
-//   Instructor,
-//   Student,
-//   ProjectManager
-// };
