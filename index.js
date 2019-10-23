@@ -144,13 +144,23 @@ class ProjectManager {
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
-  if (Instructor) { module.exports.Instructor = Instructor }
-  if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
-}
+// if (typeof exports !== 'undefined') {
+//   module.exports = module.exports || {}
+//   if (Airplane) { module.exports.Airplane = Airplane }
+//   if (Person) { module.exports.Person = Person }
+//   if (Car) { module.exports.Car = Car }
+//   if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
+//   if (Instructor) { module.exports.Instructor = Instructor }
+//   if (Student) { module.exports.Student = Student }
+//   if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+// }
+
+module.exports.default = {
+  Airplane,
+  Person,
+  Car,
+  Lambdasian,
+  Instructor,
+  Student,
+  ProjectManager
+};
