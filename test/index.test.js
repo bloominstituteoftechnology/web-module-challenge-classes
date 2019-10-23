@@ -9,7 +9,7 @@ if (typeof exports !== 'undefined') {
   // IGNORE: Test/Env Detection Stuff //
   // Node/Non-browser test env
   var chai = require('chai')
-  var Airplane = require('../index.js').Airplane
+  var Airplane = require('../index.js')
 }
 var expect = chai.expect
 
