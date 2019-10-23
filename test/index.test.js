@@ -10,6 +10,7 @@ if (typeof exports !== 'undefined') {
   // Node/Non-browser test env
   var chai = require('chai')
   var classes = require('../index.js')
+  console.log(classes)
 }
 var expect = chai.expect
 
