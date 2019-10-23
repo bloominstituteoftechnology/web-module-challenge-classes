@@ -10,6 +10,7 @@ if (typeof exports !== 'undefined') {
   // Node/Non-browser test env
   var chai = require('chai')
   var Airplane = require('../index.js')
+  console.log(Airplane)
 }
 var expect = chai.expect
 
