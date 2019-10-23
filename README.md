@@ -13,7 +13,7 @@ Find the file `index.js` and complete the tasks until all of your tests pass. Yo
 
 ## Get Started
 
-<summary>1. Using VSCode and the Command Line</summary>
+<summary><strong>Using VSCode and the Command Line:</strong></summary>
 
 1. Fork repo and add TL as collaborator on Github.
 1. Clone _your_ fork (not Lambda's repo by mistake!).
