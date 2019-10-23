@@ -8,7 +8,7 @@
 */
 
 // EXAMPLE SOLUTION CODE:
-class Airplane {
+module.exports.Airplane = class Airplane {
   constructor(name) {
     this.name = name;
     this.isFlying = false;
@@ -146,7 +146,7 @@ class ProjectManager {
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
+  // if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
   if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
