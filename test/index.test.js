@@ -9,18 +9,17 @@ if (typeof exports !== 'undefined') {
   // IGNORE: Test/Env Detection Stuff //
   // Node/Non-browser test env
   var chai = require('chai')
-  var classes = require('../index.js')
-  console.log(classes)
+  var results = require('../index.js')
 }
 var expect = chai.expect
 
 describe('Instance of Airplane', () => {
   it('[1] initializes with the given name', () => {
-    const a = new classes.Airplane('Gulfstream 550')
+    const a = new results.Airplane('Gulfstream 550')
     expect(a.name).to.eq(`Gulfstream 550`)
   })
   it('[2] behaves correctly', () => {
-    const myPlane = new classes.Airplane('Jumbo')
+    const myPlane = new results.Airplane('Jumbo')
     expect(myPlane.name).to.equal('Jumbo')
     expect(myPlane.isFlying).to.equal(false)
     myPlane.takeOff()
@@ -34,7 +33,7 @@ describe('Instance of Person', () => {
   let neo
   const foods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   beforeEach(() => {
-    neo = new classes.Person('Neo', 20)
+    neo = new results.Person('Neo', 20)
   })
   it('[1] initializes with the given name', () => {
     expect(neo.name).to.equal('Neo')
@@ -76,7 +75,7 @@ describe('Instance of Person', () => {
 describe('Instance of Car', () => {
   let batmobile
   beforeEach(() => {
-    batmobile = new classes.Car('BatMobile', 20)
+    batmobile = new results.Car('BatMobile', 20)
   })
   it('[1] initializes with the given model', () => {
     expect(batmobile.model).to.equal('BatMobile')
@@ -160,7 +159,7 @@ const projectManagerAttr = {
 describe('Instance of Lambdasian', () => {
   let lambdasian
   beforeEach(() => {
-    lambdasian = new classes.Lambdasian(lambdasianAttr)
+    lambdasian = new results.Lambdasian(lambdasianAttr)
   })
   it('[1] initializes with the given name', () => {
     expect(lambdasian.name).to.equal(lambdasianAttr.name)
@@ -183,7 +182,7 @@ describe('Instance of Lambdasian', () => {
 describe('Instance of Instructor', () => {
   let instructor
   beforeEach(() => {
-    instructor = new classes.Instructor(instructorAttr)
+    instructor = new results.Instructor(instructorAttr)
   })
   it('[1] initializes with the given name, age and location', () => {
     expect(instructor.name).to.equal(instructorAttr.name)
@@ -221,7 +220,7 @@ describe('Instance of Instructor', () => {
 describe('Instances of Student', () => {
   let student
   beforeEach(() => {
-    student = new classes.Student(studentAttr)
+    student = new results.Student(studentAttr)
   })
   it('[1] initializes with the given name, age and location', () => {
     expect(student.name).to.equal(studentAttr.name)
@@ -269,7 +268,7 @@ describe('Instances of Student', () => {
 describe('Instance of ProjectManager', () => {
   let pm
   beforeEach(() => {
-    pm = new classes.ProjectManager(projectManagerAttr)
+    pm = new results.ProjectManager(projectManagerAttr)
   })
   it('[1] initializes with all the fields instructors have', () => {
     expect(pm.name).to.equal(projectManagerAttr.name)
