@@ -19,13 +19,6 @@ Find the file `index.js` and complete the tasks until all of your tests pass. Yo
 1. Clone _your_ fork (not Lambda's repo by mistake!).
 1. `cd` into your newly cloned repository.
 1. Create a new branch: `git checkout -b <firstName-lastName>`.
-1. Install dependencies using npm.
-1. Run the test:watch command.
+1. Install dependencies by `npm install`.
+1. Run tests by `npm run test:watch`.
 1. Work on your branch, push commits and create PR as usual.
-
-```sh
-  git clone <insert your git clone url here>
-  cd <repo folder name>
-  npm install
-  npm run test:watch
-```
