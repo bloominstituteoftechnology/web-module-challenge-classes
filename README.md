@@ -11,6 +11,8 @@ This challenge focuses on classes in JavaScript using the new `class` keyword.
 
 Find the file `index.js` and complete the tasks until all of your tests pass. You can use yesterday's work to help you.
 
+If you run into trouble while coding, fight the good fight for 20 minutes and then get on the help channel. __Remember to formulate your help request in a professional manner__ - like you would at work - by including error messages, screenshots, and any other pertinent information about the problem, as well as what kinds of things you tried already while attempting to solve it.
+
 ## Get Started
 
 <summary><strong>Using VSCode and the Command Line:</strong></summary>
