@@ -86,7 +86,8 @@ class Car {
   }
   drive(distance){
     this.odometer += distance;
-    this.tank -= (this.milesPerGallon + distance); 
+    this.tank -= (distance / this.milesPerGallon);
+    
   }
 
 }
@@ -104,16 +105,18 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(){
-    this.name = name;
-    this.age = age;
-    this.location = location;
+  constructor(object){
+    this.name = object.name;
+    this.age = object.age;
+    this.location = object.location;
   }
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}`;
   }
 
 }
+
+
 
 /*
   TASK 4
@@ -130,9 +133,19 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor(name, age, location){
-    super()
+  constructor(object){
+    super(object)
+    this.specialty = object.specialty;
+    this.favLanguage = object.favLanguage;
+    this.catchPhrase = object.catchPhrase;
   }
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+
 
 }
 
@@ -151,7 +164,22 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Instructor {
+  constructor(object){
+    super(object)
+    this.previousBackground = object.previousBackground;
+    this.className = object.className;
+    this.favSubjects = object.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 
 }
 
@@ -168,7 +196,18 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Student {
+  constructor(object){
+    super(object)
+    this.gradClassName = object.gradClassName;
+    this.favInstructor =  object.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
 
 }
 
