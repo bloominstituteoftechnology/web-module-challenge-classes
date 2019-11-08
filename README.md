@@ -30,3 +30,5 @@ If you run into trouble while coding, fight the good fight for 20 minutes and th
 1. Work on your branch, push commits and create PR as usual.
 
 <img alt='instructions screenshot' src='./instructions.png'>
+
+## Xaver Pinero
