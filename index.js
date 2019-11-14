@@ -114,7 +114,7 @@ class Lambdasian {
     this.location = attributes.location
   }
   speak(){
-    `Hello my name is ${this.name}, I am from ${this.location}`
+    return `Hello my name is ${this.name}, I am from ${this.location}`
   }
 }
 
