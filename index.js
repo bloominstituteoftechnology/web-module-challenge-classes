@@ -177,13 +177,13 @@ class Student extends Lambdasian {
     this.favSubjects = object.favSubjects;
   }
   listSubjects(){
-    return `Loving ${this.favSubjects}` 
+    return `Loving ${this.favSubjects}` //thought I needed to toString() here?
     }
-  PRAssignment(){
-
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`
   }
-  sprintChallenge(){
-
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`
   }
 
 }
@@ -201,7 +201,19 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor{
+  constructor(object){
+    super(object);
+    this.gradClassName = object.gradClassName;
+    this.favInstructor = object.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel} @${channel} standy times!`
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}` 
+  }
+
 
 }
 
