@@ -181,8 +181,8 @@ class Student extends Lambdasian{
  sprintChallenge(subject){
    return `${this.name} has begun sprint challenge on ${subject}`;
  }
- graduate(){
-   
+
+
  }
 }
 
