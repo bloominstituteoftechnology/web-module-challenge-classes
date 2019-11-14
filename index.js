@@ -115,6 +115,7 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
+
 class Lambdasian {
   constructor(args){
     this.name = args.name;
@@ -141,6 +142,8 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
+// - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+
 class Instructor extends Lambdasian {
   constructor(args){
     super(args);
@@ -173,12 +176,16 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
+
+let randomGrade = Math.floor(Math.random() * 101) + 1;
+
 class Student extends Lambdasian {
   constructor(args){
     super(args);
     this.previousBackground = args.previousBackground;
     this.className = args.className;
     this.favSubjects = args.favSubjects;
+    this.grade = randomGrade;
   }
 
   listSubjects(){
@@ -208,6 +215,7 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
+
 class ProjectManager extends Instructor {
   constructor(args){
     super(args);
@@ -226,7 +234,7 @@ class ProjectManager extends Instructor {
 
 /*
   STRETCH PROBLEM (no tests!)
-    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+  * - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
     - Add a graduate method to a student.
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
