@@ -62,10 +62,6 @@ class Person {
 }
 
 /*
-
-*/
-
-/*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
     - All instances built with Car:
@@ -80,8 +76,49 @@ class Person {
 */
 
 class Car {
+  constructor(model, mpg){
+    this.model = model;
+    this.milesPerGallon = mpg;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 
+  fill(gallons){
+    this.tank = this.tank + gallons;
+  }
+
+  drive(dist){
+    let used = dist / this.milesPerGallon;
+    let left = this.tank - used;
+    let max = this.tank * this.milesPerGallon;
+    
+    if (dist <= max){
+      this.tank = left;
+      this.odometer = dist;
+    } else {
+      this.tank = 0;
+      this.odometer = max;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
 }
+
+/*
+Car.prototype.drive = function(distance){
+  this.odometer = this.odometer + distance;
+  let used = distance / this.milesPerGallon;
+  let left = this.tank - used;
+  let max = this.tank * this.milesPerGallon;
+  if (distance <= max){
+    this.tank = left;
+    this.odometer = distance;
+  } else{
+    this.tank = 0;
+    this.odometer =  max;
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+}
+*/
 
 /*
   TASK 3
