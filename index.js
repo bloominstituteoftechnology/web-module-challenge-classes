@@ -104,23 +104,6 @@ class Car {
 }
 
 /*
-Car.prototype.drive = function(distance){
-  this.odometer = this.odometer + distance;
-  let used = distance / this.milesPerGallon;
-  let left = this.tank - used;
-  let max = this.tank * this.milesPerGallon;
-  if (distance <= max){
-    this.tank = left;
-    this.odometer = distance;
-  } else{
-    this.tank = 0;
-    this.odometer =  max;
-    return `I ran out of fuel at ${this.odometer} miles!`;
-  }
-}
-*/
-
-/*
   TASK 3
     - Write a Lambdasian class.
     - Its constructor takes a single argument - an object with the following keys:
@@ -133,7 +116,15 @@ Car.prototype.drive = function(distance){
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(args){
+    this.name = args.name;
+    this.age = args.age;
+    this.location = args.location;
+  }
 
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 
 /*
