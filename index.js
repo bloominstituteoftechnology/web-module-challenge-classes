@@ -84,9 +84,11 @@ class Car {
     this.tank = this.tank + gallons;
   }
   drive(distance){
-    this.odometer += distance;
-    this.tank -= distance / this.milesPerGallon;
+    if (this.odometer += distance) {
+      this.tank -= distance / this.milesPerGallon;
+    } else if (this.tank =0){
     console.log(`I ran out of fuel at ${this.odometer} miles!`);
+    }
   }
 }
 
@@ -129,16 +131,16 @@ class Lambdasian {
 */
 class Instructor extends Lambdasian {
   constructor(attributes){
-    super(attributes)
+    super(attributes);
     this.specialty=attributes.specialty,
     this.favLanguage=attributes.favLanguage,
     this.catchPhrase=attributes.catchPhrase
   }
-  demo(subject){
-    return `Today we are learning about ${this.subject}`
+  demo(){
+    return `Today we are learning about ${this.favLanguage}`
   }
-  grade(student,subject){
-    return `${this.student.name} receives a perfect score on ${this.subject}`
+  grade(){
+    return `${this.name} receives a perfect score on ${this.specialty}`
   }
 }
 
@@ -158,11 +160,20 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian{
-  constructor(attributes,previousBackground,className,favSubjects){
-    super(attributes),
-    this.previousBackground=previousBackground,
-    this.className=className,
-    this.favSubjects=favSubjects
+  constructor(attributes){
+    super(attributes);
+    this.previousBackground=attributes.previousBackground,
+    this.className=attributes.className,
+    this.favSubjects=attributes.favSubjects
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`
+  }
+  PRAssignment(){
+    return `${this.name} has submitted a PR for ${this.className}`
+  }
+  sprintChallenge(){
+    return `${this.name} has begun sprint challenge on ${this.className}`
   }
 }
 
@@ -179,8 +190,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+  constructor(attributes){
+    super(attributes);
+    this.gradClassName = attributes.gradClassName,
+    this.favInstructor = attributes.favInstructor
+  }
+  standUp(){
+    `${this.favInstructor} announces to ${this.gradClassName}, @channel standy times!`
+  }
+  debugsCode(){
+    return `${this.favInstructor} debugs ${this.name}'s code on ${this.gradClassName}`
+  }
 }
 
 /*
