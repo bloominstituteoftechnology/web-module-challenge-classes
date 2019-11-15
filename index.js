@@ -86,8 +86,9 @@ fill(gallons){
 }
 drive(distance){
   this.odometer += distance;
+  this
   
-  if(this.tank <= 0){
+  if(this.tank = 0){
     return `I ran out of fuel at ${this.odometer} miles`;
   }
 }
