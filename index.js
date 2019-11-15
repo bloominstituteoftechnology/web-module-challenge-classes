@@ -85,12 +85,24 @@ fill(gallons){
   this.tank += gallons;
 }
 drive(distance){
-  this.odometer += distance;
-  this
+  console.log("TANK", this.tank)
+  console.log("MPG",this.milesPerGallon)
+  console.log("MILES",distance)
   
-  if(this.tank = 0){
+  const gallonsUsed = distance / this.milesPerGallon;
+  
+  if(gallonsUsed > this.tank){
+    this.tank = 0;
+    this.odometer += Math.floor(gallonsUsed - this.tank) * this.milesPerGallon;
+  } else {
+    this.tank -= gallonsUsed;
+    this.odometer += distance;
+  }
+  if(this.tank === 0){
     return `I ran out of fuel at ${this.odometer} miles`;
   }
+ console.log(this.tank)
+  
 }
 }
 
