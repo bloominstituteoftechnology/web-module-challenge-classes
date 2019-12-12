@@ -41,7 +41,17 @@ class Airplane {
 */
 
 class Person {
-
+ constructor(name, age,) {
+   this.name = name;
+   this.age = age;
+   this.stomach = [];
+ }
+  eat() {
+    console.log(`The ${this.name} eats ${this.stomach}`);
+  }
+  poop() {
+    console.log(`if ${this.stomach.length <= 10} poop ${this.stomach}`);
+  }
 }
 
 /*
@@ -59,7 +69,16 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+    this.tank = 0;
+    this.odometer =0;
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    
+  }
+  fill() {
+    console.log(` The ${this.tank} fill ${this.tank}`);
+  }
 }
 
 /*
