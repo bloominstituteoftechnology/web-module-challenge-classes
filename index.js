@@ -41,18 +41,25 @@ class Airplane {
 */
 
 class Person {
- constructor(name, age,) {
-   this.name = name;
-   this.age = age;
-   this.stomach = [];
- }
-  eat() {
-    console.log(`The ${this.name} eats ${this.stomach}`);
-  }
-  poop() {
-    console.log(`if ${this.stomach.length <= 10} poop ${this.stomach}`);
-  }
+  constructor(name,age){
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+} 
+eat(someFood){
+ if (this.stomach.length < 10) {
+  this.stomach.push(someFood);
 }
+return this.stomach;
+};
+poop(){
+return `${this.stomach=[]}`;
+}
+toString(){
+  return `${this.name}, ${this.age}, ${this.stomach=[]}`;
+}
+}
+
 
 /*
   TASK 2
@@ -71,13 +78,16 @@ class Person {
 class Car {
   constructor(model, milesPerGallon) {
     this.tank = 0;
-    this.odometer =0;
+    this.odometer = 0;
     this.model = model;
     this.milesPerGallon = milesPerGallon;
     
   }
-  fill() {
-    console.log(` The ${this.tank} fill ${this.tank}`);
+  fill( gallons) {
+    return `${this.tank += gallons}`;
+  }
+  drive(distance) {
+    return `${this.tank * this.milesPerGallon}`;
   }
 }
 
@@ -153,9 +163,25 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+   constructor(attributes) {
+     super(attributes) 
+     this.previousBackground = attributes.previousBackground;
+     this.className = attributes.className;
+     this.favSubjects = attributes.favSubjects;
+    }
+    listsSubject(student) {
+      return ` Loving: ${this.favSubjects}`;
+      }
 
-}
+   
+    PRAssignment(student, subject){
+      return `${student.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(student, subject){
+      return `${student.name} has begun sprint challenge ${subject}`;
+  }
+  }
 
 /*
   TASK 6
@@ -170,9 +196,20 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Student {
+  constructor(attributes) {
+		super(attributes);
+		this.gradClassName = attributes.gradClassName;
+		this.favInstructor = attributes.favInstructor;
+	}
+	standUp(channel) {
+		return `${this.name} announces to ${this.channel}, @channel standy times!​​​​​`;
+		}
+	debugsCode(){
+		return `${this.name} debugs ${name.name} 's code on ${subject}`;
+	}
 }
+
 
 /*
   STRETCH PROBLEM (no tests!)
