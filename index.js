@@ -146,13 +146,6 @@ class Instructor extends Lambdasian {
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
-  markStudent(studObj) {
-    if (Math.random() <= .5) {
-      studObj.grade -= Math.floor(Math.random() * 10);
-    } else {
-      studObj.grade += Math.floor(Math.random() * 10);
-    }
-  }
 }
 
 /*
@@ -186,13 +179,6 @@ class Student extends Lambdasian {
   sprintChallenge(subject) {
     return`${this.name} has begun sprint challenge on ${subject}`
   }
-  graduate() {
-    if (this.grade > 70) {
-      return `${this.name} is ready to granduate!`;
-    } else {
-      return `${this.name} needs more study time!`;
-    }
-  }
 }
 
 /*
@@ -214,11 +200,11 @@ class ProjectManager extends Instructor {
     this.gradClassName = obj.gradClassName;
     this.favInstructor = obj.favInstructor;
   }
-  standUp(sChannel) {
-    return `${this.name} announces to ${sChannel}, @channel standy times!`;
+  standUp(slackChannel) {
+    return `${this.name} announces to ${slackChannel}, @channel standy times!`;
   }
-  debugsCode(sObj, subject) {
-    return `${this.name} debugs ${sObj.name}'s code on ${subject}`;
+  debugsCode(slackObj, subject) {
+    return `${this.name} debugs ${slackObj.name}'s code on ${subject}`;
   }
 
 }
