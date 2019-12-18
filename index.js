@@ -157,7 +157,7 @@ class Instructor extends Lambdasian{
   };
 
   assignGrade(student) {
-    student.grade = student.grade + Math.round((Math.random() * 2) - 1);
+    student.grade = student.grade + Math.floor((Math.random() * 2) - 1);
   };
 };
 
