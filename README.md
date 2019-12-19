@@ -6,7 +6,7 @@ This challenge focuses on using the new for ES6 `class` syntax.
 
 * [Instructions](#instructions)
 * [Get Started](#get-started)
-
+*
 ## Instructions
 
 Find the file `index.js` and complete the tasks until all of your tests pass.
