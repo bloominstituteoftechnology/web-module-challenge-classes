@@ -77,7 +77,7 @@ class Person {
 class Car {
   constructor(model, milesPerGallon){
     this.model = model;
-    this.milesPerGallon = milesPerGallon;   //  this is a unit NOT a value
+    this.milesPerGallon = milesPerGallon;   //  
     this.tank = 0;
     this.odometer = 0;
   }
@@ -85,10 +85,17 @@ class Car {
     return this.tank += gallons;
   }
   drive(distance){
-    if(distance > 0){
-      return this.odometer += distance;
+    let maxDistance = this.milesPerGallon * this.tank;
+    if(distance > 0 && distance <= maxDistance){
+      this.odometer += distance;
+      return this.tank = this.tank - (distance / this.milesPerGallon);
+    } 
+    if(distance > maxDistance){
+      this.odometer += maxDistance;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
     }
-  } if()
+  } 
 
 }
 
@@ -105,9 +112,21 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  // constructor(attributes){
+  //   this.name = attributes.name;
+  //   this.age = attributes.age;
+  //   this.location = attributes.location;
+  // }
+  // speak(){
+  //   return `Hello, my name is ${this.name}, I am from ${this.location}`;
+  // }
 }
 
+// const gideon = new Lambdasian({
+//   name: 'Gideon',
+//   age: 35,
+//   location: 'New York'
+// });
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
