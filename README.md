@@ -21,9 +21,9 @@ If you run into trouble while coding, fight the good fight for 20 minutes and th
 
 <summary><strong>Using VSCode and the Command Line:</strong></summary>
 
-1. Fork repo and add TL as collaborator on Github.
-1. Clone _your_ fork (not Lambda's repo by mistake!).
-1. `cd` into your newly cloned repository.
+1. Fork repo and add TL as collaborator on Github. X
+1. Clone _your_ fork (not Lambda's repo by mistake!). X
+1. `cd` into your newly cloned repository.  X
 1. Create a new branch by typing `git checkout -b <firstName-lastName>`.
 1. Install dependencies by typing `npm install`.
 1. Run tests by typing `npm run test:watch`.
