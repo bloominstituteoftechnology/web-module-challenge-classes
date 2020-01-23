@@ -41,9 +41,31 @@ class Airplane {
 */
 
 class Person {
+  constructor(name,age){
+    this.name=name;
+    this.age=age;
+    this.stomach=[];
 
+  }
+  toString(){
+    return `${this.name} , ${this.age} `;
+  }
 }
+/*class ChessPlayer {
+  constructor(name){
+    this.name=name;
+    this.gamesWon=0;
+  }
+  winGame(){
+    this.gamesWon++;
+  }
 
+toString(){
+  return `${this.name} has won ${this.gamesWon} chess games`;
+}
+}
+const chris= new ChessPlayer('chris');
+chris.winGame(); */
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -59,7 +81,12 @@ class Person {
 */
 
 class Car {
-
+constructor (model,milesPerGallon){
+  this.model=model;
+  this.milesPerGallon= milesPerGallon;
+  this.tank=0;
+  this.odometer=0;
+}
 }
 
 /*
@@ -75,7 +102,11 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+constructor (options){
+  this.name=options.name;
+  this.age=options.age;
+  this.location=options.location;
+}
 }
 
 /*
@@ -93,6 +124,14 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
+  constructor (options){
+    this.name=options.name;
+    this.age=options.age;
+    this.location=options.location;
+    this.specialty=options.specialty;
+    this.favLanguage=options.favLanguage;
+    this.catchPhrase=options.catchPhrase;
+  }
 
 }
 
@@ -112,6 +151,14 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
+  constructor (options){
+    this.name=options.name;
+    this.age=options.age;
+    this.location=options.location;
+    this.previousBackground=options.previousBackground;
+    this.className=options.className;
+    this.favSubjects=options.favSubjects;
+  }
 
 }
 
@@ -129,6 +176,16 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
+  constructor(options){
+    this.name=options.name;
+    this.age=options.age;
+    this.location=options.location;
+    this.specialty=options.specialty;
+    this.favLanguage=options.favLanguage;
+    this.catchPhrase=options.catchPhrase;
+    this.gradClassName=options.gradClassName;
+    this.favInstructor=options.favInstructor;
+  }
 
 }
 
