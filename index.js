@@ -155,17 +155,13 @@ class Instructor extends Lambdasian {
 */
 class Student extends Lambdasian{
   constructor (options){
-    this.name=options.name;
-    this.age=options.age;
-    this.location=options.location;
-    this.previousBackground=options.previousBackground;
-    this.className=options.className;
-    this.favSubjects=options.favSubjects;
+    super(options);
   }
-speak(){
+}
+    //speak(){
 
-}
-}
+
+
 
 /*
   TASK 6
