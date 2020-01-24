@@ -41,7 +41,22 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood){
+    if (this.stomach < 10){
+      this.stomach.push(someFood)
+    }
+  };
+  poop(){
+    this.stomach = [];
+  };
+  toString(){
+    return `${this.name}, ${this.age}`
+  };
 }
 
 /*
@@ -59,7 +74,26 @@ class Person {
 */
 
 class Car {
+  constructor(model, mpg){
+  this.model = model;
+  this.milesPerGallon = mpg;
+  this.tank = 0;
+  this.odometer = 0;
+  }
+  fill(gallons){
+    return this.tank = this.tank + gallons;
+  }
+  drive(distance){
+    if ((distance / this.milesPerGallon) > this.tank){
+      this.odometer += this.tank * this.milesPerGallon;
+      this.tank = 0;
+      return `I ran out of gas at ${this.odometer} miles!`;
+    } else {
+      this.odometer +=distance;
+      this.tank -= (distance / this.milesPerGallon);
+    }
 
+  }
 }
 
 /*
@@ -75,7 +109,11 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(name, age, location){
+    this.name = name;
+    this.age = age;
+    this.location = location;
+    }
 }
 
 /*
@@ -93,6 +131,13 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
+  constructor(options){
+    this.options = options;
+    // this.model = model;
+    // this.milesPerGallon = mpg;
+    // this.tank = 0;
+    // this.odometer = 0;
+  }
 
 }
 
@@ -112,6 +157,13 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
+  constructor(options){
+    this.options = options;
+    // this.model = model;
+    // this.milesPerGallon = mpg;
+    // this.tank = 0;
+    // this.odometer = 0;
+  }
 
 }
 
@@ -129,6 +181,13 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager {
+  constructor(options){
+    this.options = options;
+    // this.model = model;
+    // this.milesPerGallon = mpg;
+    // this.tank = 0;
+    // this.odometer = 0;
+  }
 
 }
 
