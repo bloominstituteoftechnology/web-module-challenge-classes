@@ -53,6 +53,15 @@ class Person {
   toString(name,age){
     return `${this.name} , ${this.age} `;
   }
+  eat (someFood) {
+    if (this.stomach.length < 10) { this.stomach.push(someFood);}
+      return this.stomach;
+  }
+  poop () {
+    this.stomach = [];
+  }
+
+  
 
 
 }
@@ -135,14 +144,20 @@ speak(){
 */
 class Instructor extends Lambdasian {
   constructor (instructAttrs){
-    super(instructAttrs);
-    this.specialty = instrucAttrs.specialty;
+    super(attrs);
+    this.specialty = instructAttrs.specialty;
     this.favLanguage = instructAttrs.favLanguage;
     this.catchPhrase = instructAttrs.catchPhrase;
   }
-  
-//speak(){}
+  demo(subject) {
+    returns `Today we are learning about ${subject}`;
+  }
+  grade (student,subject) {
+    returns `${student.name} receives a perfect on ${subject}`;
+  }
 }
+
+
 
 /*
   TASK 5
@@ -160,11 +175,23 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian{
-  constructor (options){
-    super(options);
+  constructor (studentAttrs){
+    super(attrs);
+    this.previousBackground =studentAttrs.previousBackground;
+    this.className =studentAttrs.className;
+    this.favSubjects=[];
+  }
+  listSubjects(favSubjects) {
+    returns `Loving HTML,CSS,JS!`;
+  }
+  PRAssignment (subject) {
+    returns `${student.name} submitted a PR for ${subject}`;
+  }
+  sprintChallenge (subject){
+    returns `${student.name} has begun sprint challenge on ${subject}`;
   }
 }
-    //speak(){
+   
 
 
 
@@ -182,19 +209,22 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-  constructor(options){
-    this.name=options.name;
-    this.age=options.age;
-    this.location=options.location;
-    this.specialty=options.specialty;
-    this.favLanguage=options.favLanguage;
-    this.catchPhrase=options.catchPhrase;
-    this.gradClassName=options.gradClassName;
-    this.favInstructor=options.favInstructor;
+class ProjectManager extends Instructor {
+  constructor(pmAttrs) {
+    super (pmAttrs);
+    this.gradClassName=pmAttrs.gradClassName;
+    this.favInstructor=pmAttrs.favInstructor;
   }
+  standUp (channel) {
+    returns `${name} announces to ${channel}, @channel standy times!`;
+  }
+  debugCode (student) {
+    returns `${name} debugs ${student.name}'s code on ${subject}`;
+  }
+}    
+  
 
-}
+
 
 /*
   STRETCH PROBLEM (no tests!)
