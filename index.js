@@ -41,7 +41,7 @@ class Airplane {
 */
 
 class Person {
-  constructor(options){
+  constructor(name,age){
     this.name=name;
     this.age=age;
     this.stomach=[];
@@ -109,13 +109,13 @@ drive(distance){
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-constructor (options){
-  this.name=options.name;
-  this.age=options.age;
-  this.location=options.location;
+constructor (attrs){
+  this.name=attrs.name;
+  this.age= attrs.age;
+  this.location= attrs.location;
 }
 speak(){
-  return (`Hello my name is ${options.name}, I am from ${options.location}`);
+  return `Hello my name is ${this.name}, I am from ${this.location}`;
 }
 }
 
@@ -134,9 +134,13 @@ speak(){
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor (options){
-    super(options);
+  constructor (instructAttrs){
+    super(instructAttrs);
+    this.specialty = instrucAttrs.specialty;
+    this.favLanguage = instructAttrs.favLanguage;
+    this.catchPhrase = instructAttrs.catchPhrase;
   }
+  
 //speak(){}
 }
 
