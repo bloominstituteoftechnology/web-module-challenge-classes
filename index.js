@@ -41,36 +41,22 @@ class Airplane {
 */
 
 class Person {
-  constructor(name,age){
+  constructor(options){
     this.name=name;
     this.age=age;
     this.stomach=[];
 
   }
-  toString(){
+  eat(somefood){
+    return this.stomach=[i++];
+  }
+  toString(name,age){
     return `${this.name} , ${this.age} `;
   }
 
-//Person.prototype.eat = function(someFood) {
-  //if (this.stomach.length < 10) { this.stomach.push(someFood);}
-    //return this.stomach;
-  //}
-}
-/*class ChessPlayer {
-  constructor(name){
-    this.name=name;
-    this.gamesWon=0;
-  }
-  winGame(){
-    this.gamesWon++;
-  }
 
-toString(){
-  return `${this.name} has won ${this.gamesWon} chess games`;
 }
-}
-const chris= new ChessPlayer('chris');
-chris.winGame(); */
+
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -92,6 +78,22 @@ constructor (model,milesPerGallon){
   this.tank=0;
   this.odometer=0;
 }
+fill(gallons) {
+  return this.tank +=gallons;
+}
+drive(distance){
+  const gallons = distance / this.milesPerGallon;
+  if (this.tank >= gallons) {this.odometer += distance; this.tank -= gallons;}
+   else {
+  const fuel = this.tank * this.milesPerGallon;
+  this.tank = 0;
+  this.odometer += fuel;
+
+
+  return `I ran out of fuel at ${this.odometer} miles`
+  }
+}
+
 }
 
 /*
