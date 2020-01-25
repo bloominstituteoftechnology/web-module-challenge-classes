@@ -47,12 +47,14 @@ class Person {
     this.stomach = [];
   }
   eat(someFood){
-    if (this.stomach < 10){
+    if (this.stomach === 10){
+      return this.stomach; 
+    } else {
       this.stomach.push(someFood)
     }
   };
   poop(){
-    this.stomach = [];
+   return this.stomach = [];
   };
   toString(){
     return `${this.name}, ${this.age}`
@@ -109,11 +111,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(name, age, location){
-    this.name = name;
-    this.age = age;
-    this.location = location;
-    }
+  constructor(options){
+    this.name = options.name;
+    this.age = options.age;
+    this.location = options.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
 
 /*
@@ -132,13 +137,16 @@ class Lambdasian {
 */
 class Instructor {
   constructor(options){
-    this.options = options;
-    // this.model = model;
-    // this.milesPerGallon = mpg;
-    // this.tank = 0;
-    // this.odometer = 0;
+    this.speciality = options.speciality;
+    this.favLanguage = options.favLanguage;
+    this.catchPhrase = options.catchPhrase;
   }
-
+  demo(subject){
+    return `Today we are learning about ${subject}`
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`
+  }
 }
 
 /*
@@ -158,13 +166,19 @@ class Instructor {
 */
 class Student {
   constructor(options){
-    this.options = options;
-    // this.model = model;
-    // this.milesPerGallon = mpg;
-    // this.tank = 0;
-    // this.odometer = 0;
+    this.previousBackground = options.previousBackground;
+    this.className = options.className;
+    this.favSubjects = ['HTML', 'CSS', 'JS'];
   }
-
+  listSubjects(){
+    return `Loving ${this.favSubjects}!`;
+  }
+  PRAssignment(student, subject){
+    `${student.name} has submitted a PR for ${subject}`
+  }
+  sprintChallenge(student, subject){
+    `${student.name} has begun sprint challenge on ${subject}`
+  }
 }
 
 /*
@@ -182,13 +196,15 @@ class Student {
 */
 class ProjectManager {
   constructor(options){
-    this.options = options;
-    // this.model = model;
-    // this.milesPerGallon = mpg;
-    // this.tank = 0;
-    // this.odometer = 0;
+    this.gradClassName = options.gradClassName;
+    this.favInstructor = options.favInstructor;
   }
-
+  standUp(channel){
+    return `${name} announces to ${channel} @channel standy times!`
+  }
+  debugsCode(student, subject){
+    `${name} debugs ${student.name}'s code on ${subject}`
+  }
 }
 
 /*
