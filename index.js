@@ -84,7 +84,18 @@ constructor(model, milesPerGallon) {
   fill(gal) {
     return (this.tank += gal);
   }
-  drive() {}
+  drive(distance) {
+    let gallonsNeeded = (distance/this.milesPerGallon);
+    if (this.tank >= gallonsNeeded) {
+      this.odometer += distance;
+      this.tank = gallonsNeeded;
+    } else {
+      let milesDriven = (this.tank * this.milesPerGallon);
+      this.odometer += milesDriven;
+      this.tank = 0;
+      return `i ran out of fuel at ${milesDriven} miles!`;
+    }
+  }
 }
 
 /*
@@ -163,7 +174,9 @@ class Student extends Lambdasian {
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
   }
-  listSubjects() {}
+  listSubjects() {
+    return `loving ${this.favSubjects}`;
+  }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
   }
