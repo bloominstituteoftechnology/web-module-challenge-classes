@@ -170,6 +170,7 @@ class Student extends Lambdasian {
     this.previousBackground = studAttr.previousBackground;
     this.className = studAttr.className;
     this.favSubjects = studAttr.favSubjects;
+    
   }
   listSubjects() {
     let listSub = "Loving ";
