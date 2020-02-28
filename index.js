@@ -149,11 +149,11 @@ class Instructor extends Lambdasian{
     return `${student.name} receives a perfect score on ${subject}`;
   }
   giveGrade(student){
-    let score = Math.floor(Math.random() * 101);
-    student.grade = score;
-      if (student.grade >= 70){
-        return `graduated!`
-      }
+    const oldGrade = student.grade;
+    student.grade += Math.floor(Math.random() * 101);
+    student.grade = Math.min(student.grade, 100);
+    student.grade = Math.max(student.grade, 0);
+    return `${this.name} has changed ${student.name} from ${oldGrade} to ${student.grade}`
   }
   
 }
@@ -206,6 +206,11 @@ class Student extends Lambdasian {
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
   } 
+  graduate(){
+    if (student.grade >= 70){
+      return `graduate`
+    }
+  }
 }
 
 // const John = new Student({
@@ -276,8 +281,8 @@ let Gordon = new Student({
 
 console.log(brit);
 console.log(brit.giveGrade(Gordon))
-console.log(Gordon.grade)
-                          
+console.log(Gordon.grade)  
+                                                  
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
