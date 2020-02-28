@@ -148,10 +148,24 @@ class Instructor extends Lambdasian{
   grade(student, subject){
     return `${student.name} receives a perfect score on ${subject}`;
   }
-  grading(student){
-    student.grade += Math.floor(Math.random() * 101)
+  giveGrade(student){
+    let score = Math.floor(Math.random() * 101);
+    student.grade = score;
+      if (student.grade >= 70){
+        return `graduated!`
+      }
   }
+  
 }
+
+
+
+// - Add a graduate method to a student.
+// + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+// + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+
+
+
 // STRETCH PROBLEM (no tests!)
 //     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
 //     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
@@ -176,12 +190,12 @@ class Instructor extends Lambdasian{
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor(att){
-    super(att);
-    this.previousBackground = att.previousBackground;
-    this.className= att.className;
-    this.favSubjects = att.favSubjects;
-    this.grade = 50;
+  constructor(student){
+    super(student);
+    this.previousBackground = student.previousBackground;
+    this.className= student.className;
+    this.favSubjects = student.favSubjects;
+    this.grade = student.grade;
   }
   listSubjects(){
     return `Loving HTML, CSS, JS, ${this.favSubjects}!`
@@ -191,9 +205,12 @@ class Student extends Lambdasian {
   }
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
-  }
-  
+  } 
 }
+
+// const John = new Student({
+// })
+
 
 
 /*
@@ -218,11 +235,12 @@ class ProjectManager extends Instructor{
   standUp(channel){
     return `${this.name} announces to ${channel}, @channel standy times!`;
   }
-  debugsCode(subject){
-    return `${this.name} debugs ${this.name}'s code on ${subject}`
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   }
 }
 
+console.log("hello World")
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
@@ -234,6 +252,32 @@ class ProjectManager extends Instructor{
 
 
 
+let brit = new Instructor({
+  name: 'Brit',
+  age: 'Mid 30s',
+  location: 'Ontrario',
+  specialty: 'HTML',
+  favLanguage: 'korean',
+  catchPhrase: 'Does that make sense'
+})
+
+console.log(brit.demo)
+
+let Gordon = new Student({
+  name: 'Brit',
+  age: 'Mid 30s',
+  location: 'Ontrario',
+  specialty: 'HTML',
+  grade: 0,
+  favLanguage: 'korean',
+  catchPhrase: 'Does that make sense'
+})
+
+
+console.log(brit);
+console.log(brit.giveGrade(Gordon))
+console.log(Gordon.grade)
+                          
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
