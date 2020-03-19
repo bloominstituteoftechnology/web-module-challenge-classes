@@ -133,7 +133,7 @@ class Lambdasian {
 */
 class Instructor extends Lambdasian {
     constructor(insProps) {
-        super(insProps);
+        super({...insProps});
         this.specialty = insProps.specialty;
         this.favLanguage = insProps.favLanguage;
         this.catchPhrase = insProps.catchPhrase;
@@ -178,7 +178,7 @@ that will randomly add or subtract points to a student's grade. _Math.random_ wi
 */
 class Student extends Lambdasian{
     constructor(studentProps) {
-        super(studentProps);
+        super({...studentProps});
         this.previousBackground = studentProps.previousBackground;
         this.className = studentProps.className;
         this.favSubjects = studentProps.favSubjects;
@@ -214,7 +214,7 @@ class Student extends Lambdasian{
 */
 class ProjectManager extends Instructor{
     constructor(projManProps) {
-        super(projManProps);
+        super({...projManProps});
         this.gradClassName = projManProps.gradClassName;
         this.favInstructor = projManProps.favInstructor;
     }
