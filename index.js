@@ -41,8 +41,34 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+    eat(food){
+      if (this.stomach.length < 10) {
+      this.stomach.push(food);
+  }
 }
+  poop(){
+    this.stomach.length = 0;
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
+}
+// Person.prototype.eat = function(food) {
+//   if (this.stomach.length < 10) {
+//     this.stomach.push(food);
+//   }
+// };
+// Person.prototype.poop = function() {
+//   this.stomach.length = 0;
+// };
+// Person.prototype.toString = function() {
+//   return `${this.name}, ${this.age}`;
+// };
 
 /*
   TASK 2
