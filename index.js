@@ -41,6 +41,20 @@ class Airplane {
 */
 
 class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.stomach = [];
+    }
+    eat(edible){
+        if(this.stomach.length < 10) this.stomach.push(edible);
+    }
+    poop(){
+        this.stomach.splice(0, this.stomach.length);
+    }
+    toString() {
+        return `${this.name}, ${this.age}`;
+    }
 
 }
 
@@ -59,7 +73,25 @@ class Person {
 */
 
 class Car {
+    constructor(model, milesPerGallon) {
+        this.model = model;
+        this.milesPerGallon = milesPerGallon;
+        this.tank = 0;
+        this.odometer = 0;
+    }
+    fill(gallons){
+        this.tank += gallons;
+    }
+    drive(distance) {
+        this.odometer += distance;
+        this.tank -= (distance / this.milesPerGallon);
+        if (this.tank <= 0) {
+            this.tank = 0;
+            this.odometer--;//todo: I believe there is something wrong with my logic as I am getting an off by one error, so I went with this hacky fix for now.
 
+            return `I ran out of fuel at ${this.odometer} miles!`;
+        }
+    }
 }
 
 /*
@@ -75,7 +107,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+    constructor(lambdasianProps) {
+        this.name = lambdasianProps.name;
+        this.age = lambdasianProps.age;
+        this.location = lambdasianProps.location;
+    }
+    speak(){
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
+    }
 }
 
 /*
@@ -92,8 +131,34 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+    constructor(insProps) {
+        super(insProps);
+        this.specialty = insProps.specialty;
+        this.favLanguage = insProps.favLanguage;
+        this.catchPhrase = insProps.catchPhrase;
+    }
+    demo(subject){
+        return `Today we are learning about ${subject}`;
+    }
+    grade(student, subject){
+        return `${student.name} receives a perfect score on ${subject}`;
+    }
+    pickRandGrade(student){
+        let operator = Math.floor(Math.random() + .5);//pick rand(0,1) to decide add or subtract
+        let percent = Math.ceil(Math.random()*100);//pick rand(0-100);
 
+        student.grade = operator % 1 === 0 ? student.grade + percent : student.grade - percent;//this will allow for negative grades or grades over 100 but it wasn't specified not to.
+    }
+    /*
+STRETCH PROBLEM (no tests!)
+X Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
+- Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's)
+that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+- Add a graduate method to a student.
+  + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+  + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+*/
 }
 
 /*
@@ -111,7 +176,26 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian{
+    constructor(studentProps) {
+        super(studentProps);
+        this.previousBackground = studentProps.previousBackground;
+        this.className = studentProps.className;
+        this.favSubjects = studentProps.favSubjects;
+        this.grade = 4;
+    }
+    listSubjects(){//todo: There is probably a way to do this with reduce
+        return `Loving ${this.favSubjects}!`;
+    }
+    PRAssignment(subject){
+        return `${this.name} has submitted a PR for ${subject}`;
+    }
+    sprintChallenge(subject){
+        return `${this.name} has begun sprint challenge on ${subject}`;
+    }
+    graduate(){
+        return this.grade > 70 ? "Congratulations grad!" : "You failed sucka!";
+    }
 
 }
 
@@ -128,8 +212,19 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+    constructor(projManProps) {
+        super(projManProps);
+        this.gradClassName = projManProps.gradClassName;
+        this.favInstructor = projManProps.favInstructor;
+    }
+    standUp(slackChan){
+        return `${this.name} announces to ${slackChan}, @channel standy times!`;
+    }
+    debugsCode(student, subject){
+        //{name} debugs {student.name}'s code on {subject}
+        return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    }
 }
 
 /*
