@@ -115,10 +115,10 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor({name, age, location}) {
-    this.name = name;
-    this.age = age;
-    this.location = location;
+  constructor(obj) {
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
   };
 
   speak() {
@@ -141,11 +141,11 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor({specialty, favLanguage, catchPhrase}) {
-    super(name, age, location); // Ask about this one right here
-    this.specialty = specialty;
-    this.favLanguage = favLanguage;
-    this.catchPhrase = catchPhrase;
+  constructor(obj) {
+    super(obj); // Ask about this one right here
+    this.specialty = obj.specialty;
+    this.favLanguage = obj.favLanguage;
+    this.catchPhrase = obj.catchPhrase;
   };
 
   demo(subject) {
@@ -156,11 +156,15 @@ class Instructor extends Lambdasian {
     return `${student.name} receives a perfect score on ${subject}`;
   };
 
-  randomGrade() {
-
-    const randInt = Math.floor(Math.random() * 10);
-    const newGrade = Student.grade + randInt;
-    return newGrade;
+  randomGrade(student) {
+    let points = Math.round(Math.random() * 101);
+    if (student.grade >= 100) {
+      let newGrade = student.grade -= points;
+      return `${points} points are subtracted from ${student.name}'s grade.  ${student.name}'s current grade is ${newGrade}`;
+    } else {
+      student.grade += points;
+      return `${points} points are added to ${student.name}'s grade.  ${student.name}'s current grade is ${student.grade}`;
+    }
   };
 }
 
@@ -181,12 +185,12 @@ class Instructor extends Lambdasian {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor({previousBackground, className, favSubjects, grade = Math.floor(Math.random() * 101)}) {
-    super(name, age, location);
-    this.previousBackground = previousBackground;
-    this.className = className;
-    this.favSubjects = [...favSubjects];
-    this.grade = grade;
+  constructor(obj) {
+    super(obj);
+    this.previousBackground = obj.previousBackground;
+    this.className = obj.className;
+    this.favSubjects = obj.favSubjects;
+    this.grade = obj.grade;
   };
 
   listSubjects() {
@@ -194,7 +198,21 @@ class Student extends Lambdasian {
   };
 
   PRAssignment(subject) {
-    return `${student.name} has submitted a PR for ${subject}`;
+    return `${this.name} has submitted a PR for ${subject}`;
+  };
+
+  sprintChallenge(subject) {
+    return ` ${this.name} has begun sprint challenge on ${subject}`
+  }
+
+  graduate() {
+    if (this.grade >= 70) {
+      return `${student.name} has graduated with a final grade of ${student.grade}!`;
+    } else {
+      let theDifference = 70 - this.grade;
+      this.grade += theDifference;
+      return `After further review the ${student.name} has earned ${theDifference} points, and has graduated Lambda School with a final grade of ${this.grade}!`;
+    }
   };
 }
 
@@ -212,10 +230,18 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor {
-  constructor({gradClassName, favInstructor}) {
-    super(specialty, favLanguage, catchPhrase);
-    this.gradClassName = gradClassName;
-    this.favInstructor = favInstructor;
+  constructor(obj) {
+    super(obj);
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
+  };
+
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  };
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`
   };
 }
 
