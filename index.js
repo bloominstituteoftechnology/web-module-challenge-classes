@@ -90,7 +90,12 @@ class Car {
     ];
   }
 }
-
+//if statement 
+// if distance =< the maxDistance then
+// distance / mpg = fuelUsed
+// tank - fuelUsed = what's left
+//if distance > maxDistance
+// distanceDriven = maxDistance and tank = 0 and I ran out of fuel at distanceDriven
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -129,17 +134,17 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian{
-  constructor({name, location, age, specialty, favLanguage, catchPhrase}){
-    super({name, location, age})
-    this.specialty = specialty;
-    this.favLanguage = favLanguage;
-    this.catchPhrase = catchPhrase;
+  constructor(obj){
+    super(obj)
+    this.specialty = obj.specialty;
+    this.favLanguage = obj.favLanguage;
+    this.catchPhrase = obj.catchPhrase;
   }
   demo(subject){
     return `Today we are learning about ${subject}`;
   }
-  grade({student}, subject){
-    return `${Student.name} receives a perfect score on ${subject}`;
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`;
   }
 }
 
@@ -159,11 +164,11 @@ class Instructor extends Lambdasian{
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor({name, location, age, previousBackground, className, favSubjects}){
-    super({name, location, age})
-    this.previousBackground = previousBackground;
-    this.className = className;
-    this.favSubjects = favSubjects;
+  constructor(obj){
+    super(obj)
+    this.previousBackground = obj.previousBackground;
+    this.className = obj.className;
+    this.favSubjects = obj.favSubjects;
   }
   listSubjects(){
     return this.favSubjects.toString();
@@ -190,16 +195,16 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor {
-  constructor({name, location, age, specialty, favLanguage, catchPhrase, gradClassName, favInstructor}){
-    super({name, location, age, specialty, favLanguage, catchPhrase})
-    this.gradClassName = gradClassName;
-    this.favInstructor = favInstructor;
+  constructor(obj){
+  super(obj)
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
   }
   standUp(channel){
     return `${this.name} announces to ${channel}, @channel standy times!`;
   }
-  debugsCode(subject){
-    return `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
 }
 
