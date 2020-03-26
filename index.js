@@ -41,7 +41,27 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age) {
+  this.name = name,
+  this.age = age,
+  this.stomach = []
+}
 
+  eat(edible){
+    if(this.stomach.length < 10){
+      this.stomach.push(edible);
+     }else{
+       return 'I am full!';
+     }
+    }
+
+  poop(){
+    this.stomach.length = 0;
+  }
+
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
 }
 
 /*
@@ -59,9 +79,29 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+  this.model = model,
+  this.milesPerGallon = milesPerGallon,
+  this.tank = 0,
+  this.odometer = 0
 }
 
+fill(gallons){
+  this.tank += gallons;
+  }
+
+drive(distance){
+  let driveableDistance = this.tank * this.milesPerGallon
+  if(distance < driveableDistance){
+  this.odometer += distance;
+  this.tank -= (distance/this.milesPerGallon);
+  }else{
+    this.odometer += driveableDistance;
+    this.tank = 0;
+  return `I ran out of fuel at ${this.odometer} miles.`;
+    }
+  }
+}
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -75,7 +115,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attributes){
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
 }
 
 /*
@@ -92,9 +139,31 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(attributes){
+    super(attributes)
+    this.specialty = attributes.specialty;
+    this.favLanguage = attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase;
+  }
+  demo(math){
+    return `Today we are learning about ${math}.`
+  }
+  grade(student, science){
+    return `${student.name} receives a perfect score on ${science}.`
+  }
+
 
 }
+const teacher = new Instructor({
+  name: 'joe',
+  age: 45,
+  location: 'SLC',
+  specialty: 'SQL',
+  favLanguage: 'python',
+  catchPhrase: 'Dont forget the homies',
+})
+
 
 /*
   TASK 5
@@ -111,9 +180,35 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(attrs){
+    super(attrs)
+    this.previousBackground = attrs.previousBackground;
+    this.className = attrs.className;
+    this.favSubjects = attrs.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects.join()}!`
+  }
 
+  PRAssignment(english){
+    return `${this.name} has submitted a PR for ${english}.`
+  }
+
+  sprintChallenge(classes){
+    return `${this.name} has begun sprint challenge on ${classes}.`
+  }
 }
+
+const student = new Student ({
+  name:'jill',
+  age: 18,
+  location: 'SLC',
+  previousBackground: 'Jill was a professional skateboarder',
+  className: 'CS123',
+  favSubjects: ['html', 'CS', 'JSS']
+
+})
 
 /*
   TASK 6
@@ -128,9 +223,32 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(attributes){
+    super(attributes)
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+  }
+  standUp(politicsChannel){
+    return `${this.name} announces to ${politicsChannel}, @channel standy times!`;
+  }
+
+  debugsCode(sandy, watercoloring){
+    return `${this.name} debugs ${sandy.name}'s code on ${watercoloring}.`;
+  }
 
 }
+
+const PR = new ProjectManager({
+  name: 'Frank',
+  age: 83,
+  location: 'SLC',
+  specialty: 'Javascript',
+  favLanguage: 'python',
+  catchPhrase: 'hey',
+  gradClassName: 'CS1',
+  favInstructor: 'Sean'
+})
 
 /*
   STRETCH PROBLEM (no tests!)
