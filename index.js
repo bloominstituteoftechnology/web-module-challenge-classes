@@ -126,7 +126,7 @@ constructor(attrs) {
 };
 
 speak(){
-  return `Hello my  name is ${this.name}, I am from ${this.location}.`
+  return `Hello my  name is ${this.name}, I am from ${this.location}.` 
 };
 
 }
@@ -146,28 +146,21 @@ speak(){
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor({specialty, favLanguage, catchPhrase, subject, grade}) {
-    super(name);
-    this.specialty = specialty;
-    this.favLanguage = favLanguage;
-    this.catchPhrase = catchPhrase;
-    this.subject= subject
-    this.grade = grade
-  };
+  constructor(attrs) {
+    super(attrs);
+    this.specialty = attrs.specialty;
+    this.favLanguage = attrs.favLanguage;
+    this.catchPhrase = attrs.catchPhrase;  
+  }
 
   demo(subject){
     return `Today we are learning about ${subject}`;
   };
-  grade(student){
-    `${student.name} recieves a perfect score on ${subject}`;
+  grade(student, subject){
+    return `${student.name} recieves a perfect score on ${subject}`;
   };
 
-  randomGrade(){
-    const randint = Math.floor(math.random()*10);
-    const newGrade = Student.grade + randint;
-    return newGrade;
-  };
-}
+} // Class Ends
 
 /*
   TASK 5
