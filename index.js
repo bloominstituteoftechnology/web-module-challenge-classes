@@ -87,9 +87,24 @@ this.odometer = 0;
 
 
 fill(gallons){
-this.tank = this.tank += gallons
+this.tank = this.tank + gallons;
 }
 
+drive(distance){
+const gallonsNeeded = distance / this.milesPerGallon;
+const fuelLeft = this.tank - gallonsNeeded;
+const willWeMakeIt = fuelLeft >= 0;
+  if(willWeMakeIt === true){
+    this.odometer = this.odometer + distance;
+    this.tank = fuelLeft;
+  }
+  let outOfFuel;
+  if(willWeMakeIt === false){
+    outOfFuel = distance + fuelLeft;
+    this.tank = 0;
+    return `I ran out of fuel at ${outOfFuel} miles! being ${this.odometer}`
+  }
+}
 }
 
 /*
