@@ -81,6 +81,27 @@ toString(){
 */
 
 class Car {
+constructor( model, milesPerGallon){
+  this.tank = 0;
+  this.odometer = 0;
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+}
+
+fills(gallons){
+  this.tank += gallons; 
+};
+
+drive(distance) {
+  this.odometer += distance;
+console.log(`distance: ${distance} odometer: ${this.odometer}`);
+
+const tankEmpty = this.tank -= Math.round(distance / this.milesPerGallon);
+this.tank= 0;
+
+this.odometer = 0;
+return `I ran out of fuel at ${this.odometer} miles!`;
+}
 
 }
 
@@ -97,7 +118,15 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+constructor({name, age, location}) {
+  this.name = name;
+  this.age = age;
+  this.location = location;
+};
 
+speak(){
+  return `Hello my  name is ${name}, I am from ${location}`
+}
 }
 
 /*
