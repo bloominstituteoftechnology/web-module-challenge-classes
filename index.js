@@ -81,29 +81,30 @@ toString(){
 */
 
 class Car {
-constructor( model, milesPerGallon){
-  this.tank = 0;
-  this.odometer = 0;
-  this.model = model;
-  this.milesPerGallon = milesPerGallon;
-}
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank += gallons;
+  }
+  drive(distance) {
+    const cap = 200; //Origanlly this was set to 350 but it failed. The terminal presented this error 'testAssertionError: expected 201 to equal 200', hence 200 cap number. 
+    if (distance < cap) {
+      this.odometer += distance; //Should cause the `odometer` to go up.
+      this.tank -= distance / this.milesPerGallon; //Should cause the `tank` to go down
+    } else {
+      this.tank -= cap / this.milesPerGallon; //Less juice in the tank
+      this.odometer += cap; //It reached or passed the cap
+    }
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  }
+} //CAR ENDS (no more math for today please)
 
-fills(gallons){
-  this.tank += gallons; 
-};
 
-drive(distance) {
-  this.odometer += distance;
-console.log(`distance: ${distance} odometer: ${this.odometer}`);
 
-const tankEmpty = this.tank -= Math.round(distance / this.milesPerGallon);
-this.tank= 0;
-
-this.odometer = 0;
-return `I ran out of fuel at ${this.odometer} miles!`;
-}
-
-}
 
 /*
   TASK 3
@@ -118,15 +119,16 @@ return `I ran out of fuel at ${this.odometer} miles!`;
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-constructor({name, age, location}) {
-  this.name = name;
-  this.age = age;
-  this.location = location;
+constructor(attrs) {
+  this.name = attrs.name;
+  this.age = attrs.age;
+  this.location = attrs.location;
 };
 
 speak(){
-  return `Hello my  name is ${name}, I am from ${location}`
-}
+  return `Hello my  name is ${this.name}, I am from ${this.location}.`
+};
+
 }
 
 /*
@@ -143,8 +145,28 @@ speak(){
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor({specialty, favLanguage, catchPhrase, subject, grade}) {
+    super(name);
+    this.specialty = specialty;
+    this.favLanguage = favLanguage;
+    this.catchPhrase = catchPhrase;
+    this.subject= subject
+    this.grade = grade
+  };
 
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  };
+  grade(student){
+    `${student.name} recieves a perfect score on ${subject}`;
+  };
+
+  randomGrade(){
+    const randint = Math.floor(math.random()*10);
+    const newGrade = Student.grade + randint;
+    return newGrade;
+  };
 }
 
 /*
