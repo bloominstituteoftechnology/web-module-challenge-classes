@@ -215,6 +215,24 @@ class ProjectManager extends Instructor {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+// class noTests () {
+//   constructor () {
+//     this.grade = grade,
+//   }
+//WORK ON THIS
+Student.grade = 50;
+Student.prototype.graduate = function () {
+  if (this.grade >= 70) {
+    return `Let them graduate!`;
+  } else {
+    return `Grade more assignments.`;
+  }
+};
+Instructor.prototype.addPoints = function () {
+  let newGrade = (this.grade = Math.random());
+  return newGrade;
+};
+// }
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
