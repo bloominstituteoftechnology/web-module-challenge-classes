@@ -41,8 +41,24 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = []
+  }
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood)
+    }
+  }
+  poop() {
+    this.stomach = []
+  }
+  toString() {
+    return `${this.name}, ${this.age}`
+  }
 }
+const newPerson = new Person();
 
 /*
   TASK 2
@@ -59,7 +75,28 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank = this.tank + gallons
+    this.maxRange = this.tank * this.milesPerGallon
+  }
+  drive(distance) {
+    console.log(this.maxRange);
+    this.tank = Math.floor(this.tank - (distance / this.milesPerGallon))
+    this.odometer = Math.floor(this.odometer + distance);
+    console.log(this.odometer)
+    if (distance <= this.maxRange) {
+      return this.tank, this.odometer
+    }
+    else {
+      return `I ran out of fuel at ${distance - this.maxRange} miles!`
+    }
+  }
 }
 
 /*
@@ -75,6 +112,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 
 }
 
@@ -89,12 +134,30 @@ class Lambdasian {
     - The constructor calls the parent constructor passing it what it needs.
     - The constructor should also initialize `specialty`, `favLanguage` and `catchPhrase` properties on the instance.
     - Instructor instances have the following methods:
-        + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-        + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
-*/
-class Instructor {
+        + `demo` receives a `subject` string as an argument and returns the phrase 
+        'Today we are learning about {subject}' where subject is the param passed in.
 
+        + `grade` receives a `student` object and a `subject` string as arguments and 
+        returns '{student.name} receives a perfect score on {subject}'
+*/
+class Instructor extends Lambdasian {
+  constructor(attributes) {
+    super(attributes);
+    this.specialty = attributes.specialty;
+    this.favLanguage = attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase;
+  }
+  demo(string) {
+    return `Today we are learning about ${string}' where subject is the param passed in`
+  }
+  grade(student, string) {
+    return `${student.name} receives a perfect score on ${string}`
+  }
 }
+
+
+
+
 
 /*
   TASK 5
