@@ -41,8 +41,51 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+    this.stomachContents = function() {
+      if (this.stomach.length === 0) {
+        return `Items: ${this.stomach.length}`;
+      } else {
+        return `${this.stomach}.\n\nItems: ${this.stomach.length}`;
+      }
+    }
+    this.eat = function(food) {
+      if (this.stomach.length < 10) {
+        this.stomach.push(food);
+        return `${name} successfully ate the ${food}.`;
+      } else {
+        return `${name}'s stomach is too full to eat the ${food}!`;
+      }
+    }
+    this.poop = function() {
+      this.stomach = [];
+      if (this.stomach.length === 0) {
+        return `${name}'s stomach is now empty.`
+      }
+    }
+    this.info = `Name: ${name}\nAge: ${age}`;
+  }
 }
+
+const user1 = new Person('Noah', 21);
+// user1.info;
+// user1.eat('Apple');
+// user1.eat('Pear');
+// user1.eat('Orange');
+// user1.eat('Carrot');
+// user1.eat('Apple');
+// user1.eat('Pear');
+// user1.eat('Orange');
+// user1.eat('Carrot');
+// user1.eat('Apple');
+// user1.eat('Pear');
+// user1.stomachContents();
+// user1.eat('Carrot');
+// user1.poop();
+// user1.stomachContents();
 
 /*
   TASK 2
