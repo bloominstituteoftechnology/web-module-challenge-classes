@@ -45,33 +45,38 @@ class Person {
     this.name = name;
     this.age = age;
     this.stomach = [];
-    this.stomachContents = function() {
-      if (this.stomach.length === 0) {
-        return `Items: ${this.stomach.length}`;
-      } else {
-        return `${this.stomach}.\n\nItems: ${this.stomach.length}`;
-      }
+  }
+
+  poop() {
+    this.stomach = [];
+    return `${this.name}'s stomach is now empty.`;
+  }
+
+  eat(food) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(food);
+      return `${this.name} successfully ate the ${food}.`;
+    } else {
+      return `${this.name}'s stomach is too full to eat the ${food}!`;
     }
-    this.eat = function(food) {
-      if (this.stomach.length < 10) {
-        this.stomach.push(food);
-        return `${name} successfully ate the ${food}.`;
-      } else {
-        return `${name}'s stomach is too full to eat the ${food}!`;
-      }
+  }
+  
+  stomachContents() {
+    if (this.stomach.length === 0) {
+      return `Items: ${this.stomach.length}`;
+    } else {
+      return `${this.stomach}.\n\nItems: ${this.stomach.length}`;
     }
-    this.poop = function() {
-      this.stomach = [];
-      if (this.stomach.length === 0) {
-        return `${name}'s stomach is now empty.`
-      }
-    }
-    this.info = `Name: ${name}\nAge: ${age}`;
+  }
+
+  info() {
+    return `Name: ${this.name}\nAge: ${this.age}`;
   }
 }
 
 const user1 = new Person('Noah', 21);
-// user1.info;
+
+// user1.info();
 // user1.eat('Apple');
 // user1.eat('Pear');
 // user1.eat('Orange');
@@ -83,9 +88,7 @@ const user1 = new Person('Noah', 21);
 // user1.eat('Apple');
 // user1.eat('Pear');
 // user1.stomachContents();
-// user1.eat('Carrot');
 // user1.poop();
-// user1.stomachContents();
 
 /*
   TASK 2
@@ -102,8 +105,39 @@ const user1 = new Person('Noah', 21);
 */
 
 class Car {
+  constructor(model, mpg) {
+    this.model = model;
+    this.mpg = mpg;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 
+  fill(gallons) {
+    this.tank += gallons;
+  }
+
+  drive(distance) {
+    this.odometer += distance;
+    this.tank -= distance / this.mpg;
+    if (this.tank <= 0) {
+      return `You ran out of fuel at ${this.odometer} miles!`;
+    } else if (this.tank > 1) {
+      return `Odometer: ${this.odometer} miles\nTank: ${this.tank} gallons`;
+    } else {
+      return `Odometer: ${this.odometer} miles\nTank: ${this.tank} gallon`;
+    }
+  }
 }
+
+const myCar = new Car('Civic', 30);
+
+// myCar.fill(7);
+// myCar.fill(3);
+// myCar.fill(3);
+// myCar.drive(60);
+// myCar.drive(300);
+// myCar.drive(30);
+// myCar.drive(30);
 
 /*
   TASK 3
@@ -118,8 +152,26 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(obj) {
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
+  }
 
+  speak() {
+    return `Hello! My name is ${this.name}, and I am from ${this.location}.`;
+  }
 }
+
+const noah = {
+  name: 'Noah',
+  age: 21,
+  location: 'Madison, WI',
+};
+
+const lambdasian1 = new Lambdasian(noah);
+
+// lambdasian1.speak();
 
 /*
   TASK 4
@@ -135,9 +187,35 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian{
+  constructor(obj) {
+    super(obj)
+    this.specialty = obj.specialty;
+    this.favLanguage = obj.favLanguage;
+    this.catchPhrase = obj.catchPhrase;
+  }
 
+  demo(subject) {
+    return `Today we are learning about ${subject}.`;
+  }
+
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on the ${subject}!`;
+  }
 }
+
+const kai = {
+  name: 'Kai',
+  age: 26,
+  location: 'New York, NY',
+  specialty: 'JavaScript',
+  favLanguage: 'HTML',
+  catchPhrase: 'Okay guys, time for our 1:1\'s!',
+};
+
+const instructor1 = new Instructor(kai);
+
+// instructor1.grade(lambdasian1, 'Google Replication Sprint');
 
 /*
   TASK 5
@@ -154,9 +232,41 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(obj) {
+    super(obj);
+    this.previousBackground = obj.previousBackground;
+    this.className = obj.className;
+    this.favSubjects = obj.favSubjects;
+  }
 
+  listSubjects() {
+    return `Loving ${this.favSubjects.join(', ')}!`;
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}!`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun the sprint challenge on ${subject}!`;
+  }
 }
+
+const jimmy = {
+  name: 'Jimmy',
+  age: 22,
+  location: 'Orlando, FL',
+  previousBackground: 'Repaired computers',
+  className: 'CS132',
+  favSubjects: ['Math', 'Science', 'Philosophy'],
+};
+
+const student1 = new Student(jimmy);
+
+// student1.listSubjects();
+// student1.PRAssignment('JS-Exercise-Classes');
+// student1.sprintChallenge('The New World Order');
 
 /*
   TASK 6
@@ -171,9 +281,35 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(obj) {
+    super(obj);
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
+  }
 
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}. `;
+  }
 }
+
+const larry = {
+  name: 'Larry',
+  age: 45,
+  location: 'Houston, TX',
+  specialty: 'Backend development',
+  favLanguage: 'Python',
+  catchPhrase: 'The office pool table is only for luring purposes.',
+};
+
+const manager1 = new ProjectManager(larry);
+
+// manager1.standUp('webpt18');
+// manager1.debugsCode(student1, 'Scopes and Closures');
 
 /*
   STRETCH PROBLEM (no tests!)
