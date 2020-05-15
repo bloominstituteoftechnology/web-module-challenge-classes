@@ -86,9 +86,16 @@ class Car {
     this.tank = this.tank + gallons;
   }
   drive(distance){
-    this.odometer = this.odometer + distance;
-    this.tank = this.tank - distance/this.milesPerGallon;
-    if (this.tank === 0){
+       
+    let max = this.tank * this.milesPerGallon;
+    if (distance <= max){
+      this.odometer = this.odometer + distance;
+      this.tank = this.tank - distance/this.milesPerGallon;
+      
+    }
+    else{
+      this.odometer = this.odometer + max;
+      this.tank = 0;      
       return `I ran out of fuel at ${this.odometer} miles!`;
     }
   }
