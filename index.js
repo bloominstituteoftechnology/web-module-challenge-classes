@@ -121,10 +121,30 @@ drive(distance) {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
+
+const Obj = function(name, age, location) {
+    this.name = name,
+        this.age = age,
+        this.location = location
+};
+
 class Lambdasian {
 
-}
+    constructor(Obj) {
+        this.name = Obj.name;
+        this.age = Obj.age;
+        this.location = Obj.location;
+    }
 
+    speak() {
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
+    }
+
+    getGrade(score) {
+        return score - (Math.random() * 10);
+    }
+
+}
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
