@@ -40,8 +40,32 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`;
+  };
+}
+
+class eat{
+  constructor(stomach){
+  
+    this.stomach = stomach;
+
+    if(this.stomach.length < 10) {
+      this.stomach.push(eat);
+    }
+    return this.stomach;
+  }
+}
+
+class poop {
+  constructor() {
+    this.stomach = [];
+  }
 }
 
 /*
@@ -59,7 +83,25 @@ class Person {
 */
 
 class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
 
+  fill(gallons) {
+    this.tank += gallons;
+  }
+
+  drive(distance) {
+    if(distance / this.milesPerGallon > this.tank) {
+      this.drive(this.milesPerGallon *this.tank);
+      return `I ran out of fuel at ${this.odometer}!`;
+    }
+      this.tank -= distance / this.milesPerGallon;
+    this.odometer += distance;
+  }
 }
 
 /*
@@ -75,7 +117,15 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(name,age,location) {
+    this.name = name;
+    this.age = age;
+    this.location = location;
+  }
 
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
 
 /*
@@ -92,9 +142,17 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian {
+  constructor(attributes) {
+    super(attributes)
+  }
 }
+
+const teacher = new Instructor ({
+  specialty: 'redux',
+  favLanguage: 'JavaScript',
+  catchPhrase: "don't forget the homies"
+});
 
 /*
   TASK 5
