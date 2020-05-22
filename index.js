@@ -202,9 +202,9 @@ console.log(Bob.grade("Vincent", "Javascript"));
 class Student extends Lambdasian{
   constructor(attributes){
     super(attributes)
-    this.previousBackground = attributes.previousBackground
-    this.className = attributes.className
-    this.favSubjects = attributes.favSubjects
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
   }
     listSubjects(){
       return `Loving ${this.favSubjects}!`
@@ -220,7 +220,7 @@ const Jim = new Student({
   previousBackground: "Actor",
   className: "Web32",
   favSubjects: ["HTML","CSS","JS"]
-})
+});
 console.log(Jim.listSubjects());
 console.log(Jim.PRAssignment("Jim", "JS"))
 console.log(Jim.sprintChallenge("Jim", "CSS"))
@@ -240,8 +240,24 @@ console.log(Jim.sprintChallenge("Jim", "CSS"))
 class ProjectManager extends Instructor{
   constructor(attributes){
     super(attributes)
-    
+    this.gradClassName = attributes.gradClassName
+    this.favInstructor = attributes.favInstructor
 }
+  standUp(name, channel){
+    return `${name} announces to ${channel}, @${channel} standy times!`
+  }
+  debugCode(name, student, subject){
+  return `${name} debugs ${student}'s code on ${subject}`
+  };
+}
+
+const Will = new ProjectManager({
+gradClassName: "web10",
+favInstructor: "Daniel Taylor"
+});
+
+console.log(Will.standUp("Andrew", "webhelp"));
+console.log(Will.debugCode("Will", "Andrew", "Javascript"));
 
 /*
   STRETCH PROBLEM (no tests!)
