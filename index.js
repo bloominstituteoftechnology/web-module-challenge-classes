@@ -41,8 +41,35 @@ class Airplane {
 */
 
 class Person {
+  constructor(attributes){
+    this.name = attributes.name
+    this.age = attributes.age
+    this.stomach = []
+  }
+  
+  eat(food){ 
+    if(this.stomach.length <= 10){
+      this.stomach.push(food);}
+  }
+
+  poop(){
+    this.stomach = [];
+  }
+
+  toString(){
+   return `${this.name} is ${this.age} years old!`;
+  }
 
 }
+const Andrew = new Person({
+name: "Andrew",
+age: 27
+});
+
+console.log(Andrew);
+Andrew.eat("chicken");
+console.log(Andrew.stomach);
+console.log(Andrew.toString())
 
 /*
   TASK 2
@@ -59,8 +86,35 @@ class Person {
 */
 
 class Car {
-
+  constructor(attributes){
+    this.model = attributes.model;
+    this.milesPerGallon = attributes.milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank = this.tank + gallons;
+  }
+  drive(distance){
+    this.odometer = this.odometer + distance;
+    this.tank = this.tank - (distance/this.milesPerGallon);
+    if (this.tank === 0){
+      console.log(`I ran out of fuel at ${this.odometer} miles!`)
+   }
+  }
 }
+
+const Ford = new Car({
+model: "Ford",
+milesPerGallon: 20
+});
+
+console.log(Ford);
+Ford.fill(20);
+console.log(Ford.tank);
+Ford.drive(400);
+console.log(Ford.odometer);
+console.log(Ford.tank);
 
 /*
   TASK 3
@@ -75,8 +129,25 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+speak(){
+return `Hello my name is ${this.name}, I am from ${this.location}`;
 }
+ }
+
+const Me = new Lambdasian({
+name: "Andrew",
+age: 27,
+location: "Home"  
+});
+
+console.log(Me);
+console.log(Me.speak());
+
 
 /*
   TASK 4
@@ -92,10 +163,27 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian{
+  constructor(attributes){
+    super(attributes)
+    this.specialty = attributes.specialty;
+    this.favLanguage = attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+    return `${student} receives a perfect score on ${subject}`;
+  }  
 }
-
+const Bob = new Instructor({
+  specialty: "troubleshooting",
+  favLanguage: "Javascript",
+  catchPhrase: "Don't forge the homies"  
+})
+console.log(Bob.demo("Javascript"));
+console.log(Bob.grade("Vincent", "Javascript"));
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -111,10 +199,31 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(attributes){
+    super(attributes)
+    this.previousBackground = attributes.previousBackground
+    this.className = attributes.className
+    this.favSubjects = attributes.favSubjects
+  }
+    listSubjects(){
+      return `Loving ${this.favSubjects}!`
+    }
+    PRAssignment(student, subject){
+      return `${student} has submitted a PR for ${subject}`
+    }
+    sprintChallenge(student, subject){
+      return `${student} has begun sprint challenge on ${subject}`
+    }
 }
-
+const Jim = new Student({
+  previousBackground: "Actor",
+  className: "Web32",
+  favSubjects: ["HTML","CSS","JS"]
+})
+console.log(Jim.listSubjects());
+console.log(Jim.PRAssignment("Jim", "JS"))
+console.log(Jim.sprintChallenge("Jim", "CSS"))
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -128,8 +237,10 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attributes){
+    super(attributes)
+    
 }
 
 /*
