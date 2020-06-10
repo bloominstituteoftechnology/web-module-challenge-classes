@@ -2,10 +2,12 @@
 
 This challenge focuses on using the new for ES6 `class` syntax.
 
-##### Index
+## JavaScript Fundamentals
 
-* [Instructions](#instructions)
-* [Get Started](#get-started)
+## Objectives
+
+- Student should be able to describe and demonstrate how class syntax works
+- Student should be able to convert a pseudo classically instantiated program into class syntax
 
 ## Instructions
 
