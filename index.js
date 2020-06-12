@@ -207,14 +207,60 @@ class Instructor extends Lambdasian {
         + `className` i.e. CS132
         + `favSubjects`. i.e. an array of the student's favorite subjects ['HTML', 'CSS', 'JS']
     - The constructor calls the parent constructor passing to it what it needs.
-    - The constructor should also initialize `previousBackground`, `className` and `favSubjects` properties on the instance.
+    - The constructor should also initialize `previousBackground`, `className` and `favSubjects` properties
+     on the instance.
     - Student instances have the following methods:
-        + `listSubjects` a method that returns all of the student's favSubjects in a single string: `Loving HTML, CSS, JS!`.
-        + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
-        + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
+        + `listSubjects` a method that returns all of the student's favSubjects in a single string: 
+        `Loving HTML, CSS, JS!`.
+        + `PRAssignment` a method that receives a subject as an argument and returns `student.name has 
+        submitted a PR for {subject}`
+        `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint 
+        challenge on {subject}`
 */
-class Student {}
+class Student extends Lambdasian {
+  constructor(studentAttr) {
+    super(studentAttr);
+    this.previousBackground = studentAttr.previousBackground;
+    this.className = studentAttr.className;
+    this.grade = Math.round(Math.random() * 100 - 50) + 50;
+    this.favSubjects = studentAttr.favSubjects;
+  }
+  listSubjects() {
+    let listSubject = "Loving";
+    this.favSubjects.forEach((sub) => {
+      listSubject += `${sub},`;
+    });
+    return listSubject;
+  }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+}
+const Shenandoah = new Student({
+  name: "Shenandoah",
+  age: 41,
+  location: "Holland, MI",
+  previousBackground: "customer service management",
+  className: "WebPT19",
+  favSubjects: ["html", "css", "js"],
+});
+const Bill = new Instructor({
+  name: "Bill",
+  age: 38,
+  location: "the moon",
+  className: "WebPT19",
+  specialty: "js",
+  favLanguage: "python",
+  catchPhrase: "Schnikies",
+});
 
+console.log(Shenandoah);
+console.log(Bill.score(Shenandoah));
+console.log(Shenandoah.grade);
+console.log(Shenandoah.sprintChallenge);
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
