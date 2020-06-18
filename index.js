@@ -41,14 +41,14 @@ class Airplane {
 */
 
 class Person {
-  constructor(attributes){
-    this.name = attributes.name
-    this.age = attributes.age
+  constructor(name, age){
+    this.name = name,
+    this.age = age,
     this.stomach = []
   }
   
   eat(food){ 
-    if(this.stomach.length <= 10){
+    if(this.stomach.length < 10){
       this.stomach.push(food);}
   }
 
@@ -61,10 +61,7 @@ class Person {
   }
 
 }
-const Andrew = new Person({
-name: "Andrew",
-age: 27
-});
+const Andrew = new Person("Andrew", 27);
 
 console.log(Andrew);
 Andrew.eat("chicken");
@@ -86,9 +83,9 @@ console.log(Andrew.toString())
 */
 
 class Car {
-  constructor(attributes){
-    this.model = attributes.model;
-    this.milesPerGallon = attributes.milesPerGallon;
+  constructor(model, milesPerGallon){
+    this.model = model,
+    this.milesPerGallon = milesPerGallon,
     this.tank = 0;
     this.odometer = 0;
   }
@@ -96,18 +93,17 @@ class Car {
     this.tank = this.tank + gallons;
   }
   drive(distance){
+    if (this.tank - (distance/this.milesPerGallon) < 0){
+      this.odometer = this.odometer + this.milesPerGallon * this.tank;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`
+   }
     this.odometer = this.odometer + distance;
     this.tank = this.tank - (distance/this.milesPerGallon);
-    if (this.tank === 0){
-      console.log(`I ran out of fuel at ${this.odometer} miles!`)
-   }
   }
 }
 
-const Ford = new Car({
-model: "Ford",
-milesPerGallon: 20
-});
+const Ford = new Car("Ford", 20);
 
 console.log(Ford);
 Ford.fill(20);
@@ -174,13 +170,13 @@ class Instructor extends Lambdasian{
     return `Today we are learning about ${subject}`;
   }
   grade(student, subject){
-    return `${student} receives a perfect score on ${subject}`;
+    return `${student.name} receives a perfect score on ${subject}`;
   }  
 }
 const Bob = new Instructor({
   specialty: "troubleshooting",
   favLanguage: "Javascript",
-  catchPhrase: "Don't forge the homies"  
+  catchPhrase: "Don't forget the homies"  
 })
 console.log(Bob.demo("Javascript"));
 console.log(Bob.grade("Vincent", "Javascript"));
@@ -209,11 +205,11 @@ class Student extends Lambdasian{
     listSubjects(){
       return `Loving ${this.favSubjects}!`
     }
-    PRAssignment(student, subject){
-      return `${student} has submitted a PR for ${subject}`
+    PRAssignment(subject){
+      return `${this.name} has submitted a PR for ${subject}`
     }
-    sprintChallenge(student, subject){
-      return `${student} has begun sprint challenge on ${subject}`
+    sprintChallenge(subject){
+      return `${this.name} has begun sprint challenge on ${subject}`
     }
 }
 const Jim = new Student({
@@ -243,11 +239,11 @@ class ProjectManager extends Instructor{
     this.gradClassName = attributes.gradClassName
     this.favInstructor = attributes.favInstructor
 }
-  standUp(name, channel){
-    return `${name} announces to ${channel}, @${channel} standy times!`
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @${channel} standy times!`
   }
-  debugCode(name, student, subject){
-  return `${name} debugs ${student}'s code on ${subject}`
+  debugsCode(student, subject){
+  return `${this.name} debugs ${student.name}'s code on ${subject}`
   };
 }
 
@@ -257,7 +253,7 @@ favInstructor: "Daniel Taylor"
 });
 
 console.log(Will.standUp("Andrew", "webhelp"));
-console.log(Will.debugCode("Will", "Andrew", "Javascript"));
+console.log(Will.debugsCode("Will", "Andrew", "Javascript"));
 
 /*
   STRETCH PROBLEM (no tests!)
