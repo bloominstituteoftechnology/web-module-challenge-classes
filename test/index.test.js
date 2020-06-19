@@ -220,6 +220,8 @@ describe('Instance of Instructor', () => {
 describe('Instances of Student', () => {
   let student
   beforeEach(() => {
+
+    // @ts-ignore
     student = new results.Student(studentAttr)
   })
   it('[1] initializes with the given name, age and location', () => {
@@ -268,6 +270,7 @@ describe('Instances of Student', () => {
 describe('Instance of ProjectManager', () => {
   let pm
   beforeEach(() => {
+    // @ts-ignore
     pm = new results.ProjectManager(projectManagerAttr)
   })
   it('[1] initializes with all the fields instructors have', () => {
