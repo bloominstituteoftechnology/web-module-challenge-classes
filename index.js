@@ -144,7 +144,21 @@ console.log(me.speak())
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian{
+  constructor(attr){
+    super(attr);
+    this.specialty = attr.specialty;
+    this.favLanguage = attr.favLanguage;
+    this.catchPhrase = attr.catchPhrase;
+    }
+
+demo(subject){
+  return `Today we are learning about ${subject}` 
+}
+
+grade(student, subject){
+  return `${student.name} receives a perfect score on ${subject}`
+}
 
 }
 
@@ -163,9 +177,24 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian {
+  constructor(attr){
+    super(attr);
+    this.previousBackground = attr.previousBackground;
+    this.className = attr.className;
+    this.favSubjects = attr.favSubjects;
 
 }
+
+listSubjects(favSubjects){
+  for (i = 0; i < favSubjects; i++ )
+  return `Loving ${subjects[i].favSubjects} `
+}
+
+
+}
+const subjects = [];
+let i;
 
 /*
   TASK 6
