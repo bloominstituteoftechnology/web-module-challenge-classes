@@ -191,10 +191,22 @@ listSubjects(favSubjects){
   return `Loving ${subjects[i].favSubjects} `
 }
 
+PRAssignment(subject){
+  return `student.name has submitted a PR for ${subject}`
+}
+
+sprintChallenge(subject){
+  return `student.name has begun sprint challenge on${subject}`
+}
+
 
 }
 const subjects = [];
+const student = [];
+const name = ["Jeff"];
 let i;
+
+// REVIEW!!!
 
 /*
   TASK 6
