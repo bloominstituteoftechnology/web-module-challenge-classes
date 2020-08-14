@@ -273,14 +273,35 @@ console.log(rick.sprintChallenge('SASS'));
         + `gradClassName`: i.e. CS1
         + `favInstructor`: i.e. Sean
     - Its constructor calls the parent constructor passing to it what it needs.
-    - The constructor should also initialize `gradClassName` and `favInstructor` properties on the instance.
+    - The constructor should also initialize `gradClassName` and `favInstructor`
+     properties on the instance.
     - ProjectManager instances have the following methods:
-        + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
-        + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
+        + `standUp` a method that takes in a slack channel and returns `{name} announces 
+        to {channel}, @channel standy times!`
+        + `debugsCode` a method that takes in a student object and a subject and returns
+         `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(obj){
+    super(obj);
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @${channel} standy times!`;
+  }
+  debugsCode(studObj,subj){
+    return `${this.name} debugs ${studObj.name}'s code on ${subj}`;
+  }
+
 
 }
+  let cindy = new ProjectManager({name:'Cindy Cinderson',age:19,location:'Pluto',specialty:'Javascript'
+  ,favLanguage:'Chinese',catchPhrase:'Chinese, Dirty knees, and Check these out!',gradClassName:'Webpt 21'
+        , favInstructor:'Nicholas Lacapria'});
+  console.log(cindy.standUp('Webpt 2001'));
+  console.log(cindy.debugsCode(rick,'Jquery'));
+
 
 /*
   STRETCH PROBLEM (no tests!)
