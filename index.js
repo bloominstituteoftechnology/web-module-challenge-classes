@@ -118,8 +118,8 @@ class Car {
   drive(distance){
     // https://itstillruns.com/calculate-gallons-gas-used-7615514.html 
     // Formula to find how many gallons was used by the distance and mpg
-    this.odometer = this.getRandomInt(15,55) ;
-    console.log('Driveing '+this.odometer+' MPH');
+    let milesPerHour = this.getRandomInt(15,55) ;
+    console.log('Driveing '+milesPerHour+' MPH');
     console.log('There are '+this.tank+' gallons in the tank before traveling');
     let tankBeforeTraveling = this.tank;
     let subFromThetank = 1/this.milesPerGallon;
@@ -129,21 +129,24 @@ class Car {
     if(this.tank <= 0){
       // Ran out of gas
       // How many gallons of gas need to be added to get to zero
-      console.log('Whats in the tank '+ this.tank + ' gallons of gas');
+      //console.log('Whats in the tank '+ this.tank + ' gallons of gas');
       let makeup = this.tank * this.milesPerGallon;
-      console.log('make up for '+ makeup + ' miles');
+      //console.log('make up for '+ makeup + ' miles');
       let onlyMadeIt = this.milesPerGallon * this.lastFilledUp ;
-      console.log('Only made it '+ onlyMadeIt+ ' miles into the trip');
+      //console.log('Only made it '+ onlyMadeIt+ ' miles into the trip');
+      this.odometer = this.odometer += onlyMadeIt;
+      return ` Rand out of fuel at the odometer reading ${this.odometer} which was ${onlyMadeIt} miles
+        into the trip. You must make up for ${makeup} miles of gasoline to complete the trip of ${distance} miles successfully `;
 
     }else
-    console.log('There are '+this.tank+' gallons in the tank after traveling ' + distance + ' miles');
-    
+    return 'There are '+this.tank+' gallons in the tank after traveling ' + distance + ' miles';
+    this.odometer = this.odometer += distance;
   }
 }
 
 let thecar = new Car('theCar',20);
 thecar.fill(2);
-thecar.drive(60);
+console.log(thecar.drive(60));
 
 
 
@@ -154,14 +157,25 @@ thecar.drive(60);
         + name
         + age
         + location
-    - Its constructor should initialize `name`, `age` and `location` properties on the instance.
+    - Its constructor should initialize `name`, `age` and `location` properties on
+     the instance.
     - Instances of Lambdasian should be able to `.speak()`:
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
+
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(obj){
+    this.name = obj.name;
+    this.age = obj.age;
+    this.location = obj.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
 }
+let lambdas  = new Lambdasian({name:'Flippen Nipperson',age:177,location:'Iceland'});
+console.log(lambdas.speak());
 
 /*
   TASK 4
