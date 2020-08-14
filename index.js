@@ -41,9 +41,9 @@ class Airplane {
 */
 
 class Person {
- constructor(name, age){
-   this.name = name;
-   this.age = age;
+ constructor(attr){
+   this.name = attr.name;
+   this.age = attr.age;
    this.stomach = [];
  }
 
@@ -51,16 +51,20 @@ class Person {
   if(this.stomach.length < 10){
     this.stomach.push(someFood)
   }
+  return this.stomach
  }
 
  poop(){
-   return this.stomach.length = 0;
+   this.stomach = [];
  }
 
  toString(){
   return `${this.name}, ${this.age}`
 }
 }
+
+let marc = new Person({name: 'Marc', age: 30})
+console.log(marc)
 
 /*
   TASK 2
@@ -114,10 +118,10 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(name, age, location){
-    this.name = name;
-    this.age = age;
-    this.location = location;
+  constructor(attr){
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
   }
 
   speak(){
@@ -150,7 +154,7 @@ class Instructor extends Lambdasian{
   demo(subject){
     return `Today we are learning about ${subject}`
   }
-  grade(student,subject){
+  grade(student, subject){
    return `${student.name} receives a perfect score on ${subject}`
   }
 }
@@ -177,12 +181,15 @@ class Student extends Lambdasian {
     this.className = attributes.className
     this.favSubjects = attributes.favSubjects
   }
+
   listSubjects(){
     return `Loving ${this.favSubjects}`
   }
+
   PRAssignmant(subject){
     return `${this.name} has submitted a PR for ${subject}`
   }
+
   sprintChallenge(subject){
     return `${this.name} has begun sprint challenge on ${subject}`
   }
