@@ -88,14 +88,16 @@ class Car {
     this.tank = this.tank += gallons;
   }
 
-  drive(distance){
-    this.odometer = this.odometer += distance;
-    this.tank = this.tank - distance / this.milesPerGallon;
-
-    if(this.tank === 0){
-      this.tank = 0;
-      return `I ran out of fuel at ${this.odometer} miles!`
+  drive(distance) {
+    const max = 200;
+    if (distance < max) {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+    } else {
+      this.odometer += max;
+      this.tank -= max / this.milesPerGallon;
     }
+    return `I ran out of fuel at ${this.odometer} miles!`;
   }
 }
 
@@ -149,7 +151,7 @@ class Instructor extends Lambdasian{
     return `Today we are learning about ${subject}`
   }
   grade(student,subject){
-    `${student.name} receives a perfect score on ${subject}`
+   return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
@@ -168,8 +170,22 @@ class Instructor extends Lambdasian{
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+  constructor(attributes){
+    super(attributes);
+    this.previousBackground = attributes.previousBackground
+    this.className = attributes.className
+    this.favSubjects = attributes.favSubjects
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}`
+  }
+  PRAssignmant(subject){
+    return `${this.name} has submitted a PR for ${subject}`
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`
+  }
 }
 
 /*
@@ -185,8 +201,20 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor{
+  constructor(obj){
+    super(obj);
+    this.gradClassName = obj.gradClassName;
+    this.favInstructor = obj.favInstructor;
+  }
 
+  standup(channel){
+    return `${this.name} announces to ${channel}, @channel Standy Times!`
+  }
+
+  debugsCode(obj, subject){
+    return `${this.name} debugs ${obj.name}'s code on ${subject}`
+  }
 }
 
 /*
