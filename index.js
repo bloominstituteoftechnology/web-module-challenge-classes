@@ -254,12 +254,16 @@ class Student extends Lambdasian {
   PRAssignment(sub){
     return `${this.name} has submitted a PR for ${sub}`;
   }
+  sprintChallenge(sub){
+    return `${this.name} has begun sprint challenge on ${sub}`;
+  }
 }
 let favAr = ['PHP', 'HTML', 'CSS', 'Less', 'Sass', 'Bootstrap', 'Javascript', 'React', 'Jquery', 'Babylon3D', 'Java', 'C++', 'C#', 'A+']
 let rick = new Student({name:'Rick Stick',age:77,location:'Red Planet',previousBackground:'Wood Chucker'
           ,className:'Rich Guy', favSubjects:favAr});
 console.log(rick.listSubjects());
 console.log(rick.PRAssignment('Perl'));
+console.log(rick.sprintChallenge('SASS'));
 
           /*
   TASK 6
