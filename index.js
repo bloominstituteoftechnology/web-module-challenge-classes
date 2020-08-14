@@ -176,7 +176,7 @@ class Student extends Lambdasian{
   listSubjects(){
     let string = ""
     this.favSubjects.forEach(element => {
-      if (string.length != (this.favSubjects.length - 1)){
+      if (string.length !== (this.favSubjects.length - 1)){
         string.concat(` ${element},`);
       }
       else{
