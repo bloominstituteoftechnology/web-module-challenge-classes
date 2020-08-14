@@ -41,26 +41,111 @@ class Airplane {
 */
 
 class Person {
+  constructor(n,a){
+    this.name = n;
+    this.age = a;
+    this.stomach = [];
+     
+  }
+  eat(someFood){
+   if(this.stomach.length <= 9){
+    this.stomach.push(someFood);
+   }
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return this.name + ' age: ' + this.age;
+  }
+  seeStomach(){
+    for(  let i in this.stomach){
+        if(this.stomach.length === 0){
+          console.log('Stomach Empty');
+          
+        }else 
+        console.log(this.stomach[i]);
+        
+    }
+  }
 
 }
+let frank = new Person('frank',212);
+frank.eat('food');
+frank.seeStomach();
+console.log(frank.toString());
+frank.poop();
+frank.seeStomach();
+
+
+
 
 /*
   TASK 2
-    - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
+    - Write a Car class whose constructor initializes `model` and `milesPerGallon` 
+    from arguments.
     - All instances built with Car:
         + should initialize with a `tank` at 0
         + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+    - Give cars the ability to get fueled with a `.fill(gallons)` method. 
+    Add the gallons to `tank`.
     - Give cars ability to `.drive(distance)`. The distance driven:
         + Should cause the `odometer` to go up.
         + Should cause the the `tank` to go down taking `milesPerGallon` into account.
     - A car which runs out of `fuel` while driving can't drive any more distance:
-        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+        + The `drive` method should return a string "I ran out of fuel at x miles!" 
+        x being `odometer`.
 */
 
 class Car {
+  constructor(model,mpg){
+    this.model = model;
+    this.milesPerGallon = mpg;
+    this.tank = 0;
+    this.odometer = 0;
+    this.lastFilledUp = 0;
+  }
 
+  fill(gallons){
+    this.lastFilledUp = gallons;
+    this.tank = this.tank += gallons;
+  }
+   getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+  drive(distance){
+    // https://itstillruns.com/calculate-gallons-gas-used-7615514.html 
+    // Formula to find how many gallons was used by the distance and mpg
+    this.odometer = this.getRandomInt(15,55) ;
+    console.log('Driveing '+this.odometer+' MPH');
+    console.log('There are '+this.tank+' gallons in the tank before traveling');
+    let tankBeforeTraveling = this.tank;
+    let subFromThetank = 1/this.milesPerGallon;
+    console.log('whats been subtracted from the tank after a mile '+ subFromThetank);
+    let gallonsUsed = distance * subFromThetank;
+    this.tank = this.tank -= gallonsUsed;
+    if(this.tank <= 0){
+      // Ran out of gas
+      // How many gallons of gas need to be added to get to zero
+      console.log('Whats in the tank '+ this.tank + ' gallons of gas');
+      let makeup = this.tank * this.milesPerGallon;
+      console.log('make up for '+ makeup + ' miles');
+      let onlyMadeIt = this.milesPerGallon * this.lastFilledUp ;
+      console.log('Only made it '+ onlyMadeIt+ ' miles into the trip');
+
+    }else
+    console.log('There are '+this.tank+' gallons in the tank after traveling ' + distance + ' miles');
+    
+  }
+}
+
+let thecar = new Car('theCar',20);
+thecar.fill(2);
+thecar.drive(60);
+
+
 
 /*
   TASK 3
