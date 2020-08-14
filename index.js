@@ -91,10 +91,14 @@ class Car {
   }
 
   drive(distance) {
+    if (this.tank > distance/ this.milesPerGallon) {
   this.odometer += distance; 
-  this.milesPerGallon -= distance;  
-    if (this.milesPerGallon === 0)
+  this.tank -= distance / this.milesPerGallon;  
+} else{
+  this.odometer += this.tank * this.milesPerGallon;
+    this.tank = 0;
     return `I ran out of fuel at ${this.odometer} miles!`
+  }
   }
 
 
@@ -244,6 +248,41 @@ class ProjectManager extends Instructor {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+// class Student extends Lambdasian {
+//   constructor(attr){
+//     super(attr);
+//     this.previousBackground = attr.previousBackground;
+//     this.className = attr.className;
+//     this.favSubjects = attr.favSubjects;
+//     this.grade = 90;
+
+// }
+
+// listSubjects(){
+//   return `Loving ${this.favSubjects}!`
+// }
+
+// PRAssignment(subject){
+//   return `${this.name} has submitted a PR for ${subject}`
+// }
+
+// sprintChallenge(subject){
+//   return `${this.name} has begun sprint challenge on ${subject}`
+// }
+
+// graduate(){
+//   if(this.grade > 70){
+//     return "You graduated!"
+//   } else {
+//     return "Better luck next time"
+//   }
+// }
+
+// }
+
+
+
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
