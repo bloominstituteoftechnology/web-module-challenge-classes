@@ -186,14 +186,36 @@ console.log(lambdas.speak());
         + `favLanguage`: i.e. 'JavaScript, Python, Elm etc.'
         + `catchPhrase`: i.e. `Don't forget the homies`.
     - The constructor calls the parent constructor passing it what it needs.
-    - The constructor should also initialize `specialty`, `favLanguage` and `catchPhrase` properties on the instance.
+    - The constructor should also initialize `specialty`, `favLanguage` and 
+    `catchPhrase` properties on the instance.
     - Instructor instances have the following methods:
-        + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
-        + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
+        + `demo` receives a `subject` string as an argument and returns the phrase 
+        'Today we are learning about {subject}' where subject is the param passed in.
+        + `grade` receives a `student` object and a `subject` string as arguments
+         and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(obj){
+    super(obj);
+    this.specialty = obj.specialty;
+    this.favLanguage = obj.favLanguage;
+    this.catchPhrase = obj.catchPhrase;
 
-}
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student,subj){
+    return `${student.name} recieves a perfect score on ${subj}`;
+  }
+  }
+
+
+  let scott = new Instructor({name:'Scott Guard',age:203,location:'Uranus',specialty:'PHP'
+        ,favLanguage:'Perl',catchPhrase:'Another day another dollar'});
+
+  console.log(scott.demo('react-router')+' For my name is not '+scott.name + ' and I am not '+ scott.age);
+  console.log(scott.grade(lambdas,'react-redux'));
 
 /*
   TASK 5
@@ -202,19 +224,44 @@ class Instructor {
         + All the keys used to initialize instances of Lambdasian.
         + `previousBackground` i.e. what the Student used to do before Lambda School
         + `className` i.e. CS132
-        + `favSubjects`. i.e. an array of the student's favorite subjects ['HTML', 'CSS', 'JS']
+        + `favSubjects`. i.e. an array of the student's favorite subjects
+         ['HTML', 'CSS', 'JS']
     - The constructor calls the parent constructor passing to it what it needs.
-    - The constructor should also initialize `previousBackground`, `className` and `favSubjects` properties on the instance.
+    - The constructor should also initialize `previousBackground`, `className` 
+    and `favSubjects` properties on the instance.
     - Student instances have the following methods:
-        + `listSubjects` a method that returns all of the student's favSubjects in a single string: `Loving HTML, CSS, JS!`.
-        + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
-        + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
+        + `listSubjects` a method that returns all of the student's favSubjects 
+        in a single string: `Loving HTML, CSS, JS!`.
+        + `PRAssignment` a method that receives a subject as an argument and returns 
+        `student.name has submitted a PR for {subject}`
+        + `sprintChallenge` similar to PRAssignment but returns `student.name has begun 
+        sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+  constructor(obj){
+    super(obj);
+    this.previousBackground = obj.previousBackground;
+    this.className = obj.className;
+    this.favSubjects = obj.favSubjects;
+  }
+  listSubjects(){
+    let str = '';
+    for( let a in   this.favSubjects){
+        str = str+ ', ' + this.favSubjects[a];
+    }
+    return `Loving ${str}`;
+  }
+  PRAssignment(sub){
+    return `${this.name} has submitted a PR for ${sub}`;
+  }
 }
+let favAr = ['PHP', 'HTML', 'CSS', 'Less', 'Sass', 'Bootstrap', 'Javascript', 'React', 'Jquery', 'Babylon3D', 'Java', 'C++', 'C#', 'A+']
+let rick = new Student({name:'Rick Stick',age:77,location:'Red Planet',previousBackground:'Wood Chucker'
+          ,className:'Rich Guy', favSubjects:favAr});
+console.log(rick.listSubjects());
+console.log(rick.PRAssignment('Perl'));
 
-/*
+          /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
     - Its constructor takes a single argument - an object with the following keys:
