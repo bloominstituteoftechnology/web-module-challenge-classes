@@ -186,25 +186,21 @@ class Student extends Lambdasian {
 
 }
 
-listSubjects(favSubjects){
-  for (i = 0; i < favSubjects; i++ )
-  return `Loving ${subjects[i].favSubjects} `
+listSubjects(){
+  return `Loving ${this.favSubjects}!`
 }
 
 PRAssignment(subject){
-  return `student.name has submitted a PR for ${subject}`
+  return `${this.name} has submitted a PR for ${subject}`
 }
 
 sprintChallenge(subject){
-  return `student.name has begun sprint challenge on${subject}`
+  return `${this.name} has begun sprint challenge on ${subject}`
 }
 
 
 }
-const subjects = [];
-const student = [];
-const name = ["Jeff"];
-let i;
+
 
 // REVIEW!!!
 
