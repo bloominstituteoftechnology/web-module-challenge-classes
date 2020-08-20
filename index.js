@@ -57,7 +57,7 @@ class Person {
   toString(){
     return `${this.name}, ${this.age}`;
   }
-}
+};
 
 const neo = new Person('Neo', 20);
 
@@ -86,14 +86,19 @@ class Car {
   fill(gallons){
     this.tank += gallons;
   }
-  drive(miles){
-    this.odometer += miles;
-    this.tank -= (miles / this.milesPerGallon);
-    if (this.tank === 0){
-      return `I ran out of fuel at ${this.odometer} miles.`
+  drive(distance){
+    let maxDistance = this.tank * this.milesPerGallon;
+    if (this.tank > (distance / this.milesPerGallon)){
+      this.odometer += distance;
+      this.tank -= (distance / this.milesPerGallon);
+    }if (this.tank < (distance / this.milesPerGallon)){
+      this.odometer += maxDistance;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles.`;
     }
   }
-}
+};
+
 
 /*
   TASK 3
@@ -116,7 +121,7 @@ class Lambdasian {
   speak(){
     return `Hello my name is ${this.name}, I am from ${this.location}.`
   }
-}
+};
 
 /*
   TASK 4
@@ -132,9 +137,20 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
-}
+class Instructor extends Lambdasian{
+  constructor(attribute){
+    super(attribute);
+    this.specialty = attribute.specialty;
+    this.favLanguage = attribute.favLanguage;
+    this.catchPhrase = attribute.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject){
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+};
 
 /*
   TASK 5
@@ -151,8 +167,22 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(attribute){
+    super(attribute);
+    this.previousBackground = attribute.previousBackground;
+    this.className = attribute.className;
+    this.favSubjects = attribute.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 }
 
 /*
@@ -168,8 +198,18 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attribute){
+    super(attribute);
+    this.gradClassName = attribute.gradClassName;
+    this.favInstructor = attribute.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`
+  }
+  debugsCode(Student, subject){
+    return `${this.name} debugs ${Student.name}'s code on ${subject}`
+  }
 }
 
 /*
