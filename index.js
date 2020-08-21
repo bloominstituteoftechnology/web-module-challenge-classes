@@ -76,7 +76,23 @@ class Person {
 */
 
 class Car {
-
+  constructor(attributes){
+    this.model = attributes.model;
+    this.mpg = attributes.mpg;
+    this.tank = [];
+    this.odometer = [];
+  }
+  Car.prototype.fill = function (gallons) {
+    this.tank.push(gallons);
+    return (this.tank += gallons);
+  };
+  Car.prototype.drive = function (distance) {
+    this.odometer.push(distance);
+    return (this.odometer += distance);
+  };
+  Car.prototype.toString = function () {
+    return `I ran out of fuel at ${this.odometer} miles!`;
+  };
 }
 
 /*
