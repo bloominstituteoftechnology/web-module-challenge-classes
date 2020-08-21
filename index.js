@@ -115,7 +115,7 @@ class Lambdasian {
   }
 
   Lambdasian.prototype.speak = function(){
-    return `Hello my name is {this.name}, I am from {this.location}.`
+    return `Hello my name is ${this.name}, I am from ${this.location}.`
   }
 }
 
@@ -141,10 +141,10 @@ class Instructor extends Lambdasian{
     this.catchPhrase = attributes.catchPhrase;
   }
   demo(subject){
-    return `Today we are learning about {subject}`
+    return `Today we are learning about ${subject}`
   }
   grade(student, subject) {
-    return `{student.name} receives a perfect score on {subject}`
+    return `${student.name} receives a perfect score on ${subject}`
   }
 
 }
@@ -164,9 +164,42 @@ class Instructor extends Lambdasian{
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
+class Student extends Lambdasian{
+  constructor(attributes){
+    super(attributes);
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade;
+  }
 
+  listSubjects(){
+    return `${this.favSubjects}`
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  graduate(){
+    if(this.grade >= 70){
+      return `${this.name} is ready to graduate with a grade of ${this.grade}`;
+    }else{
+      let pointsNeeded = 70 - this.grade;
+      this.grade = this.grade +pointsNeeded;
+      return `${this.name} is graduating with grade of ${this.grade} after grading more assignments.`;
+    }
+  }
 }
+const debbie = new Student ({
+  name: "Debbie",
+  age: 56,
+  location: "Seattle",
+  previousBackground: "secretary",
+  className: "WEB35",
+  favSubjects:"HTML",
+})
 
 /*
   TASK 6
