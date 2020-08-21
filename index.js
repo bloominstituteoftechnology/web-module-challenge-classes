@@ -41,14 +41,16 @@ class Airplane {
 */
 
 class Person {
-  constructor(attributes){
-    this.name = attributes.name;
-    this.age = attributes.age;
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
-  Person.prototype.eat = function (edible) {
+
+  // @ts-ignore
+  Person.prototype.eat = function (food) {
     if (this.stomach.length < 10) {
-      this.stomach.push(edible);
+      this.stomach.push(food);
     }
   };
 
@@ -199,7 +201,7 @@ const debbie = new Student ({
   previousBackground: "secretary",
   className: "WEB35",
   favSubjects:"HTML",
-})
+});
 
 /*
   TASK 6
@@ -214,7 +216,20 @@ const debbie = new Student ({
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor{
+  constructor(attributes){
+    super(attributes);
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+
+  }
+  standUp(channel){
+    return `${this.gradClassName} announces to ${this.favInstructor} @channel standy times!`;
+  }
+
+  debugsCode(student) {
+    return `${this.gradClassName} debugs ${student.name}'s code on ${this.favInstructor}`;
+  }
 
 }
 
