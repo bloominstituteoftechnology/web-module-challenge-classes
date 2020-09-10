@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Exercises</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script>
-    window.showInstallMessage = function showInstallMessage() {
-      const msg = 'ERROR: Expected modules failed to load (chai, mocha)!!!\n\nHOW TO FIX: Run `npm install` in terminal from this project\'s folder.'
-      showInstallMessage.count = showInstallMessage.count ? showInstallMessage.count++ : 1
-      if (showInstallMessage.count >= 1) return console.error(msg)
-      alert(msg)
-    }
+        window.showInstallMessage = function showInstallMessage() {
+            const msg = 'ERROR: Expected modules failed to load (chai, mocha)!!!\n\nHOW TO FIX: Run `npm install` in terminal from this project\'s folder.'
+            showInstallMessage.count = showInstallMessage.count ? showInstallMessage.count++ : 1
+            if (showInstallMessage.count >= 1) return console.error(msg)
+            alert(msg)
+        }
     </script>
-    <link  href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.css" onerror="showInstallMessage()" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.css" onerror="showInstallMessage()" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/6.2.0/mocha.min.js" onerror="showInstallMessage()"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.2.0/chai.min.js" onerror="showInstallMessage()"></script>
     <script>
-      mocha.setup('bdd')
-      chai.config.includeStack = true
-      var expect = chai.expect
+        mocha.setup('bdd')
+        chai.config.includeStack = true
+        var expect = chai.expect
     </script>
     <style>
-    body {
-      zoom: 1.75;
-    }
-    #mocha .test h2 {
-      text-decoration: underline;
-    }
+        body {
+            zoom: 1.75;
+        }
+        
+        #mocha .test h2 {
+            text-decoration: underline;
+        }
     </style>
-  </head>
-  <body onload="mocha.run()">
+</head>
+
+<body onload="mocha.run()">
     <div id="mocha"></div>
 
     <!-- load code you want to test here -->
@@ -39,5 +42,6 @@
     <!-- load your test files here -->
     <script src="test/index.test.js"></script>
 
-  </body>
+</body>
+
 </html>

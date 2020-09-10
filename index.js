@@ -9,16 +9,16 @@
 
 // EXAMPLE SOLUTION CODE:
 class Airplane {
-  constructor(name) {
-    this.name = name;
-    this.isFlying = false;
-  }
-  takeOff() {
-    this.isFlying = true;
-  }
-  land() {
-    this.isFlying = false;
-  }
+    constructor(name) {
+        this.name = name;
+        this.isFlying = false;
+    }
+    takeOff() {
+        this.isFlying = true;
+    }
+    land() {
+        this.isFlying = false;
+    }
 }
 
 /*
@@ -41,22 +41,38 @@ class Airplane {
 */
 
 class Person {
-
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.stomach = [];
+    }
 }
 
-/*
-  TASK 2
-    - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
-    - All instances built with Car:
-        + should initialize with a `tank` at 0
-        + should initialize with an `odometer` at 0
-    - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
-    - Give cars ability to `.drive(distance)`. The distance driven:
-        + Should cause the `odometer` to go up.
-        + Should cause the the `tank` to go down taking `milesPerGallon` into account.
-    - A car which runs out of `fuel` while driving can't drive any more distance:
-        + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
-*/
+Person.prototype.eat = function(someFood) {
+    if (this.stomach.length < 10) {
+        this.stomach.push(someFood);
+    }
+}
+
+Person.prototype.poop = function() {
+    this.stomach = [];
+}
+Person.prototype.toString = function() {
+        return `${this.name}, ${this.age}`;
+    }
+    /*
+      TASK 2
+        - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
+        - All instances built with Car:
+            + should initialize with a `tank` at 0
+            + should initialize with an `odometer` at 0
+        - Give cars the ability to get fueled with a `.fill(gallons)` method. Add the gallons to `tank`.
+        - Give cars ability to `.drive(distance)`. The distance driven:
+            + Should cause the `odometer` to go up.
+            + Should cause the the `tank` to go down taking `milesPerGallon` into account.
+        - A car which runs out of `fuel` while driving can't drive any more distance:
+            + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+    */
 
 class Car {
 
@@ -132,25 +148,16 @@ class ProjectManager {
 
 }
 
-/*
-  STRETCH PROBLEM (no tests!)
-    - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
-    - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
-    - Add a graduate method to a student.
-      + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
-      + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
-*/
-
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
-  if (Instructor) { module.exports.Instructor = Instructor }
-  if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+    module.exports = module.exports || {}
+    if (Airplane) { module.exports.Airplane = Airplane }
+    if (Person) { module.exports.Person = Person }
+    if (Car) { module.exports.Car = Car }
+    if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
+    if (Instructor) { module.exports.Instructor = Instructor }
+    if (Student) { module.exports.Student = Student }
+    if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
 }
