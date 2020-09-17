@@ -186,10 +186,28 @@ console.log(Josh.grade('Timmy', 'Calculus'))
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian{
+  constructor(property){
+    super(property)
+    this.previousBackground = property.previousBackground
+    this.className = property.className;
+    this.favSubjects = property.favSubjects;
+  }
+  listSubjects(){
+   return `These are ${this.name}'s favourite subjects: ${this.favSubjects}`
+  }
 }
-
+const samS = new Student ({
+  name: 'Sam Singer',
+  Age: 20,
+  location: 'Reno',
+  previousBackground: 'Student',
+  className: 'Computer Programming',
+  favSubjects: ['Javascript','CSS','HTML']
+  
+})
+console.log(samS.listSubjects())
+ 
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -203,10 +221,27 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(objConst){
+    super(objConst),
+    this.gradClassName = objConst.gradClassName;
+    this.favInstuctor = objConst.favInstructor;
+  }
+  standup(){
+    return `${this.name} announces to ${this.gradClassName} @channel standy times!`
+  }
+  debugsCode(student1){
+    return `${this.name} debugs ${student1.name}'s code on ${student1.favSubjects}`
+  }
 
 }
-
+const PM = new ProjectManager({
+  name: 'Zoe',
+  gradClassName: 'WEB 36',
+  favInstructor: 'Josh'
+  
+})
+console.log(PM.debugsCode(samS))
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
