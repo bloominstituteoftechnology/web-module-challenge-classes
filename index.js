@@ -41,8 +41,31 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+eat(edible){
+  if(this.stomach.length < 1){
+    return this.stomach.push(edible);
 }
+}
+poop(){
+  return this.stomach = [];
+}
+tostring(){
+  return `${this.name}, ${this.age}, ${this.stomach}`;
+}
+
+const personOne = new Person({
+    name: 'Jasmine'
+    age: '27'
+})
+
+
+
+
 
 /*
   TASK 2
@@ -58,7 +81,7 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {
+//class Car {
 
 }
 
