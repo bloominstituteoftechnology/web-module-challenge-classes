@@ -21,7 +21,7 @@ This challenge focuses on using the new for ES6 `class` syntax.
 1. Run tests by typing `npm run test:watch`.
 1. Work on your branch, push commits and create PR as usual.
 
-### Task 2a - MVP
+### Task 2 - MVP
 
 Find the file `index.js` and complete the tasks until all of your tests pass.
 
@@ -30,12 +30,6 @@ Find the file `index.js` and complete the tasks until all of your tests pass.
 **Plan to commit & push every time you get a new test passing!**. Committing often makes it SO much easier to figure out "what broke my code", and helps your TL keep track of how you're doing.
 
 If you run into trouble while coding, fight the good fight for 20 minutes and then get on the help channel. __Remember to formulate your help request in a professional manner__ - like you would at the job - by including error messages, screenshots, and any other pertinent information about the problem, as well as what things you have attempted already while trying to solve it.
-
-### Task 2b - Exit Ticket
-
-Once you begin, you will have 15 minutes to answer the questions [here](https://app.codesignal.com/public-test/hDJXzw5555fnbE6b9/WX9iMfWpsToX7S)
-
-The completion of these questions is mandatory for MVP. However, passing the quiz doesn't affect your standing as a Lambda School student whatsoever. This is Lambda School testing itself! Please answer honestly and to the best of your ability without using external references.
 
 ### Task 3 - Stretch 
 
