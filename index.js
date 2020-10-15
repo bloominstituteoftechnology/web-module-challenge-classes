@@ -41,10 +41,19 @@ class Airplane {
 */
 
 class Person {
-constructor(obj){
-  this.name = obj.name;
-  this.age = obj.age;
+constructor(name, age){
+  this.name = name;
+  this.age = age;
   this.stomach = [];
+}
+eat(){
+
+}
+poop(){
+
+}
+toString(){
+  console.log(`${this.name},${this.age}`);
 }
 }
 
