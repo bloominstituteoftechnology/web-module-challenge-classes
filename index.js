@@ -20,6 +20,8 @@ class Airplane {
     this.isFlying = false;
   }
 }
+let plane1 = new Airplane("GulfStream 550");
+plane1.takeOff();
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -41,7 +43,24 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood){
+    if(this.stomach.length < 10){
+      this.stomach.push(someFood);
+    }else{
+      return `${this.name} is full!`;
+    }
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
 }
 
 /*
@@ -59,7 +78,27 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank += gallons;
+  }
+  drive(distance){
+    if(this.tank > distance / this.milesPerGallon){
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+    }else if(this.tank < distance / this.milesPerGallon){
+      this.odometer += this.tank * this.milesPerGallon;
+      this.tank -= this.tank;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }else{
+      return `Tank is empty!`
+    }
+  }
 }
 
 /*
