@@ -129,7 +129,7 @@ class Lambdasian {
 */
 class Instructor {
 class Instructor extends Lambdasian{
-  constructor(name, age, location, specialty: specialty, favLanguage: favLanguage, catchPhrase: catchPhrase){
+  constructor({name:name, age:age, location:location, specialty:specialty, favLanguage:favLanguage, catchPhrase:catchPhrase}){
     super({name:name,age:age,location:location})
     this.specialty = specialty;
     this.favLanguage = favLanguage;
@@ -159,6 +159,14 @@ class Instructor extends Lambdasian{
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student {
+  class Student extends Lambdasian{
+    constructor({name:name, age:age, location:location, previousBackground:previousBackground, className:className, favSubjects:favSubjects}){
+      super({name:name, age:age, location:location});
+      this.previousBackground = previousBackground;
+      this.className = className;
+      this.favSubjects = favSubjects;
+    }
+  }
 
 }
 
