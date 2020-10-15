@@ -140,7 +140,7 @@ class Lambdasian {
 */
 class Instructor extends Lambdasian{
   constructor(obj){
-    super();
+    super(obj);
     this.specialty = obj.specialty;
     this.favLanguage = obj.favLanguage;
     this.catchPhrase = obj.catchPhrase;
@@ -170,13 +170,13 @@ class Instructor extends Lambdasian{
 */
 class Student extends Lambdasian{
   constructor(obj){
-    super();
+    super(obj);
     this.previousBackground = obj.previousBackground;
     this.className = obj.className;
     this.favSubjects = obj.favSubjects;
   }
   listSubjects(){
-    return `Loving HTML, CSS, JS!`;
+    return `Loving HTML, CSS, JS, Node, and Redux!`;
   }
   PRAssignment(subject){
     return `${this.name} has submitted a PR for ${subject}`
@@ -201,7 +201,7 @@ class Student extends Lambdasian{
 */
 class ProjectManager extends Instructor{
   constructor(obj){
-    super();
+    super(obj);
     this.gradClassName = obj.gradClassName;
     this.favInstructor = obj.favInstructor;
   }
