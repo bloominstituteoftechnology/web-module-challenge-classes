@@ -41,10 +41,10 @@ class Airplane {
 */
 
 class Person {
-  constructor(obj){
-    this.name=obj.name;
-    this.age=obj.age;
-    this.stomach=obj.stomach=[];
+  constructor(name,age){
+    this.name=name;
+    this.age=age;
+    this.stomach=[];
   }
   eat(someFood){
    if(this.stomach.length<10){
@@ -55,7 +55,7 @@ class Person {
     this.stomach=[];
   }
   toString(){
-    console.log(`${this.name},${this.age}`);
+    return (`${this.name},${this.age}`);
   }
 }
 
@@ -73,8 +73,36 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-class Car {
 
+
+// 1) Instance of Car [8] drive method when enough fuel decreases tank correctly
+//   2) Instance of Car [9] drive method when NOT enough fuel increases miles by drivable miles
+//   3) Instance of Car [10] drive method when NOT enough fuel empties the tank
+//   4) Instance of Car [11] drive method when NOT enough fuel returns correct string
+
+class Car {
+  constructor(model,milesPerGallon){
+    this.model=model;
+    this.milesPerGallon=milesPerGallon;
+    this.tank=0;
+    this.odometer=0;
+
+  }
+  fill(gallons){
+    this.tank+=gallons;
+  }
+  drive(distance){ //every mpg tank will drop by 1
+    while(this.tank>0){
+      if(this.tank>0){
+        this.odometer+=this.milesPerGallon; 
+        this.tank-=1;
+      }
+      else if(this.tank===0){
+       console.log(`I ran out of fuel at ${this.odometer} miles!`)
+      }
+   }
+  }
+    
 }
 
 /*
