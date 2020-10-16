@@ -166,6 +166,9 @@ class Student {
       this.className = className;
       this.favSubjects = favSubjects;
     }
+    listSubjects(){
+      let newString = `Loving HTML, CSS, JS!`;
+    }
   }
 
 }
