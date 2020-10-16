@@ -92,18 +92,21 @@ class Car {
     this.tank+=gallons;
   }
   drive(distance){ //every mpg tank will drop by 1
-    while(this.tank>0){
-      if(this.tank>0){
-        this.odometer+=this.milesPerGallon; 
-        this.tank-=1;
+      const total=this.milesPerGallon*this.tank;
+      this.odometer+=distance;
+      this.tank-= distance/this.milesPerGallon;
+      if(this.tank<0){
+        this.odometer=total;
+        return `I ran out of gas at ${this.odometer} miles!`;
       }
-      else if(this.tank===0){
-       return `I ran out of fuel at ${this.odometer} miles!`;
-      }
+      return this.tank;
    }
-  }
-    
+  
+  
+  
 }
+    
+
 
 /*
   TASK 3
