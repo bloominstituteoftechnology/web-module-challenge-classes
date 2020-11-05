@@ -105,9 +105,6 @@ drive(distance) {
   return `I ran out of fuel at ${this.odometer} miles!`;
   }
   }
-
-//   1) Instance of Car [7] drive method when enough fuel increases odometer correctly
-
 }
 
 
@@ -163,6 +160,17 @@ demo(subject) {
 grade(student, subject) {
   return `${student.name} receives a perfect score on ${subject}`
 }
+randomGradeChange(student) { // STRETCH GOAL
+  let randomPoints = (Math.random() * 20) - 10; // gener rando num bt -10 and + 10
+  student.grade += randomPoints;
+  if (student.grade < 0) { // defines edge case for student.grade below 0
+    student.grade = 0;
+  }
+  if (student.grade > 100) { // defines edge case for student.grade above 100
+    student.grade = 100;
+  }
+}
+
 }
 /*
   TASK 5
@@ -185,6 +193,7 @@ class Student extends Lambdasian {
   this.previousBackground = object.previousBackground;
   this.className = object.className;
   this.favSubjects = object.favSubjects;
+  this.grade = 80;
   }
 
   listSubjects() {
@@ -196,6 +205,16 @@ class Student extends Lambdasian {
   sprintChallenge(subject) {
     return `${this.name} had begun sprint challenge on ${subject}`
   }
+  graduate(instructor) { // STRETCH GOAL
+
+    do {
+      instructor.randomGradeChange(this)
+    } while (this.grade < 70);
+
+    return "Will graduate Lambda!"
+  
+  }
+
 }
 
 /*
