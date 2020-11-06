@@ -21,7 +21,11 @@ class Airplane {
   land() {
     this.isFlying = false;
   }
+
+
 }
+
+
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -43,7 +47,7 @@ class Airplane {
 */
 
 class Person {
-  constructor(name, age) {
+  constructor(name, age){
   this.name = name;
   this.age = age;
   this.stomach = [];
@@ -57,13 +61,13 @@ class Person {
   }
 }
 
-  poop() {
+  poop(){
   
   this.stomach = [];
 
 }    
 
-  toString() {
+  toString(){
   return `${this.name}, ${this.age}`  
 
   }
@@ -86,22 +90,26 @@ class Person {
 */
 
 class Car {
-  constructor(model, milesPerGallon) {
-  this.model = model;
-  this.milesPerGallon = milesPerGallon;
-  this.tank = 0;
-  this.odometer = 0;
+    constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
 }
 
-  fill (gallons) {
+  fill (gallons){
     this.tank += gallons;
   }
 
   drive (distance) {
+    this.odometer = this.odometer + distance;
+    this.tank = this.tank -(distance*milesPerGallon);
+    
+    if (this.tank <= 0){
+      return `I ran out of fuel at ${this.odometer} miles!`
+    }
 
-  }  
-
-
+}
 
 /*
   TASK 3
@@ -119,18 +127,18 @@ class Car {
 
 
 class Lambdasian {
-  constructor(attrs){
+  constructor(name, age, location){
     
-    this.name = attrs.name;
-    this.age = attrs.age;
-    this.location = attrs.location;
+    this.name = name;
+    this.age = age;
+    this.location = location;
   }
 
 
 
   speak(){
 
-    return `Hello my name is ${this.name}, I am from ${this.location}`
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
 
   }
 
@@ -155,16 +163,15 @@ class Lambdasian {
 class Instructor extends Lambdasian {
   constructor(attrs){
     super(attrs);
+    this.speciality = attrs.speciality;
+    this.favLanguage = attrs.favLanguage;
+    this.catchPhrase = attrs.catchPhrase;
       
-      this.speciality = attrs.speciality;
-      this.favLanguage = attrs.favLanguage;
-      this.catchPhrase = attrs.catchPhrase;
-      this.score = 0; 
   }
 
   demo(subject){
     
-    return `Today we are learning about ${this.subject}`
+    return `Today we are learning about ${subject}`;
 
   }
 
@@ -242,13 +249,26 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+  constructor(attrs){
+    super(attrs);
+    this.gradClassName = attrs.gradClassName;
+    this.favInstructor = attrs.favInstructor;
 }
 
 
+  standUp(channel){
+
+    return `${this.name} announces to ${channel}, @channel standy times!`
+
+  }
 
 
+  debugsCode(attrs, subject){
+
+    return `${this.name} debugs ${attrs.name}'s code on ${subject}`
+
+  }
 
 /*
   STRETCH PROBLEM (no tests!)
