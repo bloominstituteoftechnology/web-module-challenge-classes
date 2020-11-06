@@ -41,7 +41,20 @@ class Airplane {
 */
 
 class Person {
-
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+		this.stomach = [];
+	}
+	eat(someFood) {
+		if (this.stomach.length < 10) this.stomach.push(someFood);
+	}
+	poop() {
+		this.stomach = [];
+	}
+	toString() {
+		return `${this.name}, ${this.age}`;
+	}
 }
 
 /*
@@ -57,11 +70,32 @@ class Person {
     - A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
-
 class Car {
+  
+	constructor(model, milesPerGallon) {
+		this.model = model;
+		this.milesPerGallon = milesPerGallon;
+		this.tank = 0;
+		this.odometer = 0;
+	}
+	fill(gallons) {
+		this.tank += gallons;
+	}
+	drive(distance) {
+		let maxDistance = this.tank * this.milesPerGallon;
+		let distTraveled = distance;
+		if (distance > maxDistance) {
+			distTraveled = maxDistance;
+		}
+		this.odometer += distTraveled;
+		let gallonsUsed = distTraveled / this.milesPerGallon;
+		this.tank -= gallonsUsed;
 
+		if (this.tank === 0) {
+			return `I ran out of fuel at ${this.odometer} miles!`;
+		}
+	}
 }
-
 /*
   TASK 3
     - Write a Lambdasian class.
