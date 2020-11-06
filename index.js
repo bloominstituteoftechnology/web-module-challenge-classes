@@ -41,9 +41,29 @@ class Airplane {
 */
 
 class Person {
+constructor(name, age){
+  this.name = name;
+  this.age = age;
+  this.stomach = []
 
 }
+eat(someFood){
+  if(this.stomach.length < 10){
+    this.stomach.push(someFood)
+  }
 
+}
+poop(){
+  this.stomach =[]
+}
+toString(){
+  return `${this.name}, ${this.age}`
+}
+}
+let mary = new Person("Mary", 20)
+mary.eat("banana")
+
+console.log(mary.toString)
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -59,6 +79,26 @@ class Person {
 */
 
 class Car {
+  constructor(model, milespergallon){
+    this.model = model;
+    this.milespergallon = milespergallon;
+    this.tank = 0
+    this.odometer = 0
+  }
+  fill(gallons){
+    this.tank = this.tank + gallons 
+    return this.tank 
+
+  }
+  drive(distance){
+    if(distance.length > this.odometer){
+   return this.odometer }
+    else(  this.milespergallon > this.tank ){
+      return this.tank
+    }
+    
+  }
+
 
 }
 
@@ -75,8 +115,21 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(name, age, location){
+    this.name = name;
+    this.age = age;
+    this.location = location;
+
+  }
+  speak (){
+    console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+  }
+
+
 
 }
+const newArg = new Lambdasian(name, age, location);
+Lambdasian.speak()
 
 /*
   TASK 4
