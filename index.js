@@ -40,8 +40,8 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
-constructor(name, age){
+ class Person {
+ constructor(name, age){
   this.name = name;
   this.age = age;
   this.stomach = []
@@ -63,7 +63,7 @@ toString(){
 let mary = new Person("Mary", 20)
 mary.eat("banana")
 
-console.log(mary.toString)
+console.log(mary.toString()) 
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -92,16 +92,18 @@ class Car {
   }
   drive(distance){
     if(distance.length > this.odometer){
-   return this.odometer }
-    else(  this.milespergallon > this.tank ){
-      return this.tank
-    }
+   return this.odometer } else {
+     this.milespergallon > this.tank
+   }
+
+  
     
   }
-
-
 }
+const driver = new Car("X", 10) 
 
+
+driver.drive()
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -115,21 +117,21 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  constructor(name, age, location){
+  constructor(name, old, location){
     this.name = name;
-    this.age = age;
+    this.old = old;
     this.location = location;
 
   }
   speak (){
-    console.log(`Hello my name is ${this.name}, I am from ${this.location}`)
+    console.log(`Hello my name is ${this.name}, I am ${this.old} from ${this.location}`)
   }
 
 
 
 }
-const newArg = new Lambdasian(name, age, location);
-Lambdasian.speak()
+const newArg = new Lambdasian("berry", 10, "litty");
+newArg.speak()
 
 /*
   TASK 4
