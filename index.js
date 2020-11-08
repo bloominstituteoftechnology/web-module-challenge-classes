@@ -81,6 +81,7 @@ class Car {
   constructor(model, milesPerGallon){
     this.tank = 0;
     this.odometer = 0;
+    this.model = model;
     this.milesPerGallon = milesPerGallon;
   }
 
@@ -89,12 +90,14 @@ class Car {
   }
 
   drive(distance){
-    this.odometer += distance;
-    this.tank -= (distance/this.milesPerGallon);
-    if (this.tank <= 0){
-      return `I rand out of fuel at ${this.odometer} miles!`
-    }
 
+    if (this.tank >= distance/this.milesPerGallon){
+      this.odometer += distance;
+      this.tank -= (distance/this.milesPerGallon);
+      if (this.tank === 0){
+        return `I ran out of fuel at ${this.odometer} miles!`
+      }
+    }
   }
 
 
