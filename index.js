@@ -220,7 +220,18 @@ class Student extends Lambdasian
     this.favSubjects = obj.favSubjects;
     this.grade = 99.9;
   }
-  listSubjects
+  listSubjects()
+  {
+    return `Loving ${this.favSubjects}`;
+  }
+  PRAssignment(subject)
+  {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject)
+  {
+    return `${this.name} had begun sprint challenge on ${subject}`;
+  }
 
 }
 
