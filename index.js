@@ -90,14 +90,12 @@ class Car {
   }
 
   drive(distance){
-
-    if (this.tank >= distance/this.milesPerGallon){
-      this.odometer += distance;
-      this.tank -= (distance/this.milesPerGallon);
-      if (this.tank === 0){
-        return `I ran out of fuel at ${this.odometer} miles!`
-      }
+    this.odometer += distance;
+    this.tank -= (distance/this.milesPerGallon);
+    if (this.tank <= 0){
+      return `I ran out of fuel at ${this.odometer} miles!`
     }
+
   }
 
 
@@ -117,6 +115,15 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor (args){
+    this.name = args.name;
+    this.age = args.age;
+    this.location = args.location;
+  }
+
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}.`
+  }
 
 }
 
@@ -135,6 +142,11 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {
+  constructor (args){
+    this.specialty = args.specialty;
+    this.favLanguage = args.favLanguage;
+    this.catchPhrase = args.catchPhrase;
+  }
 
 }
 
