@@ -146,6 +146,19 @@ class Instructor extends Lambdasian {
     this.name = bob.name;
     this.age = bob.age;
     this.location = bob.location;
+    this.specialty = bob.specialty;
+    this.favLanguage = bob.favLanguage;
+    this.catchPhrase = bob.catchPhrase;
+    this.subject = bob.subject;
+    this.string = bob.string;
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}`
+  }
+
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`
   }
 }
 
