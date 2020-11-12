@@ -169,10 +169,10 @@ class Student extends Lambdasian{
     super(attributes);
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
-    this.favSubjects = [];
+    this.favSubjects = attributes.favSubjects;
   }
   listSubjects(){
-    return `Loving ${this.favSubjects.toString()}!`;
+    return `Loving ${this.favSubjects}, ${this.favSubjects}, ${this.favSubjects}!`;
   }
   PRAssignment(subject){
     return `${this.name} has submitted a PR for ${subject}`
