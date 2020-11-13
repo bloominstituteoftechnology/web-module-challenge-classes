@@ -41,7 +41,6 @@ class Airplane {
 */
 
 class Person {
-  
   constructor(name, age,){
     this.name = name;
     this.age = age;
@@ -52,15 +51,16 @@ class Person {
     this.stomach.push(edible);
   }
   poop(){
-    this.stomach = [];
+    this.stomach.length = 0;  //A.length = 0; should empty the array
   }
   toString(){
     return `${this.name}, ${this.age}`;
   }
 }
-const guy = new Person("Charlie", "10");    
-//console.log(guy.tostring());
-guy.eat("someFood"));
+
+const guy = new Person({"Neo", "20"});
+// console.log(guy.tostring());
+// console.log(guy.eat());
 
 /*
   TASK 2
@@ -88,11 +88,12 @@ class Car{
     }
     drive(distance){
       this.odometer += distance;
-      distance -= this.tank.push(this.milesPerGallon){
+      distance -= this.tank.unshift(this.milesPerGallon){
         if(this.tank = 0){
         return (`I ran out of fuel at ${this.odometer} miles!`)};
       }
     }
+    
 
 }
 
