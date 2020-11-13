@@ -41,8 +41,30 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    }
+  }
+  poop() {
+    this.stomach = [];
+  }
+  toString() {
+    return `${this.name}, ${this.age}`
+  }
+  }
+const personOne = new Person("Jefferson", 5);
 
-}
+
+console.log(personOne.eat("Ice Cream"));
+console.log(personOne.eat("Pizza"));
+console.log(personOne.poop());
+console.log(personOne.toString());
 
 /*
   TASK 2
@@ -59,8 +81,41 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank += gallons;
+  }
+  drive(distance) {
+    let tankEnough =  this.tank- (distance * this.milePerGallon);
+    
+   let tankEnough = function if (distance >= tankEnough) {
+      return this.odometer += distance && this.tank -= fuel;
+    }     
+    if (this.tank < tankEnough) {
+      return this.odometer / this.milesPerGallon;
+    } else {
+      return `I ran out of fuel at ${this.milesPerGallon} miles!`
+    }
+  }
 }
+//   If your tank does not have enough fuel: 
+// Find out how far it could actually go on the amount of fuel it does have (maybe store this into a variable to make it easy to read). Add that distance to the odometer and empty the tank of fuel. 
+// Return the string "I ran out of fuel at x miles!" x being `odometer`.
+// If your tank does have enough fuel:
+// Add the distance to the odometer and remove the amount of fuel that would be used from the tank.
+  const carRaptor = new Car({
+    model: 'Raptor',
+    milesPerGallon: 15,
+    tank: 20,
+    odometer: 35,
+  })
+    console.log(carRaptor.distance())
+  
 
 /*
   TASK 3
@@ -75,9 +130,23 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attributes) {
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+      }
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
 }
+// const studentOne = new Lambdasian({
+//   name: 'Sally',
+//   age: 34;
+//   location: 'Mars';
+// })
 
+// console.log(studentOne.age)
+// console.log(studentOne.speak())
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
@@ -92,9 +161,32 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
 
+class Instructor extends Lambdasian {
+  constructor(attributes) {
+    super(attributes);
+    this.specialty: attributes.specialty;
+    this.favLanguage: attributes.favLanguage;
+    this.catchPhrase: attributes.catchPhrase;
+    this.student = attributes.student;
+    this.subject = attributes.subject;
+  }
+  demo(subject) {
+    return `Today we are learning about ${this.subject}`
+  }
+  grade(student)  {
+    `${this.name} receives a perfect score on ${subject}`
+ }
 }
+const teacher = new Instructor({
+  name: 'Tony',
+  age: 48,
+  location: 'USA',
+  specialty: 'Redux',
+  favLanguage: 'CSS',
+  catchPhrase: 'You know, like Eminmen? word-spacing:0'
+});
+  
 
 /*
   TASK 5

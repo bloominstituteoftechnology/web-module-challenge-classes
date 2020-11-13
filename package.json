@@ -13,7 +13,8 @@
     "start": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
     "pretest": "NODE_OPTIONS=--no-warnings npm install > /dev/null",
     "test": "NODE_OPTIONS=--no-warnings ./node_modules/.bin/mocha ./test",
-    "test:watch": "./node_modules/.bin/mocha --growl --reporter=list --watch './test'"
+    "test:watch": "./node_modules/.bin/mocha --growl --reporter=list --watch './test'",
+    "foo": "mocha --watch"
   },
   "keywords": [
     "object",
