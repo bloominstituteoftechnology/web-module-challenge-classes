@@ -86,19 +86,37 @@ class Car {
     this.tank = this.tank + gallons;
   }
   drive(distance){
-    this.odometer = this.odometer + distance;
-    let distanceTraveled = distance;
-    let miles = (distance/this.milesPerGallon);
-    let drivableMiles = (miles / distance);
-    this.tank = this.tank - (distance / this.milesPerGallon);
-    if(this.tank != distance){
+    let range = (this.tank * this.milesPerGallon);
+    if(distance > range){
+      this.odometer = range;
       this.tank = 0;
+      return `I ran out of fuel at ${range} miles!`
+    } else  {
+      this.odometer = distance;
+      this.tank = this.tank - distance/ this.milesPerGallon;
+      console.log(`Hey we traveled ${distance}`)
     }
-    if(distanceTraveled > this.tank){
-      return `I ran out of fuel at ${this.odometer - 1} miles!`
-    }
-  }
+  
 }
+
+
+ 
+
+
+  // drive(distance){
+  //   this.odometer = this.odometer + distance;
+  //   let distanceTraveled = distance;
+  //   let miles = (distance/this.milesPerGallon);
+  //   let drivableMiles = (miles / distance);
+  //   this.tank = this.tank - (distance / this.milesPerGallon);
+  //   if(this.tank != distance){
+  //     this.tank = 0;
+  //   }
+  //   if(distanceTraveled > this.tank){
+  //     return `I ran out of fuel at ${this.odometer - 1} miles!`
+  //   }
+}
+
 
 const car = new Car ({
   model: "Ferarri",
