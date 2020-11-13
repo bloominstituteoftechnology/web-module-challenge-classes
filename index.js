@@ -60,9 +60,7 @@ const personOne = new Person({
   name: "Jacob",
   age:  "22",
 });
-personOne.eat();
-console.log(personOne.stomach)
-personOne.poop()
+personOne;
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -89,19 +87,27 @@ class Car {
   }
   drive(distance){
     this.odometer = this.odometer + distance;
-    this.tank = distance / this.milesPerGallon;
-    if(this.tank = 0){
-      return `I ran out of fuel at ${this.odometer} miles!`;
+    let distanceTraveled = distance;
+    let miles = (distance/this.milesPerGallon);
+    let drivableMiles = (miles / distance);
+    this.tank = this.tank - (distance / this.milesPerGallon);
     if(this.tank != distance){
       this.tank = 0;
     }
-    if(this.tank == distance){
-      this.tank = distance / this.milesPerGallon;
-    }
+    if(distanceTraveled > this.tank){
+      return `I ran out of fuel at ${this.odometer - 1} miles!`
     }
   }
 }
 
+const car = new Car ({
+  model: "Ferarri",
+  milesPerGallon: 50,
+  tank: 0,
+  odometer: 0,
+})
+car.drive(50);
+console.log(car.tank)
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -159,7 +165,7 @@ const instructor = new Instructor({
    age: 22,
    location: "Las Vegas"
 });
-console.log(instructor.name);
+instructor;
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -197,8 +203,8 @@ const studentOne = new Student({
   name: "Jacob",
   age:  "22",
 });
-console.log(studentOne.name);
 
+studentOne;
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -232,8 +238,6 @@ class ProjectManager extends Instructor{
     return `${student.name} receives a perfect score on ${subject}`;
   }
 }
-
-
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
