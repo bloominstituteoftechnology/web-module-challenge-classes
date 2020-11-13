@@ -94,27 +94,10 @@ class Car {
     } else  {
       this.odometer = distance;
       this.tank = this.tank - distance/ this.milesPerGallon;
-      console.log(`Hey we traveled ${distance}`)
+      return `Hey we traveled ${distance}`
     }
   
 }
-
-
- 
-
-
-  // drive(distance){
-  //   this.odometer = this.odometer + distance;
-  //   let distanceTraveled = distance;
-  //   let miles = (distance/this.milesPerGallon);
-  //   let drivableMiles = (miles / distance);
-  //   this.tank = this.tank - (distance / this.milesPerGallon);
-  //   if(this.tank != distance){
-  //     this.tank = 0;
-  //   }
-  //   if(distanceTraveled > this.tank){
-  //     return `I ran out of fuel at ${this.odometer - 1} miles!`
-  //   }
 }
 
 
@@ -125,7 +108,7 @@ const car = new Car ({
   odometer: 0,
 })
 car.drive(50);
-console.log(car.tank)
+
 /*
   TASK 3
     - Write a Lambdasian class.
