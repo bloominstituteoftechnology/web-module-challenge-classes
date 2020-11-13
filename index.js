@@ -87,34 +87,48 @@ class Car {
     this.tank = 0;
     this.odometer = 0;
   }
-  fill(gallons) {
-    this.tank += gallons;
+
+  fill(gallons){
+    for (let i = 0; i < gallons; i++){
+      this.tank++;
+    }
+    return this.tank;
   }
-  drive(distance) {
-    let tankEnough =  this.tank- (distance * this.milePerGallon);
-    
-   let tankEnough = function if (distance >= tankEnough) {
-      return this.odometer += distance && this.tank -= fuel;
-    }     
-    if (this.tank < tankEnough) {
-      return this.odometer / this.milesPerGallon;
+  drive(distance){
+    if ((distance / this.milesPerGallon) < this.tank){
+      this.odometer = distance;
+      this.tank = this.tank - (distance / this.milesPerGallon);
     } else {
-      return `I ran out of fuel at ${this.milesPerGallon} miles!`
+      this.odometer = (this.tank * this.milesPerGallon);
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
     }
   }
 }
-//   If your tank does not have enough fuel: 
-// Find out how far it could actually go on the amount of fuel it does have (maybe store this into a variable to make it easy to read). Add that distance to the odometer and empty the tank of fuel. 
-// Return the string "I ran out of fuel at x miles!" x being `odometer`.
-// If your tank does have enough fuel:
-// Add the distance to the odometer and remove the amount of fuel that would be used from the tank.
-  const carRaptor = new Car({
-    model: 'Raptor',
-    milesPerGallon: 15,
-    tank: 20,
-    odometer: 35,
-  })
-    console.log(carRaptor.distance())
+
+//   fill(gallons) {
+//     this.tank += gallons;
+//   }
+//   drive(distance) {
+//     let tankEnough =  this.tank- (distance * this.milePerGallon);
+    
+//    let tankEnough = function if (distance >= tankEnough) {
+//       return this.odometer += distance && this.tank -= fuel;
+//     }     
+//     if (this.tank < tankEnough) {
+//       return this.odometer / this.milesPerGallon;
+//     } else {
+//       return `I ran out of fuel at ${this.milesPerGallon} miles!`
+//     }
+//   }
+// }
+  // const carRaptor = new Car({
+  //   model: 'Raptor',
+  //   milesPerGallon: 15,
+  //   tank: 20,
+  //   odometer: 35,
+  // })
+  //   console.log(carRaptor.distance())
   
 
 /*
@@ -165,27 +179,26 @@ class Lambdasian {
 class Instructor extends Lambdasian {
   constructor(attributes) {
     super(attributes);
-    this.specialty: attributes.specialty;
-    this.favLanguage: attributes.favLanguage;
-    this.catchPhrase: attributes.catchPhrase;
-    this.student = attributes.student;
-    this.subject = attributes.subject;
+    this.specialty= attributes.specialty;
+    this.favLanguage= attributes.favLanguage;
+    this.catchPhrase = attributes.catchPhrase;
   }
   demo(subject) {
-    return `Today we are learning about ${this.subject}`
+    return `Today we are learning about ${subject}`;
   }
-  grade(student)  {
-    `${this.name} receives a perfect score on ${subject}`
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
  }
-}
-const teacher = new Instructor({
-  name: 'Tony',
-  age: 48,
-  location: 'USA',
-  specialty: 'Redux',
-  favLanguage: 'CSS',
-  catchPhrase: 'You know, like Eminmen? word-spacing:0'
-});
+};
+
+// const teacher = new Instructor({
+//   name: 'Tony',
+//   age: 48,
+//   location: 'USA',
+//   specialty: 'Redux',
+//   favLanguage: 'CSS',
+//   catchPhrase: 'You know, like Eminmen? word-spacing:0'
+// });
   
 
 /*
