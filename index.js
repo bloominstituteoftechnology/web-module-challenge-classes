@@ -106,6 +106,18 @@ class Car {
   //   }
   // }
 }
+// Kay's solution //
+//   drive(distance){
+// //if statement conditional that determines if the distance/mpg is greater than tank
+// // will return out of fuel at odometer
+// if(distance / this.milesPerGallon > this.tank){
+//   this.drive(this.milesPerGallon * this.tank);
+//   return `I ran out of fuel at ${this.odometer}`;
+// }
+// //just add distance to odometer and tank will subtract distance/mpg
+// this.odometer += distance;
+// this.tank -= distance / this.milesPerGallon;
+// }
 
 /*
   TASK 3
@@ -157,6 +169,14 @@ class Instructor extends Lambdasian{
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  // - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
+  giveGrade(student) {
+    const newGrade = (Math.random() - 0.5) * 20;
+    console.log(student.grade);
+    console.log(`The grade on this assignment is ${newGrade.toFixed(2)}`);
+    student.grade += newGrade;
+    console.log(`Your new overall grade is ${student.grade.toFixed(2)}`);
+  }
 }
 
 /*
@@ -180,6 +200,7 @@ class Student extends Lambdasian {
     this.previousBackground = attrs.previousBackground;
     this.className = attrs.className;
     this.favSubjects = attrs.favSubjects;
+    this.grade = attrs.grade;
   }
   listSubjects() {
     return `Loving ${this.favSubjects.join(", ")}`;
@@ -189,6 +210,16 @@ class Student extends Lambdasian {
   }
   sprintChallenge(subject) {
     return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+  // - Add a graduate method to a student.
+  // + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+  // + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
+  graduate(){
+    if (this.grade >= 70) {
+      console.log(`With an overall grade of ${this.grade.toFixed(2)}%, ${this.name} has graduated! ConGRADulations!`);
+    } else {
+      console.log(`With an overall grade of ${this.grade.toFixed(2)}, ${this.name} does not yet meet the minimum grade requirements to graduate.`)
+    }
   }
 }
 
@@ -228,6 +259,60 @@ class ProjectManager extends Instructor {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+const leah = new Student ({
+  'name': 'Leah',
+  'age': 29,
+  'location': 'Los Angeles',
+  'previousBackground': 'travel',
+  'className': 'Web38',
+  'favSubjects': ['HTML', 'CSS', 'JS'],
+  'grade': 85,
+})
+
+const brit = new Instructor({
+  'name': 'Brit',
+  'age': 29,
+  'location': 'Los Angeles',
+  'specialty': 'being cool',
+  'favLanguage': 'React',
+  'catchPhrase': 'Hello',
+})
+
+const kay = new ProjectManager({
+  'name': 'Kayode',
+  'age': 29,
+  'location': 'Los Angeles',
+  'specialty': 'being cool',
+  'favLanguage': 'React',
+  'catchPhrase': 'Hello',
+  'gradClassName': 'Web36',
+  'favInstructor': 'Brit',
+})
+
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+brit.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+kay.giveGrade(leah);
+leah.graduate();
 
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
