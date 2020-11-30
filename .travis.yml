@@ -1,6 +1,0 @@
-language: node_js
-node_js:
-  - "12"
-# Older versions ommited for speed
-  # - "10"
-  # - "8"
