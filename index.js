@@ -195,7 +195,7 @@ grade(student,subject){ //`grade` receives a `student` object and a `subject` st
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager extends Instructor { //Write a ProjectManager class extending Instructor.
+ class ProjectManager extends Instructor { //Write a ProjectManager class extending Instructor..
   constructor(attribute) {
     super(attribute);
     this.gradClassName = attribute.gradClassName; //`gradClassName`: i.e. CS1
