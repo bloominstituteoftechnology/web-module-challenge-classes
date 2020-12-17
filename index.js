@@ -39,10 +39,24 @@ class Airplane {
           + When an instance poops, its `stomach` should empty.
       - Give instances of Person a method `.toString()`:
           + It should return a string with `name` and `age`. Example: "Mary, 50"
-  */
-  
- class Person {
-    
+  */  
+ class Person { //Write a Person class whose constructor 
+  constructor(name,age){ //initializes `name` and `age` from arguments.
+    this.name = name;
+    this.age = age;
+    this.stomach = []; //Person should also initialize with an empty `stomach` array.
+  }
+  eat(edible){ //Give instances of Person the ability to `.eat("someFood")`
+    if(this.stomach.length < 10){ // The eat` method should have no effect if there are 10 items in the `stomach`
+      this.stomach.push(edible) //When eating an edible, it should be pushed into the `stomach`
+    }
+ }
+  poop(){ //Give instances of Person the ability to `.poop()`
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name} and ${this.age}`
+  }
   }
   
   /*
@@ -60,8 +74,28 @@ class Airplane {
   */
   
  class Car {
-    
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  fill(gallons){
+    this.tank += gallons;
+  }
+  drive(distance){
+    if(distance >= this.tank * this.milesPerGallon){
+      this.odometer = this.odometer + this.tank * this.milesPerGallon;
+               this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+    else{
+      this.odometer = this.odometer + distance;
+      this.tank = ((this.tank * this.milesPerGallon) - distance) / this.milesPerGallon;
+    }
+
+  }
+}
   
   /*
     TASK 3
