@@ -1,4 +1,7 @@
 
+console.clear;
+
+
 /*
   EXAMPLE TASK:
     - Write an Airplane class whose constructor initializes `name` from an argument.
@@ -42,9 +45,32 @@ class Airplane {
   */
   
  class Person {
+    constructor(name, age, hungerLevel){
+      this.name = name;
+      this.age = age;
+      this.hungerLevel = hungerLevel;
+    }
+    eat(){
+      if(this.hungerLevel === 5){
+        return "I'm Full!"
+      } else {
+        this.hungerLevel = this.hungerLevel + 1;
+      }
+    }
     
   }
-  
+
+  let jacob = new Person(["Jacob"], ["21"], 0)
+
+  console.log(jacob); 
+  jacob.eat();
+  jacob.eat();
+  jacob.eat();
+  jacob.eat();
+  jacob.eat();
+  jacob.eat();
+  console.log(jacob);
+
   /*
     TASK 2
       - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -60,9 +86,44 @@ class Airplane {
   */
   
  class Car {
-    
+    constructor(model, make, milesPerGallon, odometer, tank){
+      this.model = model;
+      this.make = make;
+      this.milesPerGallon = milesPerGallon;
+      this.odometer = odometer;
+      this.tank = tank;
+    }
+
+    fill(){
+      if(this.tank === 20){
+        return "Tank is full"
+      }else{
+        this.tank = this.tank + 1;
+      }
+    }
+
+    drive(i){
+      this.odometer = this.odometer + i;
+    }
   }
   
+let civic = new Car(["Civic"], ["Honda"], ["32mpg"], 76843, 12)
+
+console.log(civic);
+civic.fill();
+civic.fill();
+civic.fill();
+civic.fill();
+civic.fill();
+civic.fill();
+civic.fill();
+civic.fill();
+civic.fill();
+console.log(civic);
+civic.drive(1200);
+console.log(civic);
+
+
   /*
     TASK 3
       - Write a Lambdasian class.
@@ -76,9 +137,22 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
-    
+    constructor(name, age, location){
+      this.name = name;
+      this.age = age;
+      this.location = location;
+    }
+    speak(){
+      return `Hello my name is ${this.name}, I am from ${this.location}.`
+    }
   }
-  
+
+  let jbev = new Lambdasian(["Jacob/Jbev/Jbeverage"], 21, ["Salt Lake City"])
+
+  console.log(jbev);
+  console.log(jbev.speak());
+
+
   /*
     TASK 4
       - Write an Instructor class extending Lambdasian.
@@ -93,9 +167,26 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
-
+ class Instructor extends Lambdasian {
+   constructor(instructorName, speciality, favLanguage, catchPhrase, subject){
+     this.instructorName = instructorName;
+    this.speciality = speciality;
+     this.favLanguage = favLanguage;
+     this.catchPhrase = catchPhrase;
+     this.subject = subject;
+   }
+   demo(){
+     return `Hey students, today I will be showing you about ${this.subject}.`
+   }
+   grade(){
+     return `Good job ${this.name}, you got an A on your ${this.speciality} examination.`
+   }
  }
+
+let dan = new Instructor(["Dan"], ["Being a badass instructor"], ["English"], ["lovesJava"], ["Web Development"])
+
+console.log(dan.demo());  
+
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -111,10 +202,27 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Instructor {
+     constructor(previousBackground, favSubjects, className){
+       this.previousBackground = previousBackground;
+       this.favSubjects = favSubjects;
+       this.className = className;
+     }
+     listSubjects(){
+       return `${this.name} has been loving ${this.favSubjects}!`
+     }
+     PRAssignment(){
+       return `${this.name} has submitted a PR for ${this.subject}`
+     }
+     sprintChallenge(){
+      return `${this.name} has begun a sprint challenge for ${this.subject}`
+     }
  }
-  
+let jbev = new Student(["Graphic Designer"], ["CSS, Java is growing on him"], ["Javascript fundimentals"])
+
+console.log(jbev.sprintChallenge());
+
+
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -128,8 +236,17 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+     constructor(gradClassName, favInstructor){
+       this.gradClassName = gradClassName;
+       this.favInstructor = favInstructor;
+     }
+     standUp(){
+       return `${this.name} announces to ${this.gradClassName}, @Channel standy times!`
+     }
+     debugsCode(){
+       return `${this.instructorName} debugs ${this.name}'s code on ${this.subject}`
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
