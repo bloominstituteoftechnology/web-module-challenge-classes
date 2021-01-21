@@ -211,7 +211,7 @@ TASK 6
 */
 class ProjectManager extends Instructor {
   constructor (attrs) {
-    super(attrs;
+    super(attrs);
     this.gradClassName = attrs.gradClassName;
     this.favInstructor = attrs.favInstructor;
   }
