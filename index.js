@@ -42,8 +42,23 @@ class Airplane {
   */
   
  class Person {
-    
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
   }
+  eat(someFood) {
+    if (this.stomach.length < 10){
+      this.stomach.push(someFood);
+    }
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+  return `${this.name}, ${this.age}`;
+  };
+
   
   /*
     TASK 2
@@ -59,9 +74,26 @@ class Airplane {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- class Car {
-    
+ class Car {constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  fill(gallons){
+    this.tank += gallons;
+   }
+   drive(distance){
+     this.odometer += distance;
+     this.tank -= (distance/this.milesPerGallon);  
+     if(distance/this.milesPerGallon > this.tank){
+       this.odometer = (distance) - 1;
+       this.tank = 0;
+       // console.log("I ran out of fuel at " + `${this.odometer}` + " miles!");
+       return "I ran out of fuel at " + `${this.odometer}` + " miles!";
+     }
+   }
+ }                      
   
   /*
     TASK 3
@@ -76,8 +108,15 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
-    
+  constructor(options){
+    this.name = options.name;
+    this.age = options.age;
+    this.location = options.location;
   }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
+}
   
   /*
     TASK 4
@@ -94,8 +133,20 @@ class Airplane {
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
  class Instructor {
-
+  constructor(options){    
+    super(options);
+    this.specialty = options.specialty;
+    this.favLanguage = options.favLanguage;
+    this.catchPhrase = options.catchPhrase;
  }
+ demo(subject){
+  return `Today we are learning about ${subject}`
+}
+grade(student, subject){
+  return `${student.name} receives a perfect score on ${subject}`
+}
+}
+
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -112,8 +163,22 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student {
-     
+  constructor(options){
+    super(options);
+    this.previousBackground = options.previousBackground;
+    this.className = options.className;
+    this.favSubjects = options.favSubjects;
  }
+ listSubjects(){
+  return this.favSubjects.join();
+}
+PRAssignment(subject){
+  return `${this.name} has submitted a PR for ${subject}`
+}
+sprintChallenge(subject){
+  return `${this.name} has begun sprint challenge on ${subject}`
+}
+}
   
   /*
     TASK 6
@@ -129,7 +194,9 @@ class Airplane {
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
  class ProjectManager {
-     
+  constructor(options){
+    super(options);
+  }
  }
   /*
     STRETCH PROBLEM (no tests!)
