@@ -79,10 +79,33 @@ class Airplane {
   */
   
  class Car {
+   constructor (model, mpg) {
+     this.model =model;
+     this.milesPerGallon = mpg;
+     this.tank = 0;
+     this.odometer = 0; /* built a car constructor to initialize to model 
+                           and milePerGallon. Also initializes with tank at
+                            '0' and odometer at '0'*/
+    }
     
-  }
-  
-  /*
+    fill (gallons) {
+      return ( this.tank += gallons);
+    }
+
+    drive(distance){
+      let destinationDistance = this.tank * this.milesPerGallon
+      if(distance < destinationDistance){
+      this.odometer += distance;
+      this.tank -= (distance/this.milesPerGallon);
+      }else{
+        this.odometer += destinationDistance;
+        this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles.`;
+        }
+      }
+    }
+    
+ /*
     TASK 3
       - Write a Lambdasian class.
       - Its constructor takes a single argument - an object with the following keys:
@@ -95,6 +118,7 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
+  
     
   }
   
@@ -113,8 +137,9 @@ class Airplane {
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
  class Instructor {
+  
+  }
 
- }
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
