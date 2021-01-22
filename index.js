@@ -200,10 +200,6 @@ class ProjectManager extends Instructor {
    this.gradClassName = attrs.gradClassName;
    this.favInstructor = attrs.favInstructor;
  }
- standUp(channel){
-  return (`${this.name} announces to ${channel}, @channel standy times!`)
- }
-
  debugsCode(student, subject){
   return (`${this.name} debugs ${student.name}'s code on ${subject}`)
  }
