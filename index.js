@@ -45,23 +45,23 @@ class Airplane {
   
     constructor(name,age) {
       this.name = name;
-      this.age = age;
-      this.stomach = [];
+      this.age = age;// initializes name and age from arguments
+      this.stomach = []; // all instances of Person will initialize with an empty stomach array.
     }
     eat (someFood) {
       if (this.stomach.length < 10) {
-        this.stomach.push (someFood);
+        this.stomach.push (someFood);// when eating an edible, it is pushed into stomach,however only up until the 10th item.
       }
     }
     poop () {
       this.stomach.splice (0);
-      return this.stomach
+      return this.stomach // stomach empties on the instance of poop.
     }
     toString () {
-      return `${this.name} , ${this.age}`;
+      return `${this.name} , ${this.age}`; // returns string with name and age.
     }
      
-   } 
+    } 
   
   
   /*
@@ -79,9 +79,9 @@ class Airplane {
   */
   
  class Car {
-   constructor (model, mpg) {
+   constructor (model, milesPerGallon) {
      this.model =model;
-     this.milesPerGallon = mpg;
+     this.milesPerGallon =milesPerGallon;
      this.tank = 0;
      this.odometer = 0; /* built a car constructor to initialize to model 
                            and milePerGallon. Also initializes with tank at
@@ -142,9 +142,26 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
-  
+ 
+  class Instructor extends Lambdasian {
+    constructor(instrObj) {
+      super(instrObj);
+      (this.specialty = instrObj.specialty),
+        (this.favLanguage = instrObj.favLanguage),
+        (this.catchPhrase = instrObj.catchPhrase);
+    }
+ 
+    demo(subject) {
+      return `Today we are learning about ${subject}`;
+    }
+ 
+    grade(student, subject) {
+      return `${student.name} receives a perfect score on ${subject}'`;
+    }
   }
+ 
+
+ 
 
   /*
     TASK 5
@@ -162,8 +179,8 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student {
-     
- }
+  
+}
   
   /*
     TASK 6
@@ -178,9 +195,9 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
- }
+ class ProjectManager  {
+  
+}
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
