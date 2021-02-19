@@ -83,6 +83,20 @@ class Car {
     constructor(props) {
         this.model = props.model;
         this.milesPerGallon = props.milesPerGallon;
+        this.tank = 0;
+        this.odometer = 0;
+    }
+    fill(gallons) { this.tank += gallons }
+    drive(distance) {
+        const range = this.tank * this.milesPerGallon;
+        if (range > distance) {
+            this.odometer -= distance;
+            this.tank -= distance / this.milesPerGallon;
+        } else {
+            this.tank = 0;
+            this.odometer += range;
+            return `I ran out of fuel at ${this.odometer} miles!`
+        }
     }
 }
 
