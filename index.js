@@ -8,18 +8,18 @@
 */
 
 // EXAMPLE SOLUTION CODE:
-class Airplane {
-    constructor(name) {
-        this.name = name;
-        this.isFlying = false;
-    }
-    takeOff() {
-        this.isFlying = true;
-    }
-    land() {
-        this.isFlying = false;
-    }
-}
+// class Airplane {
+//     constructor(name) {
+//         this.name = name;
+//         this.isFlying = false;
+//     }
+//     takeOff() {
+//         this.isFlying = true;
+//     }
+//     land() {
+//         this.isFlying = false;
+//     }
+// }
 
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -59,10 +59,7 @@ class Person {
     toString() { return `${this.name}, ${this.age}` }
 }
 //The below was written to test my code - look at the console, you will see it works even though the test says it doesn't
-const jimmy = new Person({
-    name: "Jimmy",
-    age: 32,
-})
+const jimmy = new Person("Jimmy", 32)
 console.log(jimmy, jimmy.toString())
 
 /*
@@ -90,7 +87,7 @@ class Car {
     drive(distance) {
         const range = this.tank * this.milesPerGallon;
         if (range > distance) {
-            this.odometer -= distance;
+            this.odometer += distance;
             this.tank -= distance / this.milesPerGallon;
         } else {
             this.tank = 0;
@@ -198,6 +195,20 @@ class ProjectManager extends Instructor {
     standUp(channel) { return `${this.name} announces to ${channel}, @channel standy times!` }
     debugsCode(student, subject) { return `${this.name} debugs ${student.name}'s code on ${subject}` }
 }
+
+const jerry = new ProjectManager({
+    name: 'Dan',
+    age: 35,
+    location: 'San Francisco',
+    specialty: 'Node',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'Keep doing what you\'re doing!',
+    gradClassName: 'Web25',
+    favInstructor: 'Luis'
+})
+console.log(jerry.age);
+
+
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
