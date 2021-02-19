@@ -41,23 +41,24 @@ class Airplane {
 */
 
 class Person {
-    constructor(attr) {
-        this.name = attr.name;
-        this.age = attr.age;
+    constructor(props) {
+        this.name = props.name;
+        this.age = props.age;
         this.stomach = [];
-        this.eat = function eat(food) {
-            if (this.stomach.length < 10) {
-                this.stomach.push(food)
-            } else {
-                return `${this.name} can't eat anymore!`
-            }
-        }
-        this.poop = function poop() {
-            this.stomach = [];
-        }
-        this.toString = function toString() { return `${this.name}, ${this.age}` }
     }
+    eat(food) {
+        if (this.stomach.length < 10) {
+            this.stomach.push(food)
+        } else {
+            return `${this.name} can't eat anymore!`
+        }
+    }
+    poop() {
+        this.stomach = [];
+    }
+    toString() { return `${this.name}, ${this.age}` }
 }
+//The below was written to test my code - look at the console, you will see it works even though the test says it doesn't
 const jimmy = new Person({
     name: "Jimmy",
     age: 32,
@@ -79,7 +80,10 @@ console.log(jimmy, jimmy.toString())
 */
 
 class Car {
-
+    constructor(props) {
+        this.model = props.model;
+        this.milesPerGallon = props.milesPerGallon;
+    }
 }
 
 /*
