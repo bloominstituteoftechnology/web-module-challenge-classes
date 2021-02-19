@@ -21,13 +21,6 @@ class Airplane {
       this.isFlying = false;
     }
   }
-  
-  /*
-  // 👇 COMPLETE YOUR WORK BELOW 👇
-  // 👇 COMPLETE YOUR WORK BELOW 👇
-  // 👇 COMPLETE YOUR WORK BELOW 👇
-  */
-  
   /*
     TASK 1
       - Write a Person class whose constructor initializes `name` and `age` from arguments.
@@ -40,10 +33,23 @@ class Airplane {
       - Give instances of Person a method `.toString()`:
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
-  
- class Person {
-    
+  function Person(name, age) {
+    this.stomach = [];
+    this.name = name;
+    this.age = age;
   }
+Person.prototype.eat = (someFood) {
+  if(this.stomach < 10) {
+    this.stomach.push(someFood);
+  } 
+}
+Person.prototype.poop = () {
+  this.
+}
+
+
+
+
   
   /*
     TASK 2
