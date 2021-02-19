@@ -41,9 +41,43 @@ class Airplane {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- class Person {
-    
+ class Person { constructor(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+
+eat(someFood) {
+  this.stomach.push(someFood);
+
+  if (this.stomach.length > 10) {
+    this.stomach.pop();
   }
+  return this.stomach;
+}
+
+poop() {
+  for (let i = 0; i < 10; i++) {
+    this.stomach.shift();
+  }
+  return console.log(this.stomach.length);
+}
+
+toString() {
+  return `${this.name}, ${this.age}`;
+}
+}
+
+const DD = new Person("Dd", 37);
+console.log(Nick);
+
+Dd.eat("chocolate");
+Dd.eat("cheeseburger");
+Dd.eat("fries");
+Dd.poop();
+Dd.toString();
+    
+
   
   /*
     TASK 2
@@ -59,7 +93,51 @@ class Airplane {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- class Car {
+ class Car {constructor(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+  this.gasoline = [0];
+  this.trip = [];
+}
+
+fill(fuel) {
+  for (let i = 0; i < fuel; i++) {
+    this.gasoline.push(1);
+  }
+  const fillTank = this.gasoline.reduce((total, item) => {
+    return total + item;
+  }, 0);
+  return (this.tank = 0 + fillTank);
+}
+
+drive(miles) {
+  for (let i = 0; i < miles; i++) {
+    this.trip.push(1);
+  }
+  if (this.trip.length >= this.fill() * this.milesPerGallon) {
+    return [
+      (this.odometer = this.fill() * this.milesPerGallon),
+      (this.tank = 0),
+      `I ran out of fuel at ${this.odometer} miles!`,
+    ];
+  } else {
+    console.log(this.trip.length);
+    return console.log(
+      (this.odometer = 0 + this.trip.length),
+      (this.tank = this.fill() - miles / this.milesPerGallon)
+    );
+  }
+}
+}
+const infinite = new Car("infinite", 20);
+console.log(infinite);
+
+infiniti.fill(10);
+infinite.drive(201);
+
+console.log(infinite);
     
   }
   
@@ -76,6 +154,16 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
+  constructor(attr) {
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
+  }
+
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}.`;
+  }
+}
     
   }
   
@@ -94,6 +182,21 @@ class Airplane {
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
  class Instructor {
+  constructor(attr2) {
+    super(attr2);
+    this.specialty = attr2.specialty;
+    this.favLanguage = attr2.favLanguage;
+    this.catchPhrase = attr2.catchPhrase;
+  }
+
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+}
 
  }
   /*
@@ -112,7 +215,24 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student {
-     
+  constructor(attr3) {
+    super(attr3);
+    this.previousBackground = attr3.previousBackground;
+    this.className = attr3.className;
+    this.favSubjects = attr3.favSubjects;
+  }
+
+  listSubjects() {
+    return `Loving ${this.favSubjects.join()}!`;
+  }
+
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
  }
   
   /*
@@ -129,7 +249,20 @@ class Airplane {
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
  class ProjectManager {
-     
+  constructor(attr4) {
+    super(attr4);
+    this.gradClassName = attr4.gradClassName;
+    this.favInstructor = attr4.favInstructor;
+  }
+
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
+}
  }
   /*
     STRETCH PROBLEM (no tests!)
