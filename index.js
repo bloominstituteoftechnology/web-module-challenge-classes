@@ -41,9 +41,9 @@ class Airplane {
 */
 
 class Person {
-    constructor(props) {
-        this.name = props.name;
-        this.age = props.age;
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
         this.stomach = [];
     }
     eat(food) {
@@ -80,9 +80,9 @@ console.log(jimmy, jimmy.toString())
 */
 
 class Car {
-    constructor(props) {
-        this.model = props.model;
-        this.milesPerGallon = props.milesPerGallon;
+    constructor(model, milesPerGallon) {
+        this.model = model;
+        this.milesPerGallon = milesPerGallon;
         this.tank = 0;
         this.odometer = 0;
     }
@@ -189,8 +189,14 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+    constructor(props) {
+        super(props);
+        this.gradClassName = props.gradClassName;
+        this.favInstructor = props.favInstructor;
+    }
+    standUp(channel) { return `${this.name} announces to ${channel}, @channel standy times!` }
+    debugsCode(student, subject) { return `${this.name} debugs ${student.name}'s code on ${subject}` }
 }
 /*
   STRETCH PROBLEM (no tests!)
