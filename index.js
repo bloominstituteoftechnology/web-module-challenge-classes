@@ -109,6 +109,10 @@ class Airplane {
     }
   }
 
+  const newCar = new Car({
+    model: "Explorer"
+  })
+
 
   /*
     TASK 3
@@ -153,7 +157,9 @@ class Airplane {
  class Instructor extends Lambdasian {
    constructor (Instructorattributes){
     super(Instructorattributes)
-    this.specialty = attributes.specialty
+    this.specialty = Instructorattributes.specialty;
+    this.favLanguage = Instructorattributes.favLanguage;
+    this.catchPhrase = Instructorattributes.catchPhrase;
    }
    demo(subject){
      return `Today we are learning about ${subject} where subject is the param passed in.`
@@ -163,6 +169,19 @@ class Airplane {
    }
 
  }
+
+ const Pace = new Instructor ({
+  name: "Ellsworth", 
+  age: 40,
+  location: "Chicago",
+  specialty: "Javascript",
+  favLanguage: "English",
+  catchPhrase: "Don't forget the homies"   
+ })
+
+ console.log (Pace.demo("CSS"));
+ console.log (Pace.grade("Sasha", "CSS"));
+
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -181,11 +200,34 @@ class Airplane {
  class Student extends Lambdasian{
      constructor(Studentattributes){
        super(Studentattributes)
-       this.previousBackground = attributes.previousBackground;
-       
+       this.previousBackground = Studentattributes.previousBackground;
+       this.className = Studentattributes.className;
+       this.favSubjects = Studentattributes.favSubjects;
+     }
+     listSubjects(){
+        return `Loving ${this.favSubjects}!`
+     }
+     PRAssignment(subject){
+       return `${this.name} has submitted a PR for ${subject}.`
+     }
+     sprintChallenge(subject){
+       return  `${this.name} has begun sprint challenge on ${subject}.`
      }
  }
   
+ const Sasha = new Student ({
+   name: "Sasha",
+   age: 34,
+   location: "Michigan",
+   previousBackground: "Hotel Front Desk",
+   className: "CS132",
+   favSubjects: ["JS","HTML","CSS","Python"]
+ })
+
+ console.log (Sasha.listSubjects());
+ console.log (Sasha.PRAssignment("JS"));
+ console.log (Sasha.sprintChallenge("Python"));
+
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -202,9 +244,31 @@ class Airplane {
  class ProjectManager extends Instructor{
      constructor(ProjectManagerattributes){
        super(ProjectManagerattributes)
+       this.gradClassName = ProjectManagerattributes.gradClassName;
+       this.favInstructor = ProjectManagerattributes.favInstructor;
+     }
+     standUp(channel){
+       return  `${this.name} announces to ${channel}, @channel standby times!`
+     }
+     debugsCode(student, subject){
+       return `${this.name} debugs ${student.name}'s code on ${subject}.`
      }
  }
-  /*
+
+ const Lady = new ProjectManager({
+   name: "Sarah",
+   age: 38,
+   location: "Sacremento",
+   specialty: "Javascript",
+  favLanguage: "English",
+  catchPhrase: "I love LOVE",
+  gradClassName: "CS1",
+  favInstructor: "Stan"
+ })
+
+ console.log (Lady.standUp("webpt27_help"));
+ console.log (Lady.debugsCode("Sasha", "HTML"));
+   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
       - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
