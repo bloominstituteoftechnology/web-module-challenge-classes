@@ -125,9 +125,21 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
+ class Instructor extends Lambdasian {
+  constructor(instructorAttr) {
+      super(instructorAttr);
+      this.specialty = instructorAttr.specialty;
+      this.favLanguage = instructorAttr.favLanguage;
+      this.catchPhrase = instructorAttr.catchPhrase;
+    }
+     demo(subject){
+       return 'Today we are learning about {subject}'
+     }
+     grade(student,subject){
+       return '${student.name} receives a perfect score on ${subject}'
+     }
+   }
 
- }
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -143,8 +155,24 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+  class Student extends Lambdasian{
+     constructor(studentAttr){
+       super(studentAttr);
+       this.previousBackground = studentAttr.previousBackground;
+       this.className = studentAttr.className;
+       this.favSubjects = studentAttr.favSubjects;
+     }
+      listSubjects(){
+       return("Loving HTML, CSS, JS!")
+ }
+       PRAssignment(subject){
+        return(`${student.name} has submitted a PR        for ${subject}`)
+ }
+
+     sprintChallenge(){
+     return(`${student.name} has begun sprint             challenge on {subject}`)
+ }
+  
  }
   
   /*
@@ -160,9 +188,20 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+  constructor(attrs){
+    super(attrs)
+    this.gradClassName = attrs.gradClassName;
+    this.favInstructor = attrs.favInstructor;
+  }
+  standUp(channel){
+   return (`${name} announces to ${channel}, @channel standy times!`)
+  }
+   debugsCode(student, subject){
+   return (`${this.name} debugs ${student.name}'s code on ${subject}`)
+  }
  }
+ 
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
