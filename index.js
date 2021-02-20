@@ -40,23 +40,6 @@ class Airplane {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
 
-//  function Person(name,age) {
-//    this.name = name;
-//    this.age = age;
-//    this.stomach = [];
-//   }
-// Person.prototype.eat = function(somefood){
-//   while (this.stomach.length < 10){
-//     this.stomach.push(somefood);
-//   }
-// }
-// Person.prototype.poop = function(){
-//   return this.stomach =[];
-// }
-// Person.prototype.toString(){
-//   return `${this.name}, ${this.age}`;
-// }
-
 class Person {
 	constructor(name, age) {
 		this.name = name;
@@ -90,26 +73,26 @@ class Person {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
 
-function Car(model, milesPerGallon) {
-	this.model = model;
-	this.milesPerGallon = milesPerGallon;
-	this.tank = 0;
-	this.odometer = 0;
-}
-Car.prototype.fill = function (gallons) {
-	this.tank = gallons + this.tank;
-};
-Car.prototype.drive = function (distance) {
-	this.odometer = distance + this.odometer;
-	this.tank = this.tank - distance / this.milesPerGallon;
-	if ((this.fill = 0)) {
-		this.milesPerGallon = 0;
+class Car {
+	constructor(model, milesPerGallon) {
+		this.model = model;
+		this.milesPerGallon = milesPerGallon;
 		this.tank = 0;
-		return `I ran out of fuel at ${this.odometer} miles!`;
+		this.odometer = 0;
 	}
-};
-
-// class Car {}
+	fill(gallons) {
+		this.tank = gallons + this.tank;
+	}
+	drive(distance) {
+		this.odometer = distance + this.odometer;
+		this.tank = this.tank - distance / this.milesPerGallon;
+		if (this.tank <= 0) {
+			this.milesPerGallon = 0;
+			this.tank = 0;
+			return `I ran out of fuel at ${this.odometer} miles!`;
+		}
+	}
+}
 
 /*
     TASK 3
@@ -202,7 +185,6 @@ class Student extends Lambdasian {
 		return `${this.name} has submitted a PR for ${subject}`;
 	}
 	sprintChallenge(subject) {
-		for (let i = 0; i < this.favSubjects.length; i++);
 		return `${this.name} has begun sprint challenge on ${subject}`;
 	}
 }
@@ -220,7 +202,19 @@ class Student extends Lambdasian {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
-class ProjectManager {}
+class ProjectManager extends Instructor {
+	constructor(obj) {
+		super(obj);
+		this.gradClassName = obj.gradClassName;
+		this.favInstructor = obj.favInstructor;
+	}
+	standUp(channel) {
+		return `${this.name} announces to ${channel}, @channel standy times!`;
+	}
+	debugsCode(student, subject) {
+		return `${this.name} debugs ${student.name}'s code on ${subject}`;
+	}
+}
 /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
