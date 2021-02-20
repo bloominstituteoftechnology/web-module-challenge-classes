@@ -84,17 +84,20 @@ class Airplane {
     }
 
     fill(gallons) {
-      this.gallons += this.tank;
+      this.tank += gallons;
     }
 
     drive(distance) {
-      this.distance += this.odometer;
-      this.distance -= this.tank / this.milesPerGallon;
-      if (this.tank === 0) {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+      let maxDistance = this.tank * this.milesPerGallon;
+      if (maxDistance < distance) {
+        this.tank = 0;
+        this.odometer += maxDistance
         return `I ran out of fuel at ${this.odometer} miles!`
       }
     }
-  }
+ }
   
   /*
     TASK 3
@@ -174,15 +177,16 @@ class Airplane {
        this.favSubjects = attr.favSubjects
      }
 
-     listSubjects(favSubjects) {
-       return this.favSubjects.toString;
+     listSubjects() {
+       let studentSubs = this.favSubjects.toString() 
+       return `Loving ${studentSubs}!`
      }
 
      PRAssignment(subject) {
        return `${this.name} has submitted a PR for ${subject}`
      }
      sprintChallenge(subject) {
-       return `${this.name} has begun sprint challenge on ${this.subject}`
+       return `${this.name} has begun sprint challenge on ${subject}`
      }
 
  }
@@ -207,11 +211,11 @@ class Airplane {
        this.favInstructor = attr.favInstructor;
      }
      
-     standUp(name) {
+     standUp(channel) {
        return `${this.name} announces to ${channel}, @channel standy times!`
      }
 
-     debugsCode(attr, subject) {
+     debugsCode(student, subject) {
        return `${this.name} debugs ${student.name}'s code on ${subject}`
      }
     }
