@@ -1,4 +1,3 @@
-
 /*
   EXAMPLE TASK:
     - Write an Airplane class whose constructor initializes `name` from an argument.
@@ -10,25 +9,25 @@
 
 // EXAMPLE SOLUTION CODE:
 class Airplane {
-    constructor(name) {
-      this.name = name;
-      this.isFlying = false;
-    }
-    takeOff() {
-      this.isFlying = true;
-    }
-    land() {
-      this.isFlying = false;
-    }
-  }
-  
-  /*
+	constructor(name) {
+		this.name = name;
+		this.isFlying = false;
+	}
+	takeOff() {
+		this.isFlying = true;
+	}
+	land() {
+		this.isFlying = false;
+	}
+}
+
+/*
   // 👇 COMPLETE YOUR WORK BELOW 👇
   // 👇 COMPLETE YOUR WORK BELOW 👇
   // 👇 COMPLETE YOUR WORK BELOW 👇
   */
-  
-  /*
+
+/*
     TASK 1
       - Write a Person class whose constructor initializes `name` and `age` from arguments.
       - All instances of Person should also initialize with an empty `stomach` array.
@@ -40,12 +39,44 @@ class Airplane {
       - Give instances of Person a method `.toString()`:
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
-  
- class Person {
-    
-  }
-  
-  /*
+
+//  function Person(name,age) {
+//    this.name = name;
+//    this.age = age;
+//    this.stomach = [];
+//   }
+// Person.prototype.eat = function(somefood){
+//   while (this.stomach.length < 10){
+//     this.stomach.push(somefood);
+//   }
+// }
+// Person.prototype.poop = function(){
+//   return this.stomach =[];
+// }
+// Person.prototype.toString(){
+//   return `${this.name}, ${this.age}`;
+// }
+
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+		this.stomach = [];
+	}
+	eat(someFood) {
+		if (this.stomach.length < 10) {
+			this.stomach.push(someFood);
+		}
+	}
+	poop() {
+		return (this.stomach = []);
+	}
+	toString() {
+		return `${this.name}, ${this.age}`;
+	}
+}
+
+/*
     TASK 2
       - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
       - All instances built with Car:
@@ -58,12 +89,29 @@ class Airplane {
       - A car which runs out of `fuel` while driving can't drive any more distance:
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
-  
- class Car {
-    
-  }
-  
-  /*
+
+function Car(model, milesPerGallon) {
+	this.model = model;
+	this.milesPerGallon = milesPerGallon;
+	this.tank = 0;
+	this.odometer = 0;
+}
+Car.prototype.fill = function (gallons) {
+	this.tank = gallons + this.tank;
+};
+Car.prototype.drive = function (distance) {
+	this.odometer = distance + this.odometer;
+	this.tank = this.tank - distance / this.milesPerGallon;
+	if ((this.fill = 0)) {
+		this.milesPerGallon = 0;
+		this.tank = 0;
+		return `I ran out of fuel at ${this.odometer} miles!`;
+	}
+};
+
+// class Car {}
+
+/*
     TASK 3
       - Write a Lambdasian class.
       - Its constructor takes a single argument - an object with the following keys:
@@ -75,11 +123,28 @@ class Airplane {
           + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
           + {name} and {location} of course come from the instance's own properties.
   */
- class Lambdasian {
-    
-  }
-  
-  /*
+
+// function Lambdasian(name,age,location){
+//   this.name = name;
+//   this.age = age;
+//   this.location = location;
+// }
+// Lambdasian.prototype.speak = function (){
+//   return `Hello my name is ${this.name}, I am from ${this.location}`
+// }
+
+class Lambdasian {
+	constructor(attr) {
+		this.name = attr.name;
+		this.age = attr.age;
+		this.location = attr.location;
+	}
+	speak() {
+		return `Hello my name is ${this.name}, I am from ${this.location}`;
+	}
+}
+
+/*
     TASK 4
       - Write an Instructor class extending Lambdasian.
       - Its constructor takes a single argument - an object with the following keys:
@@ -93,10 +158,22 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
+class Instructor extends Lambdasian {
+	constructor(obj) {
+		super(obj);
+		this.specialty = obj.specialty;
+		this.favLanguage = obj.favLanguage;
+		this.catchPhrase = obj.catchPhrase;
+	}
+	demo(subject) {
+		return `Today we are learning about ${subject}`;
+	}
+	grade(student, subject) {
+		return `${student.name} receives a perfect score on ${subject}`;
+	}
+}
 
- }
-  /*
+/*
     TASK 5
       - Write a Student class extending Lambdasian.
       - Its constructor takes a single argument -  an object with the following keys:
@@ -111,11 +188,26 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
- }
-  
-  /*
+class Student extends Lambdasian {
+	constructor(obj) {
+		super(obj);
+		this.previousBackground = obj.previousBackground;
+		this.className = obj.className;
+		this.favSubjects = obj.favSubjects;
+	}
+	listSubjects() {
+		return `Loving ${this.favSubjects[0]}, ${this.favSubjects[1]}, ${this.favSubjects[2]}!`;
+	}
+	PRAssignment(subject) {
+		return `${this.name} has submitted a PR for ${subject}`;
+	}
+	sprintChallenge(subject) {
+		for (let i = 0; i < this.favSubjects.length; i++);
+		return `${this.name} has begun sprint challenge on ${subject}`;
+	}
+}
+
+/*
     TASK 6
       - Write a ProjectManager class extending Instructor.
       - Its constructor takes a single argument - an object with the following keys:
@@ -128,10 +220,8 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
- }
-  /*
+class ProjectManager {}
+/*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
       - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
@@ -140,19 +230,18 @@ class Airplane {
         + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
   */
 
-
-  //End of Challenge
-  /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-  function foo(){
-    return 'bar';
+//End of Challenge
+/* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
+function foo() {
+	return "bar";
 }
 
-export default{
-    foo,
-    Person,
-    Car,
-    Lambdasian,
-    Instructor,
-    Student,
-    ProjectManager
-}
+export default {
+	foo,
+	Person,
+	Car,
+	Lambdasian,
+	Instructor,
+	Student,
+	ProjectManager,
+};
