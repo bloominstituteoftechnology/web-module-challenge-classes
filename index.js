@@ -42,7 +42,7 @@ class Airplane {
   */
   
  class Person {
-    
+    adam(())
   }
   
   /*
