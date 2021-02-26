@@ -186,7 +186,7 @@ class Airplane {
        return `${this.name} has begun sprint challenge on ${subject}`;
      }
  }
- 
+
   
   /*
     TASK 6
@@ -201,8 +201,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+     constructor(attributes){
+       super(attributes)
+       this.gradClassName = attributes.gradClassName;
+       this.favInstructor = attributes.favInstructor;
+     }
+     standUp(channel){
+       return `${this.name} announces to ${channel}, @channel standy times!`;
+     }
+     debugsCode(name, subject){
+       return `${this.name} debugs ${name}'s code on ${subject}`;
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
