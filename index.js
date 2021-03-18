@@ -174,6 +174,18 @@ class Airplane {
      this.className = studentAttributes.className;
      this.favSubjects = studentAttributes.favSubjects;
    }
+
+   listSubjects() {
+     return this.favSubjects.join('Loving, HTML, CSS, JS!')
+   }
+
+   PRAssignment(subject) {
+    return `${student.name} has submitted a PR for ${subject}`
+   }
+
+   sprintChallenge(subject) {
+    return student.name `has begun sprint challenge on ${subject}`
+   }
      
  }
   
@@ -190,8 +202,11 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor{
+     constructor(pmAttributes){
+     super(pmAttributes);
+     this.gradClassName = pmAttributes.gradClassName;
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
