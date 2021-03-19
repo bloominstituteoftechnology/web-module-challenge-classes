@@ -85,7 +85,7 @@ class Airplane {
       this.odometer = 0
     }
 
-    fill (gallons){
+    fill(gallons){
       this.tank = this.tank + gallons;
     }
 
@@ -179,12 +179,12 @@ class Airplane {
      return this.favSubjects.join('Loving, HTML, CSS, JS!')
    }
 
-   PRAssignment(subject) {
+   PRAssignment(student, subject) {
     return `${student.name} has submitted a PR for ${subject}`
    }
 
-   sprintChallenge(subject) {
-    return student.name `has begun sprint challenge on ${subject}`
+   sprintChallenge(student, subject) {
+    return `${student.name} has begun sprint challenge on ${subject}`
    }
      
  }
@@ -206,6 +206,17 @@ class Airplane {
      constructor(pmAttributes){
      super(pmAttributes);
      this.gradClassName = pmAttributes.gradClassName;
+     this.favInstructor = pmAttributes.favInstructor;
+     }
+
+     standUp(channel) {
+      return `${this.name} announces to ${channel}, @channel standy times!`
+     }
+
+     debugsCode(student, subject) {
+      console.log(student)
+      `${this.name} debugs ${student.name}'s code on ${subject}`
+      
      }
  }
   /*
