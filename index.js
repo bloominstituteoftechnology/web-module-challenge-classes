@@ -49,7 +49,7 @@ class Airplane {
     }
 
     eat(food){
-      if( this.stomach.legnth < 10) {
+      if( this.stomach.length < 10) {
         this.stomach.push(food);
       } 
     }
@@ -179,12 +179,12 @@ class Airplane {
      return this.favSubjects.join('Loving, HTML, CSS, JS!')
    }
 
-   PRAssignment(student, subject) {
-    return `${student.name} has submitted a PR for ${subject}`
+   PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`
    }
 
-   sprintChallenge(student, subject) {
-    return `${student.name} has begun sprint challenge on ${subject}`
+   sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`
    }
      
  }
@@ -214,8 +214,7 @@ class Airplane {
      }
 
      debugsCode(student, subject) {
-      console.log(student)
-      `${this.name} debugs ${student.name}'s code on ${subject}`
+      return `${this.name} debugs ${student.name}'s code on ${subject}`
       
      }
  }
