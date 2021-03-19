@@ -42,18 +42,16 @@ class Airplane {
   */
   
  class Person {
-   constructor(attributes) {
-     this.name = attributes.name
-     this.age = attributes.age
+   constructor(name, age) {
+     this.name = name
+     this.age = age
      this.stomach = []
    }
    //methods go here
   eat(item) {
-    // this.Person.eat = this.stomach
-    this.stomach.push(item)
-    // if(this.stomach > 10) {
-    //   return false
-    // }
+    if(this.stomach.length < 10) { //.length returns number of items
+      return this.stomach.push(item) //return this.stomach.push(item) inside the if statement
+    }
   }
 
   poop() {
@@ -66,13 +64,11 @@ class Airplane {
   }
  }
 
- const amy = new Person ({
-   name: 'Amy',
-   age: 21,
- })
+//  const amy = new Person("amy", 21) //DO NOT write as an object ({})
 
-//  console.log(amy.eat())
-  
+//  console.log(amy.eat("apple"))
+//  amy.eat("grapes") //invoking adds it to stomach, but won't console.log() it
+//  console.log(amy)
   /*
     TASK 2
       - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -88,21 +84,27 @@ class Airplane {
   */
   
  class Car {
-    constructor(attributes) {
-      this.model = attributes.model
-      this.milesPerGallon = attributes.milesPerGallon
+    constructor(model, milesPerGallon) {
+      this.model = model
+      this.milesPerGallon = milesPerGallon
       this.tank = 0
       this.odometer = 0
     }
 
     fill(gallons) {
-      this.gallons = this.tank + this.gallons
+      this.tank = this.tank + gallons
     }
 
     drive(distance) {
-      this.distance = this.odometer + this.distance
-      this.milesPerGallon = this.milesPerGallon - this.tank
-      return `I ran out of fuel at ${this.odometer} miles!`
+      if(distance < this.milesPerGallon * this.tank) { //plug in values to understand
+      this.odometer += distance
+      //taking current odometer and adding it to distance
+      this.tank -= distance / this.milesPerGallon
+      }else {this.odometer += this.milesPerGallon * this.tank
+        this.tank = 0
+        return `I ran out of fuel at ${this.odometer} miles!`
+      }
+      //miles/miles per gallons = gallons = this.tank
     }
   }
 
@@ -155,11 +157,11 @@ class Airplane {
      this.catchPhrase = attributes.catchPhrase
    }
    demo(subject) {
-     return `Today we are learning about` + subject
+    return `Today we are learning about ${subject}`
    }
 
    grade(student, subject) {
-     `${this.student.name} receives a perfect score on` + subject
+    return `${student.name} receives a perfect score on ${subject}`
    }
 
  }
@@ -191,11 +193,11 @@ class Airplane {
    }
 
    PRAssignment(subject) {
-     return `${this.student.name} has submitted a PR for` + subject
+     return `${this.name} has submitted a PR for ${subject}`
    }
 
    sprintChallenge(subject) {
-     return `${this.student.name} has begun sprint challenge on` + subject 
+     return `${this.name} has begun sprint challenge on ${subject}`
    }
      
  }
@@ -221,11 +223,11 @@ class Airplane {
    }
 
    standUp(channel) {
-     return `${this.name} announces to` + channel `, @channel standy times!`
+     return `${this.name} announces to ${channel} @channel standy times!`
    }
 
-   debugsCode(subject) {
-     return `${this.name} debugs ${this.student.name}'s code on` + subject
+   debugsCode(student, subject) {
+     return `${this.name} debugs ${student.name}'s code on ${subject}`
    }
      
  }
