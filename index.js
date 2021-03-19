@@ -89,7 +89,7 @@ class Airplane {
       drive(distance) {  
         if (this.tank = this.tank > 0) {
           this.odometer = this.odometer + distance;
-          this.tank = this.tank - (distance / milesPerGallon)
+          this.tank = this.tank - (distance / this.milesPerGallon)
         } else {
           this.tank = 0;
           return `'I ran out of fuel at ${this.odemeter} miles!'` 
@@ -138,7 +138,7 @@ class Airplane {
    constructor (attributes) {
      super(attributes);
      this.specialty = attributes.specialty;
-     this.favLanguage = atttributes.favLanguage;
+     this.favLanguage = attributes.favLanguage;
      this.catchPhrase = attributes.catchPhrase
     }
     demo (subject){
@@ -164,13 +164,22 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student extends Lambdasian {
-  //  constructor (studendAttributes) {
-  //    this.previousBackground = studentAtttributes.previousBackground;
-  //    this.className = studentAttributes.className;
-    //  this.faveSubjects= studentAttributes.favSubjects[];
-  //  }
-     
- }
+   constructor (attributes) {
+     super (attributes);
+     this.previousBackground = attributes.previousBackground;
+     this.className = attributes.className;
+     this.favSubjects= attributes.favSubjects
+    }
+    listSubjects () {
+      return `${this.favSubjects}`
+    }
+    PRAssignment (subject) {
+      `${student.name} has submitted a PR on ${subject}`
+    }
+    sprintChallange (subject){
+      returns `${student.name} has begun sprint challenge on ${subject}`
+    }
+  }
   
   /*
     TASK 6
