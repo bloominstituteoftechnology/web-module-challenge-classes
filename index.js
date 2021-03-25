@@ -167,9 +167,28 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
- }
+ class Student extends Lambdasian {
+   constructor(atts){
+     super(atts);
+     this.previousBackground = atts.previousBackground;
+     this.className = atts.className;
+     this.favSubjects = atts.favSubjects;
+   };
+   listSubjects() {
+    // let retStr = "Loving ";
+    // for (let i= 0; i < this.favSubjects.length-1; i++) {
+    //   retStr += `${favSubjects[i]}, `
+    // }
+    // return retStr + this.favSubjects[this.favSubjects.length] + "!";
+    return "Loving " + this.favSubjects + "!";
+   }
+   PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`; 
+   }
+   sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`; 
+   } 
+ };
   
   /*
     TASK 6
@@ -184,7 +203,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
+ class ProjectManager extends Instructor{
+   constructor(atts) {
+     super(atts);
+     this.gradClassName = atts.gradClassName;
+     this.favInstructor = atts.favInstructor;
+   }
+   standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+   }
+   debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+   }
      
  }
   /*
