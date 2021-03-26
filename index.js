@@ -53,13 +53,22 @@ class Person {
     }
   }
   poop() {
-    return this.stomach = [];
+    this.stomach = [];
   }
   toString() {
     return `${this.name}, ${this.age}`;
   }
 }
   
+// let newPerson = new Person('josie', 42);
+// console.log(newPerson);
+// newPerson.eat('carrot');
+// console.log(newPerson);
+// newPerson.poop();
+// console.log(newPerson);
+// newPerson.toString();
+// console.log(newPerson.toString());
+
   /*
     TASK 2
       - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -74,9 +83,36 @@ class Person {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- class Car {
-    
+class Car {
+  constructor(model, milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+  fill(gallons) {
+    this.tank += gallons;
+    return this;
+  }
+  drive(distance) {
+    if(distance < (this.tank * this.milesPerGallon)) {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+    } else {
+      this.odometer += this.tank * this.milesPerGallon;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
+}
+
+// let newCar = new Car('Q5', 40);
+// console.log(newCar)
+// newCar.fill(20);
+// console.log(newCar)
+// newCar.drive(50);
+// console.log(newCar)
+
   
   /*
     TASK 3
