@@ -160,10 +160,23 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
- }
-  
+          class Student extends Lambdasian {
+            constructor(Object) {
+              super(Object);
+              this.previousBackground = Object.previousBackground;
+              this.className = Object.className;
+              this.favSubjects = Object.favSubjects;
+            }
+            listSubjects(favSubjects) {
+              return this.favSubjects.toString();
+            }
+            PRAssignment(subject) {
+              return `${this.name} has submitted a PR for ${subject}`;
+            }
+            sprintChallenge(subject) {
+              return `${this.name} has begun sprint challenge on ${subject}`;
+            }
+          }
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -177,9 +190,19 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
- }
+          class ProjectManager extends Instructor {
+            constructor(Object) {
+              super(Object);
+              this.gradClassName = Object.gradClassName;
+              this.favInstructor = Object.favInstructor;
+            }
+            standUp(channel) {
+              return `${this.name} announces to ${channel}, @channel standy times!`;
+            }
+            debugsCode(student, subject) {
+              return `${this.name} debugs ${student.name}'s code on ${subject}`;
+            }
+          }
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
