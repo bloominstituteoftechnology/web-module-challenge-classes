@@ -173,7 +173,14 @@ class Airplane {
      this.className = attributes.className
      this.favSubjects = attributes.favSubjects
    }
-     
+    listSubjects(){
+      return this.favSubjects
+    }
+    PRAssignment(subject){
+    return `${student.name} has submitted a PR for ${subject}`
+ }
+ sprintChallenge(subject){
+    return `${student.name} has begun sprint challenge on ${subject}`
  }
   
   /*
