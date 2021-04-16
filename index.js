@@ -41,24 +41,24 @@ class Airplane {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
 
-      // class Person {
-      //   constructor(name, age) {
-      //     this.stomach = [];
-      //     this.name = name;
-      //     this.age = age;
-      //   }
-      //   eat(someFood){
-      //     if(this.stomach.length < 10){
-      //     this.stomach.push(someFood);
-      //     }
-      //   }
-      //   poop(){
-      //     this.stomach = [];
-      //   }
-      //   toString(){
-      //     return `${this.name}, and ${this.age}`;
-      //   }
-      // }
+      class Person {
+        constructor(name, age) {
+          this.stomach = [];
+          this.name = name;
+          this.age = age;
+        }
+        eat(someFood){
+          if(this.stomach.length < 10){
+          this.stomach.push(someFood);
+          }
+        }
+        poop(){
+          this.stomach = [];
+        }
+        toString(){
+          return `${this.name}, and ${this.age}`;
+        }
+      }
 
   
   /*
@@ -76,30 +76,30 @@ class Airplane {
   */
   
 
-          // class Car {
-          //   constructor (model, mpg){
-          //     this.model = model;
-          //     this.mpg = mpg;
-          //     this.tank = 0;
-          //     this.odometer = 0;
+          class Car {
+            constructor (model, mpg){
+              this.model = model;
+              this.mpg = mpg;
+              this.tank = 0;
+              this.odometer = 0;
          
-          //   }
-          //     fill (gallons){
-          //      return this.tank += gallons;
-          //     }
-          //     drive(distance){
-          //       let distanceLeft = this.tank * this.mpg;
-          //       if(distanceLeft > distance){
-          //         this.odometer += distance;
-          //         this.tank -= distance / this.mpg;
-          //         return this.odometer, this.tank;
-          //       } else {
-          //         this.odometer += distanceLeft;
-          //         this.tank = 0;
-          //         return `I ran out of fuel at ${this.odometer.toFixed(2)} miles!`
-          //       }
-          //     }
-          //   }
+            }
+              fill (gallons){
+               return this.tank += gallons;
+              }
+              drive(distance){
+                let distanceLeft = this.tank * this.mpg;
+                if(distanceLeft > distance){
+                  this.odometer += distance;
+                  this.tank -= distance / this.mpg;
+                  return this.odometer, this.tank;
+                } else {
+                  this.odometer += distanceLeft;
+                  this.tank = 0;
+                  return `I ran out of fuel at ${this.odometer.toFixed(2)} miles!`
+                }
+              }
+            }
            
           //  const car1 = new Car('GMC', 10)
           //  console.log(car1.fill(1));
@@ -161,7 +161,12 @@ class Airplane {
  }
 
 
+// const studentValues = new Instructor ({
+//   name: 'Aaron',
+//   catchPhrase: 'Yeet!'
+// });
 
+// console.log(`${studentValues.name}, ${studentValues.catchPhrase}`);
 
 
 
@@ -181,15 +186,30 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian{
+   constructor(attrs){
+     super(attrs);
+     this.previousBackground = attrs.previousBackground;
+     this.className = attrs.className;
+     this.favSubjects = attrs.favSubjects;
+   }
+   listSubjects() {
+    return `Loving ${this.favSubjects.toString()}`
+  }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`
+  }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`
+  }  
  }
+
+
+
+ console.log();
   
 
 
-
-
- 
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -203,11 +223,26 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor{
+   constructor(attrs){
+     super(attrs);
+     this.gradClassName = attrs.gradClassName;
+     this.favInstructor = attrs.favInstructor;
+   }
+     standUp(slackChannel){
+        return `${this.name} announces to ${slackChannel}, @channel standy times!`;
+     }
+     debugsCode(student, subject){
+       return `${this.name} debugs ${student}'s code on ${subject}.`  
+     }
  }
 
+const x = new ProjectManager ({
+  name: 'Aaron',
+});
 
+
+console.log(x.debugsCode('Sam', 'math'));
 
 
 
