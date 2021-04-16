@@ -41,8 +41,26 @@ class Airplane {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- class Person {
-    
+  class Person {
+
+    constructor(name, age) {
+      this.name=name; 
+      this.age=age; 
+      this.person=stomach;
+        
+    };
+    eat(someFood){
+      this.edible=stomach;
+      if (length.stomach==10){
+      }
+    };
+    poop(){
+        
+    }; 
+    toString() {
+      console.log('${this.name}, ${this.age}'); 
+    };
+        
   }
   
   /*
@@ -60,7 +78,19 @@ class Airplane {
   */
   
  class Car {
-    
+
+      constructor(model, milesPerGallon){
+        this.model = model; 
+        this.milesPerGallon = milesPerGallon; 
+        this.tank = 0; 
+        this.odometer = 0;
+      }
+      fill(gallons) {
+        tank=gallons++; 
+      }
+      drive(distance) {
+        odometer=odometer++; 
+      }
   }
   
   /*
@@ -76,6 +106,15 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
+
+      constructor({name, age, location}){
+        this.name=name; 
+        this.age=age; 
+        this.location=location; 
+      }
+      speak(){
+        return `Hello my name is ${this.name}, I am from ${this.location}`;
+      }
     
   }
   
@@ -95,6 +134,23 @@ class Airplane {
   */
  class Instructor {
 
+    constructor({name, age, location, specialty, favLanguage, catchPhrase}){
+        this.name=name; 
+        this.age=age; 
+        this.location=location; 
+        this.specialty=specialty; 
+        this.favLanguage=favLanguage; 
+        this.catchPhrase=catchPhrase; 
+        Child.prototype = new Lambdasian();
+    }
+    demo(subject){
+      return 'Today we are learning about ${this.subject}';
+    }
+    grade(student){
+      return '${student.name} receives a perfect score on ${this.subject}';
+    }
+
+
  }
   /*
     TASK 5
@@ -112,6 +168,26 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student {
+
+
+          constructor({name, age, location, previousBackground, className, favSubjects}){
+              this.name=name; 
+              this.age=age; 
+              this.location=location; 
+              this.previousBackground=previousBackground; 
+              this.className=className; 
+              this.favSubjects=favSubjects; 
+              Child.prototype = new Lambdasian();
+          }
+          listSubjects(){
+            return 'Loving HTML, CSS, JS!'; 
+          }
+          PRAssignment(){
+            return `student.name has submitted a PR for ${this.subject}`;
+          }
+          sprintChallenge(){
+            return `student.name has begun sprint challenge on ${this.subject}`; 
+          }
      
  }
   
@@ -129,6 +205,24 @@ class Airplane {
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
  class ProjectManager {
+
+            constructor({name, age, location, specialty, favLanguage, catchPhrase, gradClassName, favInstructor}){
+              this.name=name; 
+              this.age=age; 
+              this.location=location; 
+              this.specialty=specialty; 
+              this.favLanguage=favLanguage; 
+              this.catchPhrase=catchPhrase; 
+              this.gradClassName=gradClassName; 
+              this.favInstructor=favInstructor;
+              Child.prototype = new Lambdasian();
+            }
+            standUp(){
+              return `${this.name} announces to ${this.channel}, @channel standy times!`; 
+            }
+            debugsCode(){
+              return `${this.name} debugs ${student.name}'s code on ${this.subject}`;
+            }
      
  }
   /*
