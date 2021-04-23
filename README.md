@@ -1,4 +1,4 @@
-# The _class_ Syntax
+# The _class_ Syntax /*sm change*/
 
 This challenge focuses on using the new for ES6 `class` syntax.
 
