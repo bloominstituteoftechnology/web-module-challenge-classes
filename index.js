@@ -42,7 +42,7 @@ class Airplane {
   */
   
  class Person {
-    constructor(attrs) {
+    constructor(name, age) {
       this.name = attrs.name,
       this.age = attrs.age
       let stomach = [];
@@ -113,10 +113,10 @@ class Airplane {
       this.catchPhrase = attrs.catchPhrase
     }
     demo(subject) {
-      return `Today we are learning about ${this.subject}.`;
+      return `Today we are learning about ${subject}.`;
     }
     grade(student, subject) {
-      return `${student.name} receives a perfect score on ${this.subject}`;
+      return `${student.name} receives a perfect score on ${subject}`;
     }
  }
   /*
@@ -134,10 +134,23 @@ class Airplane {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian {
+  constructor(attrs) {
+    super(attrs);
+    this.previousBackground = attrs.previousBackground,
+    this.className = attrs.className,
+    this.favSubjects = attrs.favSubjects 
  }
-  
+ listSubjects() {
+   return `${this.favSubjects}`;
+ }
+ PRAssignment(subject) {
+   return `${this.name} has submitted a PR for ${subject}`;
+ }
+ sprintChallenge(subject) {
+   return `${this.name} has begun sprint challenge on ${subject}`;
+ }
+}
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -151,8 +164,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+  constructor(attrs) {
+    super(attrs);
+    this.gradClassName = attrs.gradClassName,
+    this.favInstructor = attrs.favInstructor
+  }
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(Student, subject) {
+    `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  }
  }
   /*
     STRETCH PROBLEM (no tests!)
