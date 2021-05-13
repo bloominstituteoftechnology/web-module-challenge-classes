@@ -27,7 +27,13 @@ class Airplane {
   // 👇 COMPLETE YOUR WORK BELOW 👇
   // 👇 COMPLETE YOUR WORK BELOW 👇
   */
-  
+  function range(start, end) {
+    var ans = [];
+    for (let i = start; i <= end; i++) {
+        ans.push(i);
+    }
+    return ans;
+  };
   /*
     TASK 1
       - Write a Person class whose constructor initializes `name` and `age` from arguments.
@@ -42,8 +48,35 @@ class Airplane {
   */
   
  class Person {
-    
+  constructor(attrs) {
+    this.name = attrs.name;
+    this.age = attrs.age;
+    this.stomach = 0;
   }
+  eat(amtFood) {
+    if(this.stomach < 10){
+       return this.stomach = this.stomach + amtFood
+    }
+  }
+  poop() {
+    return this.stomach = this.stomach = 0
+  }
+  toString() {
+    return `${this.name}, ${this.age}`
+  }
+
+}
+
+
+const jacob = new Person({
+    name: 'Jacob',
+    age: 21,
+})
+
+console.log(jacob);
+console.log(jacob.eat(6));
+console.log(jacob.poop());
+console.log(jacob.toString())
   
   /*
     TASK 2
@@ -60,8 +93,41 @@ class Airplane {
   */
   
  class Car {
-    
+  constructor(carAttrs) {
+    this.model = carAttrs.model;
+    this.milesPerGallon = carAttrs.milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
   }
+
+  fill(gallons) {
+    return this.tank = this.tanks + gallons
+  }
+
+  drive(distance) {
+    return this.odometer = this.odometer + distance,
+    this.tank = (distance / this.milesPerGallon) - this.tank
+  }
+
+  empty() {
+    if(this.tank = 0){
+      return `The ${this.model} is out of fuel.`
+    } else 
+    return `The ${this.model} is good to keep driving!`
+  }
+
+  }
+
+
+  const prius = new Car ({
+    model: 'Prius',
+    milesPerGallon: '70',
+  })
+
+  console.log(prius);
+  console.log(prius.fill(10));
+  console.log(prius);
+  console.log(prius.empty());
   
   /*
     TASK 3
@@ -75,10 +141,31 @@ class Airplane {
           + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
           + {name} and {location} of course come from the instance's own properties.
   */
- class Lambdasian {
-    
+ class Lambdasian extends Person{
+    constructor(attrs) {
+      super(attrs);
+      this.location = attrs.location;
+    }
+
+    speak() {
+      return `Hello my name is ${this.name}, I am from ${this.location}`
+    }
   }
+
+  const kieran = new Lambdasian({
+    name: 'Kieran',
+    age: 24,
+    location: 'Idaho'
+  })
   
+  console.log(kieran);
+  console.log(kieran.eat(2));
+  console.log(kieran.eat(3));
+  console.log(kieran.eat(1));
+  console.log(kieran.poop());
+  console.log(kieran.speak());
+
+
   /*
     TASK 4
       - Write an Instructor class extending Lambdasian.
@@ -93,9 +180,37 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
+ class Instructor extends Lambdasian{
+  constructor(attrs) {
+    super(attrs);
+    this.speciality = attrs.speciality;
+    this.favLanguage = attrs.favLanguage;
+    this.catchPhrase = attrs.catchPhrase;
+  }
+
+  demo() {
+    return `Today we are learning about ${this.speciality}`
+  }
+  grade(student) {
+    return `${student} receives a perfect score on ${this.speciality}`
+  }
 
  }
+
+
+ const dan = new Instructor ({
+  name: 'Dan',
+  age: 42,
+  speciality: 'Array methods',
+  favLanguage: 'Javascript',
+  catchPhrase: 'Ding Ding Ding'
+ })
+
+console.log(dan);
+console.log(dan.eat(4));
+console.log(dan.demo());
+console.log(dan.grade('Jacob'));
+
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
@@ -106,13 +221,21 @@ class Airplane {
           + `favSubjects`. i.e. an array of the student's favorite subjects ['HTML', 'CSS', 'JS']
       - The constructor calls the parent constructor passing to it what it needs.
       - The constructor should also initialize `previousBackground`, `className` and `favSubjects` properties on the instance.
-      - Student instances have the following methods:
+      - Student instances have the following mesthods:
           + `listSubjects` a method that returns all of the student's favSubjects in a single string: `Loving HTML, CSS, JS!`.
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian{
+  constructor(attrs) {
+    super(attrs);
+    this.previousBackground = attrs.previousBackground;
+    this.className = attrs.className;
+    this.favSubjects = attrs.favSubjects;
+  }
+
+  
+
  }
   
   /*
@@ -143,16 +266,16 @@ class Airplane {
 
   //End of Challenge
   /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-  function foo(){
-    return 'bar';
-}
+//   function foo(){
+//     return 'bar';
+// }
 
-export default{
-    foo,
-    Person,
-    Car,
-    Lambdasian,
-    Instructor,
-    Student,
-    ProjectManager
-}
+// export default{
+//     foo,
+//     Person,
+//     Car,
+//     Lambdasian,
+//     Instructor,
+//     Student,
+//     ProjectManager
+// }
