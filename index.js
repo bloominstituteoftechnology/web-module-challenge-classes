@@ -42,13 +42,13 @@ class Airplane {
   */
   
  class Person {
-    constructor(attrs) {
-      this.name = attrs.name;
-      this.age = attrs.age;
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
       this.stomach = [];
     }
     eat(someFood){
-      if (this.stomach.length <= 10){
+      if (this.stomach.length < 10){
         this.stomach.push(someFood);
        }
       }   
@@ -76,7 +76,36 @@ class Airplane {
   */
   
  class Car {
+    constructor(model, milesPerGallon){
+      this.model = model;
+      this.milesPerGallon = milesPerGallon;
+      
+      this.tank = 0;
+      this.odometer = 0;
+    }
+   
+    fill(gallons){
+       // increases tank by given gallons: 6
+      this.tank = this.tank + gallons;
+    }
     
+    drive(distance){
+      
+     
+      // increases od when enough fuel: 7
+      this.odometer = this.odometer + distance;
+      // decreases tank when enough fuel: 8
+      const range = this.tank * this.milesPerGallon;
+       this.tank = (range - distance) / this.milesPerGallon;
+
+      if(range >= distance){
+        this.odometer = this.odometer + distance;
+        this.tank = (range - distance) / this.milesPerGallon;
+      }else{
+        this.tank = 0;
+        console.log(`I ran out of fuel at ${this.odometer + (distance - (distance - range))}`);
+      }
+    }
   }
   
   /*
