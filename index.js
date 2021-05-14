@@ -42,8 +42,35 @@ class Airplane {
   */
   
  class Person {
+    constructor(name,age,Stomach) {
+      this.name = name;
+      this.age = age;
+      this.stomach = Stomach;
+    }
+    about() {
+     return this.name;
+     }
+
+     Age() {
+       return this.age
+     }
+     Stomach(){
+       return this.stomach
+     }
+
+    }
+    const guy = new Person  ({
+      name:"Neo",
+      age: 20,
+      stomach:"empty",
+    });
+     
+   
+   console.log (Person)
     
-  }
+      
+    
+
   
   /*
     TASK 2
@@ -59,9 +86,27 @@ class Airplane {
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
   
- class Car {
     
+ class Car {
+  constructor(model,milesPerGallon) {
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    }
+  about() {
+   return this.model;
+   }
+
+   Age() {
+     return this.milesPerGallon;
+   }
   }
+  const car = new Car  ({
+    model:"BatMobile",
+    milesPerGallon: 20,
+    
+  });
+  
+
   
   /*
     TASK 3
@@ -76,8 +121,30 @@ class Airplane {
           + {name} and {location} of course come from the instance's own properties.
   */
  class Lambdasian {
-    
+  constructor(name,age,location) {
+    this.name = name;
+    this.age = age;
+    this.location = location;
+    }
+  called() {
+   return this.
+   name;
+   }
+
+   Age() {
+     return this.age;
+   }
+   Location(){
+     return this.location;
+   }
   }
+  const boy = new Lambdasian  ({
+    name:"Petar",
+    age: 23,
+    location: "NY City",
+    
+  });
+  
   
   /*
     TASK 4
@@ -93,9 +160,17 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
-
+ class Instructor extends Lambdasian {
+         constructor(name,speciality){
+           super(name,speciality)
+         }
+            n(){
+              return this.name
+            }
  }
+          const work = new Instructor({
+            name:"Luis",
+          })
   /*
     TASK 5
       - Write a Student class extending Lambdasian.
