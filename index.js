@@ -43,12 +43,21 @@ class Airplane {
   
  class Person {
     constructor(name, age) {
-      this.name = attrs.name,
-      this.age = attrs.age
-      let stomach = [];
-
+      this.name = name,
+      this.age = age,
+      this.stomach = [];
+    }
+    toString() {
+      return `${this.name}, ${this.age}`;
+    }
+    eat(edible) {
+      this.stomach.push(edible);
+    }
+    poop() {
+      this.stomach.splice(0, this.stomach.length);
     }
   }
+ 
   
   /*
     TASK 2
@@ -65,7 +74,22 @@ class Airplane {
   */
   
  class Car {
-    
+    constructor(model, milesPerGallon) {
+      this.model = model,
+      this.milesPerGallon = milesPerGallon,
+      this.tank = 0,
+      this.odometer = 0
+    }
+    fill(gallons) {
+      this.tank = this.tank + gallons;
+    }
+    drive(distance) {
+      this.odometer = this.odometer + distance;
+      this.tank = (this.tank) - (distance/this.milesPerGallon);
+      if(this.tank === 0) {
+        return `I ran out of fuel at ${this.odometer} miles!`;
+      }
+ }
   }
   
   /*
@@ -173,8 +197,8 @@ class Airplane {
   standUp(channel) {
     return `${this.name} announces to ${channel}, @channel standy times!`;
   }
-  debugsCode(Student, subject) {
-    `${this.name} debugs ${Student.name}'s code on ${subject}`;
+  debugsCode({studentName}, subject) {
+    `${this.name} debugs ${studentName}'s code on ${subject}`;
   }
  }
   /*
