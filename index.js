@@ -126,7 +126,7 @@ console.log(jacob.toString())
 
   console.log(prius);
   console.log(prius.fill(10));
-  console.log(prius);
+  console.log(prius.drive(100));
   console.log(prius.empty());
   
   /*
@@ -234,9 +234,32 @@ console.log(dan.grade('Jacob'));
     this.favSubjects = attrs.favSubjects;
   }
 
-  
+  listSubjects() {
+    return `Loving ${this.favSubjects}!`
+  }
+
+  PRAssignment() {
+    return `${this.name} has sumbitted a PR for ${this.className}`
+  }
+
+  sprintChallenge() {
+    return `${this.name} has sumbitted a sprint challenge for ${this.className}`
+  }
 
  }
+
+ const jbeverage = new Student({
+  name: 'Jaykyub',
+  age: 21,
+  previousBackground: 'Project Manager',
+  className: 'Javascript Fundimentals',
+  favSubjects: 'Java, CSS, HTML'
+ })
+
+ console.log(jbeverage);
+ console.log(jbeverage.listSubjects());
+ console.log(jbeverage.PRAssignment());
+ console.log(jbeverage.sprintChallenge());
   
   /*
     TASK 6
@@ -251,9 +274,37 @@ console.log(dan.grade('Jacob'));
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor {
+  constructor(attrs) {
+    super(attrs);
+    this.gradClassName = attrs.gradClassName;
+    this.favInstructor = attrs.favInstructor;
+  }
+
+    standUp() {
+      return `${this.name} announces to ${this.favLanguage}, @channel standy times!`
+    }
+
+    debugsCode() {
+      return `${this.name} debugs ${jbeverage.name}'s code on ${jbeverage.className}`
+    }
+
  }
+
+ const jimmy = new ProjectManager ({
+   name: 'Jimbo',
+   age: 24,
+   location: 'Wisconson',
+   speciality: 'Being useful',
+   favLanguage: 'Javascript',
+   gradClassName: 'webPT20',
+   favInstructor: 'Dan',
+ })
+
+ console.log(jimmy);
+ console.log(jimmy.standUp());
+ console.log(jimmy.debugsCode());
+
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
@@ -266,16 +317,16 @@ console.log(dan.grade('Jacob'));
 
   //End of Challenge
   /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
-//   function foo(){
-//     return 'bar';
-// }
+  function foo(){
+    return 'bar';
+}
 
-// export default{
-//     foo,
-//     Person,
-//     Car,
-//     Lambdasian,
-//     Instructor,
-//     Student,
-//     ProjectManager
-// }
+export default{
+    foo,
+    Person,
+    Car,
+    Lambdasian,
+    Instructor,
+    Student,
+    ProjectManager
+}
