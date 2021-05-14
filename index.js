@@ -175,25 +175,18 @@ class Person {
     this.className = className
     this.favSubjects = favSubjects
    }
-   listSubjects(student, favSubjects){
-     this.student = student
-    return `Loving${student.name, favSubjects}`
+   listSubjects(){
+    return `${favSubjects}`
    }
-   PRAssignment(subject){
+   PRAssignment(subject, name){
     this.subject = subject
+    return `${name} has submitted a PR for ${subject}`
   }
-  sprintChallenge(){
-
+  sprintChallenge(student, subject){
+    this.student = student
+    return `${student.name} has begun sprint challenge on ${subject}`
   }
  }
-
-
-//  × [6] has a listSubjects method (1 ms)
-//  × [7] can listSubjects correctly
-//  × [8] has a PRAssignment method
-//  × [9] can do a PRAssignment correctly (1 ms)
-//  × [10] has a sprintChallenge method
-//  × [11] can do a sprintChallenge correctly
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
@@ -207,8 +200,25 @@ class Person {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor{
+    constructor({name, age, location, specialty, favLanguage, catchPhrase, gradClassName, favInstructor}){
+    super(Instructor)
+    this.name = name
+    this.age = age
+    this.location = location
+    this.catchPhrase = catchPhrase
+    this.favLanguage = favLanguage
+    this.specialty = specialty
+    this.gradClassName = gradClassName
+    this.favInstructor = favInstructor
+    }
+    standUp(channel){
+      this.channel = channel
+      return `${this.name} announces to ${channel}, @channel standy times!`
+    }
+    debugsCode( name, student, subject){
+      return `${name} debugs ${student.name}'s code on ${subject}`
+    }
  }
   /*
     STRETCH PROBLEM (no tests!)
