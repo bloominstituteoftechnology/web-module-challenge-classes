@@ -131,7 +131,7 @@ class Airplane {
       return `Hello my name is ${this.name}, I am from ${this.location}`
     }
   }
-  
+  // Yay!!
   /*
     TASK 4
       - Write an Instructor class extending Lambdasian.
@@ -146,8 +146,21 @@ class Airplane {
           + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
           + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
   */
- class Instructor {
+ class Instructor extends Lambdasian{
+      constructor(attrs){
+        super(attrs);
+        this.specialty = attrs.specialty;
+        this.favLanguage = attrs.favLanguage;
+        this.catchPhrase = attrs.catchPhrase;
 
+      }
+    demo(subject){
+      return `Today we are learning about ${subject}`
+    }
+    grade(student, subject){
+      return `${student.name} receives a perfect score on ${subject}`
+      //how come we don't use this.student.name or this.subject
+    }
  }
   /*
     TASK 5
@@ -165,7 +178,7 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student {
-     
+    
  }
   
   /*
