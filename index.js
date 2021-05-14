@@ -189,6 +189,15 @@ class Student extends Lambdasian {
     this.className = atts.className;
     this.favSubjects = atts.favSubjects;
   }
+  listSubjects() {
+    return this.favSubjects.toString();
+  }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 }
 
 /*
@@ -204,7 +213,38 @@ class Student extends Lambdasian {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
-class ProjectManager {}
+class ProjectManager extends Instructor {
+  constructor(atts) {
+    super(atts);
+    this.gradClassName = atts.gradClassName;
+    this.favInstructor = atts.favInstructor;
+  }
+  standUp(channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(student, subject) {
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
+  gradeMethod(subject) {
+    let isName = this.name;
+    return `${isName} receives a perfect score on ${subject} `;
+  }
+}
+
+const y = new ProjectManager({
+  name: "petar",
+  age: 27,
+  location: "GA",
+  specialty: "Alien",
+  favLanguage: "Code",
+  catchPhrase: "I'm magic and magic is me!",
+  gradClassName: "CS1",
+  favInstructor: "Sean",
+});
+y.standUp("Math");
+y.gradeMethod("redux");
+console.log(y.standUp("Math"));
+console.log(y.gradeMethod("redux"));
 /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
