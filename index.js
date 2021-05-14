@@ -165,10 +165,35 @@ class Person {
           + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
- class Student {
-     
+ class Student extends Lambdasian {
+   constructor({name, age, location, previousBackground, className, favSubjects}){
+    super(Lambdasian)
+    this.name = name
+    this.age = age
+    this.location = location
+    this.previousBackground =  previousBackground
+    this.className = className
+    this.favSubjects = favSubjects
+   }
+   listSubjects(student, favSubjects){
+     this.student = student
+    return `Loving${student.name, favSubjects}`
+   }
+   PRAssignment(subject){
+    this.subject = subject
+  }
+  sprintChallenge(){
+
+  }
  }
-  
+
+
+//  × [6] has a listSubjects method (1 ms)
+//  × [7] can listSubjects correctly
+//  × [8] has a PRAssignment method
+//  × [9] can do a PRAssignment correctly (1 ms)
+//  × [10] has a sprintChallenge method
+//  × [11] can do a sprintChallenge correctly
   /*
     TASK 6
       - Write a ProjectManager class extending Instructor.
