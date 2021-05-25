@@ -70,7 +70,7 @@ class Airplane {
           + Should cause the `odometer` to go up.
           + Should cause the the `tank` to go down taking `milesPerGallon` into account.
       - A car which runs out of `fuel` while driving can't drive any more distance:
-          + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
+          + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`
   */
   
  class Car {
