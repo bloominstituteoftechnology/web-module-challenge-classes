@@ -162,6 +162,15 @@ class Airplane {
           + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
   */
  class Student extends Lambdasian {
+   constructor (studAttributes){
+     super(studAttributes);
+     this.name = studAttributes.name;
+     this.age = studAttributes.age;
+     this.location = studAttributes.age;
+     this.previousBackground = studAttributes.previousBackground;
+     this.className = studAttributes.className;
+     this.favSubjects = studAttributes.favSubjects;
+   }
      
  }
   
@@ -179,6 +188,17 @@ class Airplane {
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
  class ProjectManager extends Instructor {
+   constructor(projAttributes){
+     super(projAttributes);
+     this.name = projAttributes.name;
+     this.age = projAttributes.age;
+     this.location = projAttributes.location;
+     this.specialty = projAttributes.specialty;
+     this.favLanguage = projAttributes.favLanguage;
+     this.catchPhrase = projAttributes.catchPhrase;
+     this.gradClassName = projAttributes.gradClassName;
+     this.favInstructor = projAttributes.favLanguage;
+   }
      
  }
   /*
