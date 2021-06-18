@@ -206,7 +206,6 @@ class Airplane {
             return `${this.name} debugs ${student.name}'s code on ${subject}`
             }
             }
-              
   /*
     STRETCH PROBLEM (no tests!)
       - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
