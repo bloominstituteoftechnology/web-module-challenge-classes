@@ -1,4 +1,4 @@
-import functions from '../index';
+import functions from './index';
 
 describe('fooFunction', ()=>{
     it('foo returns foo', ()=>{

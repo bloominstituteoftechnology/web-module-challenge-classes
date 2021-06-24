@@ -1,20 +1,22 @@
 {
-  "name": "javaScript-classes",
-  "version": "1.0.0",
-  "description": "",
+  "name": "codegraded-project-js",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --verbose --watchAll"
+    "start": "nodemon index.js",
+    "test": "NODE_ENV=testing jest --watchAll --verbose --forceExit --silent"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/codegraded-project-js.git"
+  },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/preset-env": "^7.12.7",
-    "babel-jest": "^26.6.3",
-    "eslint": "^7.14.0",
-    "jest": "^26.6.3"
+    "@babel/core": "7.14.6",
+    "@babel/plugin-transform-runtime": "7.14.5",
+    "@babel/preset-env": "7.14.5",
+    "@types/jest": "26.0.23",
+    "eslint": "7.29.0",
+    "jest": "26.6.3",
+    "nodemon": "2.0.7"
   }
 }
