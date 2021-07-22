@@ -42,9 +42,33 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(name, age){
+    this.stomach =[]
+    this.name = name;
+    this.age = age
+  }
+  eat(food){
+    if(this.stomach.length < 10){
+    this.stomach.push(food);
+  }
+  }
+ poop(){
+   this.stomach.length = 0;
+ }
+ toString(name, age){
+   return `${this.name} , ${this.age}`;
+ }
+
 }
 
+const jonah = new Person('jonah', 22);
+
+console.log(jonah.age);
+jonah.eat('berries');
+console.log(jonah.stomach);
+console.log(jonah.toString());
+console.log(jonah.name);
+console.log(jonah.toString())
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -60,7 +84,27 @@ class Person {
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon){
+    this.model = model ;
+    this.milesPerGallon = milesPerGallon ;
+    this.tank = 0 ;
+    this.odometer = 0 ;
+  }
+  fill(gallons){
+     return this.tank += gallons ;
+  }
+  drive(distance){
+   const driveablemiles = this.tank * this.milesPerGallon;
+   if (distance <= driveablemiles){
+     this.odometer =this.odometer + distance;
+     this.tank = this.tank - (distance /this.milesPerGallon);
+    } else {
+      this.tank = 0;
+      this.odometer = this.odometer +driveablemiles;
+      return `I ran out of fuel at ${this.odometer} miles `
+    }
+  }
+
 }
 
 /*
@@ -76,8 +120,16 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
-}
+  constructor(atters){
+    this.name     = atters.name;
+    this.age      = atters.age;
+    this.location = atters.location;
+  }
+  speak(){
+    return `Hell my name is ${this.name}, I an from ${this.location}.`
+  }
+};
+
 
 /*
   TASK 4
@@ -93,7 +145,27 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+    constructor(atters){
+    super(atters)
+      this.specialty   = atters.specialty;
+      this.favLanguage = atters.favLanguage;
+      this.catchPhrase = atters.catchPhrase;
+    }
+   
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }  
+  grade(student, subject){
+    return ` ${student.name} receives a perfect score on ${subject} `;
+  }
+  gradeUpdate(){
+    if ( Math.round(Math.random()) === 1){
+      Student.grade += 10;
+    } else {
+      Student.grade -= 20;
+    }
+  }
 
 }
 /*
@@ -111,8 +183,30 @@ class Instructor {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-   
+class Student  extends Lambdasian {
+   constructor(atters){
+     super(atters);
+     this.grade = atters.grade;
+     this.previousBackground = atters.previousBackground ;
+     this.className = atters.className ;
+     this.favSubjects = atters.favSubjects;
+   }
+   listSubjects(){
+     return `Loving ${this.favSubjects}!`;
+   }
+   PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+   }
+   sprintChallenge(subject) {
+     return `${this.name} has begun sprint challenge on ${subject}`;
+   }
+   graduate(){
+     if (this.grade > 70){
+       return `${this.name} can graduate`;
+     } else{
+       Instructor.graduate();
+     }
+   }
 }
 
 /*
@@ -128,8 +222,19 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-   
+class ProjectManager extends  Instructor {
+    constructor(atters){
+      super(atters);
+      this.gradClassName = atters.gradClassName;
+      this.favInstructor =atters.favInstructor;
+    }
+   standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+   }
+   debugsCode(student, subject){
+     return `${this.name} debugs ${student.name}'s code on ${subject}`;
+   }
+
 }
 /*
   STRETCH PROBLEM (no tests!)
@@ -139,6 +244,9 @@ class ProjectManager {
       + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
+
+
+
 
 
 //End of Challenge
