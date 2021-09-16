@@ -49,7 +49,7 @@ class Person {
    }
    eat(someFood){
      if (this.stomach.length <= 9){
-       this.stomach.push(someFood)
+       this.stomach.push(someFood);
      }
      else {return null}
    }
@@ -57,7 +57,7 @@ class Person {
      this.stomach = [];
    }
    toString(){
-     return `${this.name}, $(this.age)`;
+     return `${this.name}, ${this.age}`;
    }
 }
 
@@ -89,12 +89,11 @@ drive(distance){
   const driveMiles = this.tank * this.milesPerGallon;
   if(distance <= driveMiles){
     this.odometer = this.odometer + distance;
-    this.tank = think.tank - (distance/this.milesPerGallon);
+    this.tank = this.tank - (distance/this.milesPerGallon);
   }
   else{
     this.odometer = this.odometer + driveMiles;
     this.tank = 0;
-    this.milesPerGallon = milesPerGallon;
     return `I ran out of fuel at ${this.odometer} miles!`;
     }
   }
@@ -139,6 +138,7 @@ class Lambdasian {
 */
 class Instructor extends Lambdasian {
   constructor(info_obj) {
+    super(info_obj);
   this.specialty = info_obj.specialty;
   this.favLanguage = info_obj.favLanguage;
   this.catchPhrase = info_obj.catchPhrase;
@@ -148,6 +148,7 @@ demo(subject) {
 }
 grade(student, subject) {
   return `${student.name} receives a perfect score on ${subject}`;
+  }
 }
 
 /*
@@ -168,10 +169,20 @@ grade(student, subject) {
 class Student extends Lambdasian {
   constructor(info_obj) {
     super(info_obj);
-    this.gradeClassName = info_obj.gradeClassName;
-    this.favInstructor = info_obj.favInstructor;
+    this.previousBackground = info_obj.previousBackground;
+    this.className = info_obj.className;
+    this.favSubjects = info_obj.favSubjects;
+  }
+  listSubjects(){
+    return `Loving ${this.favSubjects}`;
+  }
+  PRAssignment(subject){
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject){
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
 }
-
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -188,12 +199,12 @@ class Student extends Lambdasian {
 class ProjectManager extends Instructor {
    constructor(info_obj){
      super(info_obj);
-     this.gradeClassName = info_obj.gradeClassName;
+     this.gradClassName = info_obj.gradClassName;
      this.favInstructor = info_obj.favInstructor;
      this.catchPhrase = info_obj.catchPhrase;
    }
    standUp(channel){
-     return `${this.name} announces to ${channel}, ${channel} standy times!`;
+     return `${this.name} announces to ${channel}, @channel standy times!`;
    }
    debugsCode(stfu_obj, subject){
      return `${this.name} debugs ${stfu_obj.name}'s code on ${subject}`;
