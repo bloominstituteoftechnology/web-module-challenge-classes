@@ -141,7 +141,15 @@ class Student {
 */
 class ProjectManager extends Instructor {
    constructor(info_obj){
-     
+     super(info_obj);
+     this.gradeClassName = info_obj.gradeClassName;
+     this.favInstructor = info_obj.favInstructor;
+   }
+   standUp(channel){
+     return `${this.name} announces to ${channel}, ${channel} standy times!`;
+   }
+   debugsCode(stfu_obj, subject){
+     return `${this.name} debugs ${stfu_obj.name}'s code on ${subject}`;
    }
 }
 /*
