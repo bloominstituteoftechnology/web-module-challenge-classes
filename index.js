@@ -41,8 +41,8 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
-  
+class Person extends {
+   
 }
 
 /*
@@ -75,9 +75,10 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
-class Lambdasian {
-  
-}
+
+
+
+
 
 /*
   TASK 4
@@ -93,9 +94,19 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian {
+  constructor(info_obj) {
+  this.specialty = info_obj.specialty;
+  this.favLanguage = info_obj.favLanguage;
+  this.catchPhrase = info_obj.catchPhrase;
 }
+demo(subject) {
+  return `Today we are learning about ${subject}`;
+}
+grade(student, subject) {
+  return `${student.name} receives a perfect score on ${subject}`;
+}
+
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
@@ -128,8 +139,10 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-   
+class ProjectManager extends Instructor {
+   constructor(info_obj){
+     
+   }
 }
 /*
   STRETCH PROBLEM (no tests!)
