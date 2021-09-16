@@ -41,8 +41,24 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person extends {
-   
+class Person {
+   constructor(name, age){
+     this.name = name;
+     this.age = age;
+     this.stomach = [];
+   }
+   eat(someFood){
+     if (this.stomach.length <= 9){
+       this.stomach.push(someFood)
+     }
+     else {return null}
+   }
+   poop(){
+     this.stomach = [];
+   }
+   toString(){
+     return `${this.name}, $(this.age)`;
+   }
 }
 
 /*
@@ -96,9 +112,16 @@ drive(distance){
         + {name} and {location} of course come from the instance's own properties.
 */
 
-
-
-
+class Lambdasian {
+  constructor(parameter){
+    this.name = parameter.name;
+    this.age = parameter.age;
+    this.location = parameter.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, and I am from ${this.location}`
+  }
+}
 
 /*
   TASK 4
@@ -143,7 +166,7 @@ grade(student, subject) {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor(info_obj){
+  constructor(info_obj) {
     super(info_obj);
     this.gradeClassName = info_obj.gradeClassName;
     this.favInstructor = info_obj.favInstructor;
