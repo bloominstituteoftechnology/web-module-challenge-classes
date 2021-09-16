@@ -60,9 +60,29 @@ class Person extends {
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon){
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
 }
-
+fill(gallons){
+  this.tank = this.tank + gallons;
+}
+drive(distance){
+  const driveMiles = this.tank * this.milesPerGallon;
+  if(distance <= driveMiles){
+    this.odometer = this.odometer + distance;
+    this.tank = think.tank - (distance/this.milesPerGallon);
+  }
+  else{
+    this.odometer = this.odometer + driveMiles;
+    this.tank = 0;
+    this.milesPerGallon = milesPerGallon;
+    return `I ran out of fuel at ${this.odometer} miles!`;
+    }
+  }
+}
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -122,8 +142,11 @@ grade(student, subject) {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-   
+class Student extends Lambdasian {
+  constructor(info_obj){
+    super(info_obj);
+    this.gradeClassName = info_obj.gradeClassName;
+    this.favInstructor = info_obj.favInstructor;
 }
 
 /*
@@ -144,6 +167,7 @@ class ProjectManager extends Instructor {
      super(info_obj);
      this.gradeClassName = info_obj.gradeClassName;
      this.favInstructor = info_obj.favInstructor;
+     this.catchPhrase = info_obj.catchPhrase;
    }
    standUp(channel){
      return `${this.name} announces to ${channel}, ${channel} standy times!`;
