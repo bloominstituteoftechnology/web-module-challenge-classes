@@ -17,11 +17,14 @@ Using VSCode and Command Line:
 
 
 1. Fork the repo
-2. Clone your forked version of the repo
-3. cd into your repo and create a branch with your first and last name
-4. open the terminal in your vs code and type `npm install`
-5. next type `npm run test` in your terminal
-6. Complete your work making regular commits, once you have all your tests passing and you are ready to submit your work please see canvas for instructions on how to submit
+2. Go into canvas and connect your reop to codegrade
+3. Clone your forked version of the repo
+4. DO NOT CREATE A BRANCH. You will be pushing your changes to the main/master today
+5. cd into your repo
+6. open the terminal in your vs code and type `npm install`
+7. next type `npm run test` in your terminal
+8. Complete your work making regular commits to main/ master your codegrade score will update each time you make a push.
+
 
 ### Task 2 - MVP
 
@@ -48,4 +51,4 @@ There are stretch goals found throughout `index.js`. Complete these after you ha
 
 ## Submission format
 
-Please submit your project via codegrade by following [these instructions](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374)
+Please submit your project via codegrade by following [these instructions](https://lambdaschool.notion.site/lambdaschool/Lambda-School-Git-Flow-Step-by-step-269f68ae3bf64eb689a8328715a179f9) See part 2, submitting an assignment with codegrade
