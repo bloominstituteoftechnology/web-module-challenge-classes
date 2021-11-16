@@ -101,7 +101,7 @@ class Instructor {
     - Write a Student class extending Lambdasian.
     - Its constructor takes a single argument -  an object with the following keys:
         + All the keys used to initialize instances of Lambdasian.
-        + `previousBackground` i.e. what the Student used to do before Lambda School
+        + `previousBackground` i.e. what the Student used to do before BloomTech
         + `className` i.e. CS132
         + `favSubjects`. i.e. an array of the student's favorite subjects ['HTML', 'CSS', 'JS']
     - The constructor calls the parent constructor passing to it what it needs.
@@ -136,7 +136,7 @@ class ProjectManager {
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
     - Now that our students have a grade build out a method on the Instructor (this will be used by _BOTH_ instructors and PM's) that will randomly add or subtract points to a student's grade. _Math.random_ will help.
     - Add a graduate method to a student.
-      + This method, when called, will check the grade of the student and see if they're ready to graduate from Lambda School
+      + This method, when called, will check the grade of the student and see if they're ready to graduate from BloomTech
       + If the student's grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.
 */
 
