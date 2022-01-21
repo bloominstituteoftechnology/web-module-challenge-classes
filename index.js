@@ -49,7 +49,7 @@ class Person {
   }
   eat(food){
     if(this.stomach.length < 10){
-    this.stomach.push;
+    this.stomach.push(food);
   }
     else{
       return `${this.name} is full`;
@@ -88,12 +88,17 @@ class Car {
     this.tank = this.tank + gallons;
   }
   drive(distance){
-    if (this.tank > 0){
+    const driveDistance = this.tank * this.milesPerGallon;
+    if (driveDistance >= distance){
       this.odometer = this.odometer + distance;
-    this.tank = distance/this.milesPerGallon;
+      this.tank = distance/this.milesPerGallon;
     }
-    else{
+    else if(driveDistance < distance && driveDistance > 0){
+      this.tank = driveDistance/this.milesPerGallon;
+      this.odometer = this.odometer + driveDistance;
       return `I ran out of fuel at ${this.odometer} miles!`;
+    } else if(driveDistance === 0){
+      this.tank = 0;
     }
   }
 }
@@ -208,10 +213,16 @@ class ProjectManager extends Instructor {
    standUp(channel){
      return `${this.name} announces to ${channel}, @channel standy times!`;
    }
-   debugsCode(name, subject){
-     return `${this.name} debugs ${Student.name}'s code on ${subject}`;
+   debugsCode(student, subject){
+     return `${student.name} debugs ${this.name}'s code on ${subject}`;
    }
 }
+
+const student = new Student('Keiran', 28, 'FL', 'game developer', 'CS12', ['JavaScript', 'React']);
+
+const ben = new Student(
+  'Bennett', null, null, null,null, null,);
+console.log(student);
 /*
   STRETCH PROBLEM (no tests!)
     - Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.
