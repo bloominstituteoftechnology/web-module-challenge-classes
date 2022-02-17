@@ -42,8 +42,28 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(food){
+    if(this.stomach.length < 10){
+      this.stomach.push(food)
+    }
+  }
+  poop(){
+    return this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
   
 }
+
+const Person1 = new Person('Bennett', 24);
+console.log('Person1', Person1);
+Person1.toString();
 
 /*
   TASK 2
@@ -60,8 +80,35 @@ class Person {
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon){
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+  }
+  fill(gallons){
+    return this.tank + gallons;
+    }
+  drive(distance){
+    const driveDistance = this.tank / this.milesPerGallon;
+    if(driveDistance < distance){
+      this.odometer = this.odometer + distance;
+      this.tank = distance/this.milesPerGallon;
+    } else if (driveDistance > distance && driveDistance > 0){
+      this.odometer = this.odometer + distance;
+      this.tank = distance/this.milesPerGallon;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    } else if(driveDistance = 0 ){
+      this.tank = 0;
+    }
+    
+  }
 }
+
+
+const Car1 = new Car('Nissan', 25);
+
+Car1.drive(25);
 
 /*
   TASK 3
@@ -76,8 +123,19 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
+  constructor(atr){
+    this.name = atr.name;
+    this.age = atr.age;
+    this.location = atr.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
   
 }
+
+const Lambdasian1 = new Lambdasian({name: 'Bennett', age: 24, location: "New Jersey"});
+Lambdasian1.speak();
 
 /*
   TASK 4
