@@ -30,7 +30,7 @@ class Airplane {
 
 /*
   TASK 1
-    - Write a Person class whose constructor initializes `name` and `age` from arguments.
+    - Write a Person class whose constructor initializes `name` and `age` from 2 arguments.
     - All instances of Person should also initialize with an empty `stomach` array.
     - Give instances of Person the ability to `.eat("someFood")`:
         + When eating an edible, it should be pushed into the `stomach`.
@@ -42,12 +42,23 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(props){
+    this.name = props.name;
+    this.age = props.age;
+    this.stomach = [];
+  }
+  eat(food) {
+    this.stomach.push(food)
+  }
+  poop() {
+    this.stomach = [];
+  }
 }
+
 
 /*
   TASK 2
-    - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
+    - Write a Car class whose constructor initializes `model` and `milesPerGallon`, from 2 arguments.
     - All instances built with Car:
         + should initialize with a `tank` at 0
         + should initialize with an `odometer` at 0
@@ -60,7 +71,27 @@ class Person {
 */
 
 class Car {
-  
+  constructor(model, mpg) {
+    this.model = model;
+    this.milesPerGallon = mpg;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons) {
+    this.tank += gallons;
+  }
+  drive(distance) {
+    const driveableMiles = this.tank * this.milesPerGallon;
+    if (distance >= driveableMiles ) {
+      this.tank = 0;
+      this.odometer += driveableMiles;
+      return `I ran out of fuel at ${this.odometer} miles!`
+    } else {
+      this.odometer += distance;
+      this.tank -= distance/this.milesPerGallon
+      return this.tank
+    }
+  }
 }
 
 /*
@@ -76,7 +107,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor(props) {
+    this.name = props.name;
+    this.age = props.age;
+    this.location = props.location;
+  };
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
 
 /*
