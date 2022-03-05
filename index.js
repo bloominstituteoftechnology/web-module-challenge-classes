@@ -28,6 +28,8 @@ class Airplane {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
+/* ❗❗ NOTE: PLEASE READ TASK INSTRUCTIONS CAREFULLY TO KNOW WHEN TO USE OBJECT AS CONSTRUCTOR ARGUMENT. TESTS WILL NOT PASS IF USED WHEN NOT INSTRUCTED. ❗❗ */
+
 /*
   TASK 1
     - Write a Person class whose constructor initializes `name` and `age` from 2 arguments.
