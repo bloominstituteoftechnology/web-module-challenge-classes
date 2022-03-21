@@ -44,7 +44,7 @@ describe('Instance of Person', () => {
     it('[8] can state name and age', () => {
       const str = neo.toString();
       expect(str).toContain('Neo')
-      expect(str).toContain(20)
+      expect(str).toContain("20")
     })
   })
   
@@ -97,7 +97,7 @@ describe('Instance of Person', () => {
     })
     it('[11] drive method when NOT enough fuel returns correct string', () => {
       batmobile.fill(10)
-      expect(batmobile.drive(201)).toContain(200)
+      expect(batmobile.drive(201)).toContain("200")
     })
   })
   
