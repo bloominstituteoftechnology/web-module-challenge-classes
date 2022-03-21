@@ -11,12 +11,12 @@
     "url": "git+https://github.com/BloomInstituteOfTechnology/codegraded-project-js.git"
   },
   "devDependencies": {
-    "@babel/core": "7.14.6",
-    "@babel/plugin-transform-runtime": "7.14.5",
-    "@babel/preset-env": "7.14.5",
-    "@types/jest": "26.0.23",
-    "eslint": "7.29.0",
-    "jest": "26.6.3",
-    "nodemon": "2.0.7"
+    "@babel/core": "7.17.8",
+    "@babel/plugin-transform-runtime": "7.17.0",
+    "@babel/preset-env": "7.16.11",
+    "@types/jest": "27.4.1",
+    "eslint": "8.11.0",
+    "jest": "27.5.1",
+    "nodemon": "2.0.15"
   }
 }
