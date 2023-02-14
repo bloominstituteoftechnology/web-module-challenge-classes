@@ -79,9 +79,23 @@ class Car {
   constructor(model, milesPerGallon) {
     this.tank = 0;
     this.odometer = 0;
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
   }
   fill(gallons) {
     this.tank += gallons;
+  }
+  drive(distance) {
+    const drivableMiles = this.tank * this.milesPerGallon;
+
+    if (distance <= drivableMiles) {
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
+    } else {
+      this.odometer += drivableMiles;
+      this.tank = 0;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    }
   }
 }
 
@@ -98,7 +112,17 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 
-class Lambdasian {}
+class Lambdasian {
+  constructor(attr) {
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
+  }
+
+  speak() {
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
+}
 
 /*
   TASK 4
@@ -115,7 +139,20 @@ class Lambdasian {}
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 
-class Instructor {}
+class Instructor extends Lambdasian {
+  constructor(attr) {
+    super(attr);
+    this.specialty = attr.specialty;
+    this.favLanguage = attr.favLanguage;
+    this.catchPhrase = attr.catchPhrase;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+}
 
 /*
   TASK 5
