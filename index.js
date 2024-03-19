@@ -43,10 +43,38 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
+class Person{
+constructor(name, age){
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+  }
   
+  eat(food){
+    if(this.stomach.length < 10){
+      this.stomach.push(food);
+    }
+   
+  }
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+  return `${this.name}, ${this.age}`;
+  }
 }
 
+const personOne = new Person("Kevin", 42);
+
+console.log(personOne.toString())
+
+personOne.eat("tacos");
+personOne.eat("chips");
+personOne.eat("pizza");
+personOne.eat("burger");
+personOne.eat("fries");
+
+console.log(personOne.stomach);
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon`, from 2 arguments.
@@ -62,8 +90,31 @@ class Person {
 */
 
 class Car {
-  
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank =  0;
+    this.odometer = 0;
+  }
+
+  fill(gallons){
+this.tank = this.tank + gallons;
+  }
+
+  drive(distance){
+const maxDistance = this.tank * this.milesPerGallon;
+if(distance <= maxDistance){
+  this.odometer = this.odometer + distance;
+  this.tank = this.tank - distance / this.milesPerGallon;
+}else{
+  this.odometer = this.odometer + maxDistance;
+  this.tank = 0
+  return `I ran out of fuel at ${this.odometer}!`;
 }
+  }
+}
+
+
 
 /*
   TASK 3
@@ -79,8 +130,21 @@ class Car {
 */
 
 class Lambdasian {
-  
+  constructor(attributes){
+    this.name = attributes.name;
+    this.age = attributes.age;
+    this.location = attributes.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`
+  }
 }
+
+const student = new Lambdasian({
+name: "Kevin",
+age: 42,
+location: "Texas"
+});
 
 /*
   TASK 4
@@ -97,9 +161,26 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 
-class Instructor {
 
+class Instructor extends Lambdasian{
+constructor(attributes){
+  super(attributes)
+  this.specialty = attributes.specialty;
+  this.favLanguage = attributes.favLanguage;
+  this.catchPhrase = attributes.catchPhrase;
 }
+demo(subject){
+  return `Today we are learning about ${subject}`
+}
+
+grade(studentObj, subjectStr){
+return `${studentObj.name} recieves a perfect score on ${subjectStr}`;
+}
+}
+
+
+
+
 
 /*
   TASK 5
@@ -117,9 +198,45 @@ class Instructor {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 
-class Student {
-   
+class Student extends Instructor {
+  constructor(attributes){
+    super(attributes)
+    this.previousBackground = attributes.previousBackground;
+    this.className = attributes.className;
+    this.favSubjects = attributes.favSubjects;
 }
+listSubjects(){
+  let result = "Loving"
+  for(let i = 0; i < this.favSubjects.length; i++){
+  const subject = this.favSubjects[i];
+  if(this.favSubjects.length-1 === i){
+    result = `${result} ${subject}!`
+  }else{
+  result = `${result} ${subject},`
+  }
+}
+ return result
+}
+PRAssignment(subject){
+  return `${this.name} has submitted a PR for ${subject}`;
+}
+sprintChallenge(subject){
+  return `${this.name} has begun sprint challenge on ${subject}`
+}
+ }
+
+//  const studentAttr = {
+//   name: 'Matt',
+//   age: 30,
+//   location: 'London',
+//   previousBackground: 'Plumber',
+//   className: 'WebEU 3',
+//   favSubjects: ['JS', 'HTML', 'CSS']
+// }
+// const s = new Student(studentAttr)
+//   console.log(s.listSubjects());
+
+
 
 /*
   TASK 6
@@ -135,8 +252,18 @@ class Student {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 
-class ProjectManager {
-   
+class ProjectManager extends Student {
+  constructor(attributes){
+    super(attributes)
+    this.gradClassName = attributes.gradClassName;
+    this.favInstructor = attributes.favInstructor;
+}
+standUp(channel){
+return `${this.name} announces to ${channel}, @channel standy times!`
+}
+debugsCode(studentObj, subject){
+return `${this.name} debugs ${studentObj.name}'s code on ${subject}`;
+}
 }
 
 /*
